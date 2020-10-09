@@ -27,6 +27,9 @@ public class MachiWoCo {
 
     public static void main(String[] args) {
         System.out.println("Let's play Machi WoCo!");
+        System.out.println(".-----------------------.");
+        System.out.println("| <B>      [1]      {W} |");
+        System.out.println("Establishment is Wheat and costs 5");
     }
     
 

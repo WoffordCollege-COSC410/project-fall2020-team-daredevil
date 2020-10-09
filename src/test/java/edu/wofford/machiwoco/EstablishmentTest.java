@@ -5,7 +5,15 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 
-public class EstablishmentsTest {
+public class EstablishmentTest {
+	
+	@Test
+	public void testConstructor() {
+		Establishment e = new Establishment("Wheat Field", 5);
+		assertThat(1, is(1));
+		//assertThat(Establishment.W.color(), is(Establishment.Color.Blue));
+	}
+	
 	@Test
 	public void testColor() {
 		assertThat(1, is(1));
