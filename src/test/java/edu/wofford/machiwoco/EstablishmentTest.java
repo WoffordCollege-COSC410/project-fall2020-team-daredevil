@@ -41,7 +41,7 @@ public class EstablishmentTest {
 		assertThat(e.getIcon(), is("wheat"));
 	}
 	@Test
-	public void testGetIcon() {
+	public void testGetActivation() {
 		assertThat(e.getActivation(), is(""));
 	}
 }
