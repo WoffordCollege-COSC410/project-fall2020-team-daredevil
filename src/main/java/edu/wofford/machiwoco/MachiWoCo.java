@@ -26,6 +26,7 @@ public class MachiWoCo {
 //|_______________________|
 
     public static void main(String[] args) {
+        Establishment e = new Establishment("Wheat", 3, "red", "G");
         System.out.println("Let's play Machi WoCo!");
         System.out.println(".-----------------------.");
         System.out.println("| <B>      [1]      {W} |");

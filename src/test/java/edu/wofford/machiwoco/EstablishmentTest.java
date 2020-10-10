@@ -9,7 +9,7 @@ public class EstablishmentTest {
 	
 	@Test
 	public void testConstructor() {
-		Establishment e = new Establishment("Wheat Field", 5);
+		Establishment e = new Establishment("Wheat Field", 5, "red", "cup");
 		assertThat(1, is(1));
 		//assertThat(Establishment.W.color(), is(Establishment.Color.Blue));
 	}
