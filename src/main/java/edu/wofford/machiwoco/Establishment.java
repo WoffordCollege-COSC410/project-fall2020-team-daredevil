@@ -47,7 +47,16 @@ public class Establishment {
 	public String getColor() {
 		return color;
 	}
-	//TODO setEffect() 
+
+	public String getIcon() {
+		return icon;
+	}
+
+	public String getActivation() {
+		return activation;
+	}
+
+	//TODO setEffect()
 	
 	
 	public static void main(String[] args) {
