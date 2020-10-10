@@ -12,7 +12,7 @@ public class EstablishmentTest {
 	
 	@Before
 	public void setup() {
-		e = new Establishment("Wheat Field", 5, "red", "cup");
+		e = new Establishment("Wheat Field", 1, "blue", "wheat");
 	}
 	
 	@Test
@@ -24,18 +24,24 @@ public class EstablishmentTest {
 	@Test
 	public void testGetName() {
 		assertThat(e.getName(), is("Wheat Field"));
-		//assertThat(Establishment.W.color(), is(Establishment.Color.Blue));
 	}
 	
 	@Test
 	public void testGetCost() {
-		assertThat(e.getCost(), is(5));
-		//assertThat(Establishment.W.color(), is(Establishment.Color.Blue));
+		assertThat(e.getCost(), is(1));
 	}
 	
 	@Test
 	public void testGetColor() {
-		assertThat(e.getColor(), is("red"));
-		//assertThat(Establishment.W.color(), is(Establishment.Color.Blue));
+		assertThat(e.getColor(), is("blue"));
+	}
+	
+	@Test
+	public void testGetIcon() {
+		assertThat(e.getIcon(), is("wheat"));
+	}
+	@Test
+	public void testGetIcon() {
+		assertThat(e.getActivation(), is(""));
 	}
 }
