@@ -56,6 +56,26 @@ public class Establishment {
 		return activation;
 	}
 
+	public int getEffectType() {
+		return effectType;
+	}
+
+	public int getEffectTarget() {
+		return effectTarget;
+	}
+
+	public int getEffectAmount() {
+		return effectAmount;
+	}
+
+	public int getEffectModType() {
+		return effectModifierType;
+	}
+
+	public char getEffectModifier() {
+		return effectModifier;
+	}
+
 	//TODO setEffect()
 	
 	
