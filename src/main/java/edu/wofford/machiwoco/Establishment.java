@@ -17,8 +17,11 @@ public class Establishment {
 	//The amount changed by the effect
 	private int effectAmount;
 	//TODO
-	//modifierType
-	//modifier
+	//modifierType "none" 1 for "icon"
+	private int effectModifierType;
+	//modifier cow gear wheat none
+	private char effectModifier;
+	
 	
 	public Establishment(String name, int cost, String color, String icon) {
 		this.name = name;
@@ -29,9 +32,24 @@ public class Establishment {
 		effectType = 0;
 		effectTarget = 0;
 		effectAmount = 0;
+		effectModifierType = 0;
+		effectModifier = 'N';
 	}
 	
+	public String getName() {
+		return name;
+	}
+	
+	public int getCost() {
+		return cost;
+	}
+	
+	public String getColor() {
+		return color;
+	}
 	//TODO setEffect() 
+	
+	
 	public static void main(String[] args) {
 		//USE ME TO TEST CLASS
 	}
