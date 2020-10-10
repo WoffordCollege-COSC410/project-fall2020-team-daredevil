@@ -40,8 +40,45 @@ public class EstablishmentTest {
 	public void testGetIcon() {
 		assertThat(e.getIcon(), is("wheat"));
 	}
+	
 	@Test
 	public void testGetActivation() {
 		assertThat(e.getActivation(), is(""));
+	}
+	
+	@Test
+	public void testGetEffectType() {
+		assertThat(e.getEffectType(), is(0));
+	}
+	
+	@Test
+	public void testGetEffectTarget() {
+		assertThat(e.getEffectTarget(), is(0));
+	}
+	
+	@Test
+	public void testGetEffectAmount() {
+		assertThat(e.getEffectAmount(), is(0));
+	}
+	
+	@Test
+	public void testGetEffectModType() {
+		assertThat(e.getEffectModType(), is(0));
+	}
+	
+	@Test
+	public void testGetEffectModifier() {
+		assertThat(e.getEffectModifier(), is('N'));
+	}
+	
+	@Test
+	public void testSetEffect() {
+//		effectType
+//		effectTarget
+//		effectAmount
+//		effectModifierType
+//		effectModifier
+		
+//		assertThat(e.getActivation(), is(""));
 	}
 }
