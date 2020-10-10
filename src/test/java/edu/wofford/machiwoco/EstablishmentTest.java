@@ -73,12 +73,19 @@ public class EstablishmentTest {
 	
 	@Test
 	public void testSetEffect() {
-//		effectType
-//		effectTarget
-//		effectAmount
-//		effectModifierType
-//		effectModifier
-		
-//		assertThat(e.getActivation(), is(""));
+//		"effect": {
+//			"type": "receive",
+//			"target": "bank",
+//			"amount": 1,
+//			"modifierType": "none",
+//			"modifier": "none"
+//		}
+
+		e.setEffect(0, 0, 1, 0, 'N');
+		assertThat(e.getEffectType(), is(0));
+		assertThat(e.getEffectTarget(), is(0));
+		assertThat(e.getEffectAmount(), is(1));
+		assertThat(e.getEffectModType(), is(0));
+		assertThat(e.getEffectModifier(), is('N'));
 	}
 }

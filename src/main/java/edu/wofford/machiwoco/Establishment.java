@@ -16,10 +16,9 @@ public class Establishment {
 	private int effectTarget;
 	//The amount changed by the effect
 	private int effectAmount;
-	//TODO
 	//modifierType "none" 1 for "icon"
 	private int effectModifierType;
-	//modifier cow gear wheat none
+	//modifier C cow, G gear, W wheat, N none
 	private char effectModifier;
 	
 	
@@ -76,7 +75,33 @@ public class Establishment {
 		return effectModifier;
 	}
 
-	//TODO setEffect()
+	public void setEffect(int type, int target, int amount, int modType, char mod) {
+		if (type == 0 || type == 1) {
+			effectType = type;
+		}
+		
+		if (target >= 0 && target < 4) {
+			effectTarget = target;
+		}
+		
+		if (amount > 0 && amount <= 5) {
+			effectAmount = amount;
+		}
+		
+		if (modType == 0 || modType == 1) {
+			effectModifierType = modType;
+		}
+		
+		if (mod == 'C') {
+			effectModifier = mod;
+		} else if (mod == 'G') {
+			effectModifier = mod;
+		} else if (mod == 'W') {
+			effectModifier = mod;
+		} else {
+			effectModifier = 'N';
+		}
+	}
 	
 	
 	public static void main(String[] args) {
