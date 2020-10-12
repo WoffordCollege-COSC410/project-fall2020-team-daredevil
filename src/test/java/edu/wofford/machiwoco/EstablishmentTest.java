@@ -88,4 +88,22 @@ public class EstablishmentTest {
 		assertThat(e.getEffectModType(), is(0));
 		assertThat(e.getEffectModifier(), is('N'));
 	}
+
+	@Test
+	public void testSetName() {
+		e.setName("Wheat Field");
+		assertThat(e.getName(), is("Wheat Field"));
+	}
+
+	@Test
+	public void testSetCost() {
+		e.setCost(0);
+		assertThat(e.getCost(), is(0));
+	}
+
+	@Test
+	public void testSetColor() {
+		e.setColor("blue");
+		assertThat(e.getColor(), is("blue"));
+	}
 }

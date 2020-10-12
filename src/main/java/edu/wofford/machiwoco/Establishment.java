@@ -34,6 +34,10 @@ public class Establishment {
 		effectModifierType = 0;
 		effectModifier = 'N';
 	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 	
 	public String getName() {
 		return name;
