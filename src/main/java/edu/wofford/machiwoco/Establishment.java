@@ -42,9 +42,17 @@ public class Establishment {
 	public String getName() {
 		return name;
 	}
+
+	public void setCost(int cost) {
+		this.cost = cost;
+	}
 	
 	public int getCost() {
 		return cost;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
 	}
 	
 	public String getColor() {
