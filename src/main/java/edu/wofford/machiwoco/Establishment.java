@@ -5,9 +5,7 @@ public class Establishment {
 	
 	private String name;
 	private int cost;
-	private enum Color {B, G, R, P, N};
 	private String color;
-	private enum Icon {W, B, C, G, F, O, U, T};
 	private String icon;
 	private String activation;
 	//0 is recieve, 1 is exchange
