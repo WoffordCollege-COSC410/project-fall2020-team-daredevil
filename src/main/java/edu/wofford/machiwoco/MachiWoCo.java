@@ -33,6 +33,20 @@ public class MachiWoCo {
                 System.out.println(u);
             }
         }
+
+        //Start of game
+        System.out.println("The game has started. Player N will go first.");
+
+        //Beginning of turn
+        System.out.println("Turn started for Player N.");
+
+        //Current Game State
+            // 1. Get Market state from Market Class
+            // 2. Get Players' state from Players Class
+
+        //Roll 
+            // 1. Player N rolls the dice and the result is displayed
+            // 2. Check to see if any cards are activated
     }
 }
 
