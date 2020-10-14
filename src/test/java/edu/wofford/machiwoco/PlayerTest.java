@@ -3,6 +3,7 @@ package edu.wofford.machiwoco;
 import static org.hamcrest.MatcherAssert.assertThat; 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertFalse;
+import org.junit.*;
 
 public class PlayerTest {
 	Player p1;
@@ -33,7 +34,7 @@ public class PlayerTest {
 		assertThat(p1.hasCityHall(), is(false));
 	}
 	
-	
+	@Test
 	public void testGetPlayerStatus() {
 		//assertThat(p1.ecards is longer?)
 	}

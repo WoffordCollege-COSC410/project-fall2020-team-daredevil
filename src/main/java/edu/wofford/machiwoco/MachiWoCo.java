@@ -35,10 +35,10 @@ public class MachiWoCo {
         }
 
         //Start of game
-        System.out.println("The game has started. Player N will go first.");
+        System.out.println("The game has started. Player 1 will go first.");
 
         //Beginning of turn
-        System.out.println("Turn started for Player N.");
+        System.out.println("Turn started for Player 1.");
 
         //Current Game State
             // 1. Get Market state from Market Class

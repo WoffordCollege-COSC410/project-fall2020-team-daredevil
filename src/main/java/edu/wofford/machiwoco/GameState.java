@@ -4,7 +4,7 @@ public class GameState {
 
     /*
 
-    For Phase 1, really the only thing getting updated on the market
+    For Phase 1, really the only thing updated on the market
     is the number of available cards
 
     */
@@ -91,7 +91,7 @@ public class GameState {
             System.out.println("---------        PURCHASE        ---------");
             System.out.println("1. Wheat Field         BW (1)  [1]      #" + numWheatFields);
             System.out.println("2. Ranch               BC (1)  [2]      #" + numRanches);
-            System.out.println("3. Forrest             BG (3)  [5]      #" + numForrests);
+            System.out.println("3. Forest             BG (3)  [5]      #" + numForrests);
             System.out.println("---------         CANCEL         ---------");
             System.out.println("99. Do nothing");
             System.out.println("==========================================");
