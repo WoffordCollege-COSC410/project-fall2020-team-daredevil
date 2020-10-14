@@ -18,20 +18,18 @@ public class MachiWoCo {
 
     public static void main(String[] args) {
         Establishment e = new Establishment("Wheat", 3, "red", "G");
-        System.out.println("Let's play Machi WoCo!");
-        System.out.println(".-----------------------.");
-        System.out.println("| <B>      [1]      {W} |");
-        System.out.println("Establishment is Wheat and costs 5");
-    
-        if (args[0].equals("phase0")) {
+        
+        if (args.length > 0 && args[0].equals("phase0")) {
             try {
-                File p = new File("phase0.txt");
+                File p = new File("src/main/java/edu/wofford/machiwoco/phase0.txt");
                 Scanner sc = new Scanner(p);
                 while (sc.hasNextLine()) {
-                    System.out.println(sc.nextLine());
+                    //System.out.println("in LOOP");
+                    String l = sc.nextLine();
+                    System.out.println(l);
                 }
             } catch (Exception u) {
-
+                System.out.println(u);
             }
         }
     }
