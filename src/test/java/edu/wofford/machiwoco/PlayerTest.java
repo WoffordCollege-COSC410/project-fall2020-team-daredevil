@@ -24,6 +24,13 @@ public class PlayerTest {
 	}
 	
 	@Test
+	public void testSetPlayerTurn() {
+		assertThat(p1.getTurn(), is(false));
+		p1.setTurn(true);
+		assertThat(p1.getTurn(), is(true));
+	}
+	
+	@Test
 	public void testGetCoins() {
 		assertThat(p1.getCoins(), is(3));
 	}

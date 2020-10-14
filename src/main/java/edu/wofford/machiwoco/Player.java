@@ -28,6 +28,10 @@ public class Player {
 		
 	}
 	
+	public boolean getTurn() {
+		return myTurn;
+	}
+	
 	public void setTurn(boolean b) {
 		myTurn = b;
 	}
