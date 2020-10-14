@@ -18,11 +18,6 @@ public class MachiWoCo {
 
     public static void main(String[] args) {
         Establishment e = new Establishment("Wheat", 3, "red", "G");
-        System.out.println("Let's play Machi WoCo!");
-        System.out.println(".-----------------------.");
-        System.out.println("| <B>      [1]      {W} |");
-        System.out.println("Establishment is Wheat and costs 5");
-    
         if (args[0].equals("phase0")) {
             try {
                 File p = new File("phase0.txt");
@@ -31,7 +26,7 @@ public class MachiWoCo {
                     System.out.println(sc.nextLine());
                 }
             } catch (Exception u) {
-
+                
             }
         }
     }

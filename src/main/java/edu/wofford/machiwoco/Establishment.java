@@ -5,9 +5,9 @@ public class Establishment {
 	
 	private String name;
 	private int cost;
-	private String color;
+	private String color; // blue is the only color for now
 	private String icon;
-	private String activation;
+	private String activation; 
 	//0 is recieve, 1 is exchange
 	private int effectType;
 	//0 bank, 1 active, 2 choice, 3 others
