@@ -13,6 +13,7 @@ public class GameState {
     private int numRanches;
     private int numForrests;
     private int playerCoins; // pull that data from Player Class
+    private boolean hasWon;
     
     public GameState() {
         numWheatFields = 6;
@@ -37,7 +38,13 @@ public class GameState {
         return playerCoins;
     }
 
-    public void printMarket() {
+    public boolean hasWon() {
+        return false;
+    }
+
+
+
+    public void printMarketState() {
         if (playerCoins >= 3) {
             System.out.println("******************************************");
             System.out.println("                  MARKET                  ");
@@ -64,6 +71,46 @@ public class GameState {
     }
 
     public void printPlayerTwoState() {
+
+    }
+
+    public void printMarketMenu() {
+        if (playerCoins >= 7) {
+            System.out.println("==========================================");
+            System.out.println("---------        PURCHASE        ---------");
+            System.out.println("1. Wheat Field         BW (1)  [1]      #" + numWheatFields);
+            System.out.println("2. Ranch               BC (1)  [2]      #" + numRanches);
+            System.out.println("3. Forrest             BG (3)  [5]      #" + numForrests);
+            System.out.println("---------       CONSTRUCT        ---------");
+            System.out.println("4. City Hall           NT (7)  [ ]");
+            System.out.println("---------         CANCEL         ---------");
+            System.out.println("99. Do nothing");
+            System.out.println("==========================================");
+        } else if (playerCoins < 7 && playerCoins >=3) {
+            System.out.println("==========================================");
+            System.out.println("---------        PURCHASE        ---------");
+            System.out.println("1. Wheat Field         BW (1)  [1]      #" + numWheatFields);
+            System.out.println("2. Ranch               BC (1)  [2]      #" + numRanches);
+            System.out.println("3. Forrest             BG (3)  [5]      #" + numForrests);
+            System.out.println("---------         CANCEL         ---------");
+            System.out.println("99. Do nothing");
+            System.out.println("==========================================");
+        } else if (playerCoins > 0 && playerCoins < 3) {
+            System.out.println("==========================================");
+            System.out.println("---------        PURCHASE        ---------");
+            System.out.println("1. Wheat Field         BW (1)  [1]      #" + numWheatFields);
+            System.out.println("2. Ranch               BC (1)  [2]      #" + numRanches);
+            System.out.println("---------         CANCEL         ---------");
+            System.out.println("99. Do nothing");
+            System.out.println("==========================================");
+        } else {
+            System.out.println("==========================================");
+            System.out.println("---------         CANCEL         ---------");
+            System.out.println("99. Do nothing");
+            System.out.println("==========================================");
+        }
         
     }
+
+
 }
