@@ -11,7 +11,7 @@ public class GameState {
 
     private int availableWheat;
     private int availableRanch;
-    private int availableForrest;
+    private int availableForest;
     private boolean activated;
     private Player p1;
     private Player p2;
@@ -19,7 +19,7 @@ public class GameState {
     public GameState() {
         availableWheat = 6;
         availableRanch = 6;
-        availableForrest = 6;
+        availableForest = 6;
         activated = false;
         p1 = new Player();
         p2 = new Player();
@@ -33,8 +33,8 @@ public class GameState {
         return availableRanch;
     }
 
-    public int getAvailableForrest() {
-        return availableForrest;
+    public int getAvailableForest() {
+        return availableForest;
     }
 
     public boolean isActivated(int r) {
@@ -51,60 +51,60 @@ public class GameState {
         
     }
 
-    /* 
-        The Market State will always be displayed after each turn, regardless of how many coins
-        the players have. The only thing that affects the Market State for now is the number of 
-        available cards. The **MARKET MENU** (see below) however is formatted and displayed on 
-        depending on what the players can afford and are allowed to buy.  
+    /**
+    *   The Market State will always be displayed after each turn, regardless of how many coins
+    *   the players have. The only thing that affects the Market State for now is the number of 
+    *   available cards. The **MARKET MENU** (see below) however is formatted and displayed on 
+    *   depending on what the players can afford and are allowed to buy.  
     */
     public void printMarketState() {
-        if (availableWheat > 0 && availableRanch > 0 && availableForrest > 0) {
+        if (availableWheat > 0 && availableRanch > 0 && availableForest > 0) {
             System.out.println("******************************************");
             System.out.println("                  MARKET                  ");
             System.out.println("------------------------------------------");
             System.out.println("Wheat Field        BW (1)  [1]      #" + availableWheat);
             System.out.println("Ranch              BC (1)  [2]      #" + availableRanch);
-            System.out.println("Forrest            BG (3)  [5]      #" + availableForrest);
+            System.out.println("Forest             BG (3)  [5]      #" + availableForest);
             System.out.println("                                          ");
 
-        } else if (availableWheat > 0 && availableRanch > 0 && availableForrest == 0) {
+        } else if (availableWheat > 0 && availableRanch > 0 && availableForest == 0) {
             System.out.println("******************************************");
             System.out.println("                  MARKET                  ");
             System.out.println("------------------------------------------");
             System.out.println("Wheat Field        BW (1)  [1]      #" + availableWheat);
             System.out.println("Ranch              BC (1)  [2]      #" + availableRanch);
             System.out.println("                                          ");
-        } else if (availableWheat > 0 && availableRanch == 0 && availableForrest > 0){
+        } else if (availableWheat > 0 && availableRanch == 0 && availableForest > 0){
             System.out.println("******************************************");
             System.out.println("                  MARKET                  ");
             System.out.println("------------------------------------------");
             System.out.println("Wheat Field        BW (1)  [1]      #" + availableWheat);
-            System.out.println("Forrest            BG (3)  [5]      #" + availableForrest);
+            System.out.println("Forest             BG (3)  [5]      #" + availableForest);
             System.out.println("                                          ");
-        } else if (availableWheat == 0 && availableRanch > 0 && availableForrest > 0) {
+        } else if (availableWheat == 0 && availableRanch > 0 && availableForest > 0) {
             System.out.println("******************************************");
             System.out.println("                  MARKET                  ");
             System.out.println("------------------------------------------");
             System.out.println("Ranch              BC (1)  [2]      #" + availableRanch);
-            System.out.println("Forrest            BG (3)  [5]      #" + availableForrest);
+            System.out.println("Forest             BG (3)  [5]      #" + availableForest);
             System.out.println("                                          ");
-        } else if (availableWheat > 0 && availableRanch == 0 && availableForrest == 0) {
+        } else if (availableWheat > 0 && availableRanch == 0 && availableForest == 0) {
             System.out.println("******************************************");
             System.out.println("                  MARKET                  ");
             System.out.println("------------------------------------------");
             System.out.println("Wheat Field        BW (1)  [1]      #" + availableWheat);
             System.out.println("                                          ");
-        } else if (availableWheat == 0 && availableRanch > 0 && availableForrest == 0) {
+        } else if (availableWheat == 0 && availableRanch > 0 && availableForest == 0) {
             System.out.println("******************************************");
             System.out.println("                  MARKET                  ");
             System.out.println("------------------------------------------");
             System.out.println("Ranch              BC (1)  [2]      #" + availableRanch);
             System.out.println("                                          ");
-        } else if (availableWheat == 0 && availableRanch == 0 && availableForrest > 0) {
+        } else if (availableWheat == 0 && availableRanch == 0 && availableForest > 0) {
             System.out.println("******************************************");
             System.out.println("                  MARKET                  ");
             System.out.println("------------------------------------------");
-            System.out.println("Forrest            BG (3)  [5]      #" + availableForrest);
+            System.out.println("Forest             BG (3)  [5]      #" + availableForest);
             System.out.println("                                          ");
         } else {
             System.out.println("******************************************");
@@ -138,7 +138,7 @@ public class GameState {
             System.out.println("---------        PURCHASE        ---------");
             System.out.println("1. Wheat Field         BW (1)  [1]      #" + availableWheat);
             System.out.println("2. Ranch               BC (1)  [2]      #" + availableRanch);
-            System.out.println("3. Forrest             BG (3)  [5]      #" + availableForrest);
+            System.out.println("3. Forest              BG (3)  [5]      #" + availableForest);
             System.out.println("---------       CONSTRUCT        ---------");
             System.out.println("4. City Hall           NT (7)  [ ]        ");
             System.out.println("---------         CANCEL         ---------");
@@ -149,7 +149,7 @@ public class GameState {
             System.out.println("---------        PURCHASE        ---------");
             System.out.println("1. Wheat Field         BW (1)  [1]      #" + availableWheat);
             System.out.println("2. Ranch               BC (1)  [2]      #" + availableRanch);
-            System.out.println("3. Forest              BG (3)  [5]      #" + availableForrest);
+            System.out.println("3. Forest              BG (3)  [5]      #" + availableForest);
             System.out.println("---------         CANCEL         ---------");
             System.out.println("99. Do nothing                            ");
             System.out.println("==========================================");

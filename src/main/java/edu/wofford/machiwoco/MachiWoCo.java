@@ -18,7 +18,7 @@ public class MachiWoCo {
 
 
     public static void main(String[] args) {
-        Establishment e = new Establishment("Wheat", 3, "red", "G");
+        //Establishment e = new Establishment("Wheat", 3, "red", "G");
         GameState game = new GameState();
         Random random = new Random();
         Player p1 = new Player();
@@ -30,7 +30,6 @@ public class MachiWoCo {
                 File p = new File("src/main/java/edu/wofford/machiwoco/phase0.txt");
                 Scanner sc = new Scanner(p);
                 while (sc.hasNextLine()) {
-                    //System.out.println("in LOOP");
                     String l = sc.nextLine();
                     System.out.println(l);
                 }
@@ -66,14 +65,14 @@ public class MachiWoCo {
                 p1.addCoins(1); //Times the number of Wheat Field cards that player has
                 p2.addCoins(1); // -----------------''--------------------
                 
-            } else if (dice == 2) {  //And if one ore both players own that card
+            } else if (dice == 2) {  //And if one or both players own that card
                 System.out.println("Ranch activated for Player 1.");
                 System.out.println("Ranch activated for Player 2.");
                 //p1.addCoins(1); if he has it and times how many
                 //p2.addCoins(1); if he has it and times how many
             } else if (dice == 5) {  //And if one ore both players own that card
-                System.out.println("Forrest activated for Player 1.");
-                System.out.println("Forrest activated for Player 2.");
+                System.out.println("Forest activated for Player 1.");
+                System.out.println("Forest activated for Player 2.");
                 //p1.addCoins(1); if he has it and times how many
                 //p2.addCoins(1); if he has it and times how many
             } 

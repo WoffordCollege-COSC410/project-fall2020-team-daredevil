@@ -23,8 +23,8 @@ public class GameStateTest {
     }
 
     @Test
-    public void testGetAvailableForrest() {
-        assertThat(m.getAvailableForrest(), is(6));
+    public void testGetAvailableForest() {
+        assertThat(m.getAvailableForest(), is(6));
     }
 
     @Test
