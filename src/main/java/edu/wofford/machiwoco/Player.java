@@ -3,30 +3,43 @@ package edu.wofford.machiwoco;
 
 public class Player {
 	
-	Establishment[] ecards;
+	int[] ecards;
 	private boolean cityHall;
 	private int coins;
 	private boolean myTurn;
+	private int index = 0;
 	
 	
 	public Player() {
 		//3 starting cards WheatField, Forest, Ranch
-		ecards = new Establishment[20];
-		ecards[0] = new Establishment("Wheat Field", 1, "blue", "wheat");
-		ecards[1] = new Establishment("Ranch", 1, "blue", "cow");
-		ecards[2] = new Establishment("Forest", 3, "blue", "gear");
+		ecards = new int[3];
+		//array only stores num of cards for each type
+		ecards[0] = 1;
+		System.out.println(ecards[0]);
 		cityHall = false;
 		coins = 3;
 		myTurn = false;
+		index++;
 	}
 	
 	public boolean hasCityHall() {
 		return cityHall;
 	}
 	
-	public void getCards() {
-		
+	public void addCard(String s) {
+		if (s.equals("w") || s.equals("W")) {
+			ecards[0] = ecards[0] + 1;
+		} else if (s.equals("r") || s.equals("R")) {
+			ecards[1] = ecards[1] + 1;
+		} else if (s.equals("f") || s.equals("F")) {
+			ecards[2] = ecards[2] + 1;
+		}
 	}
+	
+//	public String getLastCard() {
+//		//String e = ecards[index].getName();
+//		//return e;
+//	}
 	
 	public boolean getTurn() {
 		return myTurn;
@@ -50,7 +63,8 @@ public class Player {
 		coins = coins - c;
 	}
 	
-	public static void main(String[] args) {
-		
-	}
+//	public static void main(String[] args) {
+//		Player p1 = new Player();
+//		System.out.println(p1.getLastCard());
+//	}
 }
