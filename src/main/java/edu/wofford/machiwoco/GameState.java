@@ -13,13 +13,20 @@ public class GameState {
     private int numRanches;
     private int numForrests;
     private int playerCoins; // pull that data from Player Class
+    private boolean activated;
     private boolean hasWon;
+    private Player p1;
+    private Player p2;
     
     public GameState() {
         numWheatFields = 6;
         numRanches = 6;
         numForrests = 6;
         playerCoins = 3;
+        activated = false;
+        hasWon = false;
+        p1 = new Player();
+        p2 = new Player();
     }
 
     public int getNumWheatFields() {
@@ -34,8 +41,13 @@ public class GameState {
         return numForrests;
     }
 
-    public int getPlayerCoins() {
-        return playerCoins;
+    public boolean isActivated(int r) {
+        int roll = 0;
+        if (roll == 1 || roll == 2 || roll == 5) {
+            activated = true;
+            // add 1 coin to each player
+        } 
+        return activated;
     }
 
     public boolean hasWon() {
@@ -111,6 +123,5 @@ public class GameState {
         }
         
     }
-
-
+    
 }
