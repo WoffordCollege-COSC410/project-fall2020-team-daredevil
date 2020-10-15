@@ -1,6 +1,7 @@
 package edu.wofford.machiwoco;
 import java.util.Scanner;
 import java.io.*;
+import java.util.Random;
 
 
 
@@ -46,7 +47,14 @@ public class MachiWoCo {
 
         //Roll 
             // 1. Player N rolls the dice and the result is displayed
-            // 2. Check to see if any cards are activated
+            // 2. Check to see if any cards are activated (pass dice to isActivated() method in GameState class)
+        
+        Random random = new Random();
+        int low = 1;
+        int high = 7;
+        int dice = random.nextInt(high - low) + low;
+        System.out.println("Player *N* rolled [" + dice + "] = " + dice);
+        
     }
 }
 
