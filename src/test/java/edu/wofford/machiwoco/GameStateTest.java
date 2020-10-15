@@ -6,10 +6,13 @@ import org.junit.*;
 
 public class GameStateTest {
     private GameState m;
-	
+    private Player p1;
+    private Player p2;
+
+
 	@Before
 	public void setup() {
-		m = new GameState();
+		m = new GameState(p1, p2);
     }
     
     @Test
