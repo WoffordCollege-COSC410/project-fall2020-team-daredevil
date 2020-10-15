@@ -27,6 +27,13 @@ public class GameStateTest {
         assertThat(m.getNumForrests(), is(6));
     }
 
-    
+    @Test
+    public void testIsActivated() {
+        assertThat(m.isActivated(0), is(false));
+    }
 
+    @Test
+    public void testPrintMarketState() {
+        assertThat(m.printMarketState(), is("******************************************"));
+    }
 }
