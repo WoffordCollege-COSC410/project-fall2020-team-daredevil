@@ -53,9 +53,9 @@ public class PlayerTest {
 	}
 	@Test
 	public void testRemoveCoins() {
-		assertThat(p1.removeCoins(), is(4));
+		assertThat(p1.getCoins(), is(3));
 		p1.removeCoins(1);
-		assertThat(p1.removeCoins(), is(3));
+		assertThat(p1.getCoins(), is(2));
 	}
 
 

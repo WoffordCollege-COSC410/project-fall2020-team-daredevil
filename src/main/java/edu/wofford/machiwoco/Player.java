@@ -46,6 +46,10 @@ public class Player {
 		coins = c + coins;
 	}
 	
+	public void removeCoins(int c) {
+		coins = coins - c;
+	}
+	
 	public static void main(String[] args) {
 		
 	}
