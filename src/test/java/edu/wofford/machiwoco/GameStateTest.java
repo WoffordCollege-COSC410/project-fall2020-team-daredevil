@@ -13,18 +13,18 @@ public class GameStateTest {
     }
     
     @Test
-    public void testGetNumWheatfields() {
-        assertThat(m.getNumWheatFields(), is(6));
+    public void testGetAvailableWheat() {
+        assertThat(m.getAvailableWheat(), is(6));
     }
 
     @Test
-    public void testGetNumRanches() {
-        assertThat(m.getNumRanches(), is(6));
+    public void testGetAvailableRanch() {
+        assertThat(m.getAvailableRanch(), is(6));
     }
 
     @Test
-    public void testGetNumForrests() {
-        assertThat(m.getNumForrests(), is(6));
+    public void testGetAvailableForrest() {
+        assertThat(m.getAvailableForrest(), is(6));
     }
 
     @Test
