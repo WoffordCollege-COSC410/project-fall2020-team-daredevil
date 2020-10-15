@@ -48,7 +48,11 @@ public class GameState {
     }
 
     public void purchaseCard() {
-        
+        if (p1.getTurn()) {
+            p1.addCard("w");
+        } else if (p2.getTurn()) {
+            p2.addCard("w");
+        }
     }
 
     /**
