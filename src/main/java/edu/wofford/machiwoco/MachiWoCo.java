@@ -6,15 +6,6 @@ import java.util.Random;
 
 
 public class MachiWoCo {
-//PHASE 0:::::
-//full view of the establishments (in order) followed by landmarks is printed to the screen
-//Each line is exactly 25 characters wide.
-
-//The value in angled brackets is the abbreviation for color of the card (Blue, Green, Red, Purple, or None).
-//The value in curly brackets is the abbreviation for the icon on the card (Wheat, Bread, Cow, Gear, Factory, Fruit O, Cup U, or Tower).
-//The value in parentheses is the cost of the card.
-//The value/range in the square brackets is the activation range of the card (if it's an establishment);
-// if it's a landmark, then the square brackets (bottom-right) either have a space (not constructed) or a capital X (constructed).
 
 
     public static void main(String[] args) {
@@ -62,8 +53,12 @@ public class MachiWoCo {
             // 2. Check to see if any cards are activated (pass dice to isActivated() method in GameState class)
         int low = 1;
         int high = 7;
-        int dice = random.nextInt(high - low) + low;
-        System.out.println("Player *N* rolled [" + dice + "] = " + dice);
+        int dice = random.nextInt(high - low) + low; //TODO why the high and low vars?
+        if (p1.getTurn()) {
+            System.out.println("Player 1 rolled [" + dice + "] = " + dice);
+        } else if (p2.getTurn()) {
+            System.out.println("Player 2 rolled [" + dice + "] = " + dice);
+        }
         if (game.isActivated(dice) == true) {
             if (dice == 1) {
                 System.out.println("Wheat Field activated for Player 1.");
@@ -79,8 +74,6 @@ public class MachiWoCo {
                     System.out.println("Ranch activated for Player 2.");
                     p2.addCoins(1 * p2.getNumRanch());
                 }
-                //p1.addCoins(1); if he has it and times how many
-                //p2.addCoins(1); if he has it and times how many
             } else if (dice == 5) {  //And if one ore both players own that card
                 if (p1.getNumForest() > 0) {
                     System.out.println("Forest activated for Player 1.");
@@ -102,7 +95,11 @@ public class MachiWoCo {
         scan.close();
         // if else statements that checks what number the player entered...
         // and then do add coins/remove card etc...
-        System.out.println("Player N chose to..." + choice);
+        if (p1.getTurn()) {
+            System.out.println("Player 1 chose to..." + choice);
+        } else if (p2.getTurn()) {
+            System.out.println("Player 2 chose to..." + choice);
+        }
 
         //End turn for this player and then do this all again until the game ends...
         if (p1.getTurn()) {
