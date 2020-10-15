@@ -15,7 +15,7 @@ public class GameState {
     private boolean activated;
     private Player p1;
     private Player p2;
-    String options;
+    String options; //use this to get the Market Menu String--> then parse for player options so they canbuy
     
     public GameState(Player p1, Player p2) {
         availableWheat = 6;
