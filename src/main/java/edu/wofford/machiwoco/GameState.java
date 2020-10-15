@@ -49,6 +49,7 @@ public class GameState {
         return activated;
     }
 
+    
     public void printMarketState() {
         if (p1.getCoins() >= 3) {
             System.out.println("******************************************");
