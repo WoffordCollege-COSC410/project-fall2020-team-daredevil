@@ -6,6 +6,7 @@ public class Player {
 	Establishment[] ecards;
 	private boolean cityHall;
 	private int coins;
+	private boolean myTurn;
 	
 	
 	public Player() {
@@ -16,7 +17,7 @@ public class Player {
 		ecards[2] = new Establishment("Forest", 3, "blue", "gear");
 		cityHall = false;
 		coins = 3;
-		
+		myTurn = false;
 	}
 	
 	public boolean hasCityHall() {
@@ -27,12 +28,23 @@ public class Player {
 		
 	}
 	
+	public boolean getTurn() {
+		return myTurn;
+	}
+	
+	public void setTurn(boolean b) {
+		myTurn = b;
+	}
+	
 	//how many of each card?
 	
 	public int getCoins() {
 		return coins;
 	}
 	
+	public void addCoins(int c) {
+		coins = c + coins;
+	}
 	
 	public static void main(String[] args) {
 		
