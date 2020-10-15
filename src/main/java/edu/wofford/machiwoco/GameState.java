@@ -15,7 +15,7 @@ public class GameState {
     private boolean activated;
     private Player p1;
     private Player p2;
-    String options; //use this to get the Market Menu String--> then parse for player options so they canbuy
+    String options; //use this to get the Market Menu String--> then parse for player options so they can buy
     
     public GameState(Player p1, Player p2) {
         availableWheat = 6;
@@ -140,6 +140,7 @@ public class GameState {
 
     
     public String menuOptions() {
+        options = "";
         //all
         String op1 = "1. Wheat Field         BW (1)  [1]      #" + availableWheat + "\n"
                     + "2. Ranch               BC (1)  [2]      #" + availableRanch + "\n"
@@ -167,24 +168,31 @@ public class GameState {
                 return op8;
             }
             else if(availableWheat == 0) {
+                options = op2;
                 return op2;
             }
             else if(availableRanch == 0) {
+                options = op3;
                 return op3;
             }
             else if(availableForest == 0) {
+                options = op4;
                 return op4;
             }
             else if(availableWheat == 0 && availableRanch == 0) {
+                options = op5;
                 return op5;
             }
             else if(availableWheat == 0 && availableForest == 0) {
+                options = op6;
                 return op6;
             }
             else if(availableRanch == 0 && availableForest == 0) {
+                options = op7;
                 return op7;
             }
             else {
+                options = op1
                 return op1;
             }
         }
@@ -193,16 +201,20 @@ public class GameState {
                 return op8;
             }
             else if(availableWheat == 0) {
+                options = op6;
                 return op6;
             }
             else if(availableRanch == 0) {
+                options = op7;
                 return op7;
             }
             else {
+                options = op4;
                 return op4;
             }
         }
         else {
+            options = op8;
             return op8;
         }
 
