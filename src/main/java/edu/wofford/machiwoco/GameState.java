@@ -53,6 +53,9 @@ public class GameState {
         } else if (p2.getTurn()) {
             p2.addCard("w");
         }
+
+        
+
     }
 
     /**
@@ -135,6 +138,47 @@ public class GameState {
     }
 
 
+    public String menuOptions() {
+        //all
+        String op1 = System.out.println("1. Wheat Field         BW (1)  [1]      #" + availableWheat + "\n"
+                    + "2. Ranch               BC (1)  [2]      #" + availableRanch + "\n"
+                    + "3. Forest              BG (3)  [5]      #" + availableForest);
+        //no wheat
+        String op2 = System.out.println("1. Ranch               BC (1)  [2]      #" + availableRanch + "\n"
+                    + "2. Forest              BG (3)  [5]      #" + availableForest);
+        //no ranch
+        String op3 = System.out.println("1. Wheat Field         BW (1)  [1]      #" + availableWheat + "\n"
+                    + "2. Forest              BG (3)  [5]      #" + availableForest);
+        //no forest
+        String op4 = System.out.println("1. Wheat Field         BW (1)  [1]      #" + availableWheat + "\n"
+                    + "2. Ranch               BC (1)  [2]      #" + availableRanch);
+        //no wheat & ranch
+        String op5 = System.out.println("1. Forest              BG (3)  [5]      #" + availableForest);
+        //no wheat & forest
+        String op6 = System.out.println("1. Ranch               BC (1)  [2]      #" + availableRanch);
+        //no ranch & forest
+        String op7 = System.out.println("1. Wheat Field         BW (1)  [1]      #" + availableWheat);
+        //none
+        String op8 = System.out.println("");
+
+        if(availableWheat == 0 && availableRanch == 0 && availableForest == 0) {
+            return op8;
+        }
+        else if(availableWheat == 0) {
+            return op2;
+        }
+        else if(availableRanch == 0) {
+            return op3;
+        }
+        else if(availableForest == 0) {
+            return op4;
+        }
+        else if(availableWheat == 0 && availableRanch == 0) {
+            return op5;
+        }
+
+    }
+
 
     public void printMarketMenu() {
         if (p1.getCoins() >= 7) {
@@ -171,7 +215,9 @@ public class GameState {
             System.out.println("99. Do nothing                            ");
             System.out.println("==========================================");
         }
-        
     }
+
+
+
     
 }
