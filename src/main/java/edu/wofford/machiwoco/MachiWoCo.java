@@ -38,11 +38,17 @@ public class MachiWoCo {
             }
         } else if (args.length > 0 && args[0].equals("phase1")) {
         //Start of game
-        System.out.println("The game has started. Player 1 will go first.");
-
-        //Beginning of turn
-        System.out.println("Turn started for Player 1.");
         p1.setTurn(true);
+        System.out.println("The game has started. Player 1 will go first.");
+        System.out.println("Turn started for Player 1.");
+        
+        //Loop begins
+        //Beginning of turn
+        if (p1.getTurn()) {
+            System.out.println("Turn started for Player 1.");
+        } else if (p2.getTurn()) {
+            System.out.println("Turn started for Player 2.");
+        }
 
         //Current Game State
             // 1. Get Market state from Market Class
@@ -62,17 +68,28 @@ public class MachiWoCo {
             if (dice == 1) {
                 System.out.println("Wheat Field activated for Player 1.");
                 System.out.println("Wheat Field activated for Player 2.");
-                p1.addCoins(1); //Times the number of Wheat Field cards that player has
-                p2.addCoins(1); // -----------------''--------------------
-                
+                p1.addCoins(1 * p1.getNumWheat()); //Times the number of Wheat Field cards that player has
+                p2.addCoins(1 * p2.getNumWheat()); // -----------------''--------------------
             } else if (dice == 2) {  //And if one or both players own that card
-                System.out.println("Ranch activated for Player 1.");
-                System.out.println("Ranch activated for Player 2.");
+                if (p1.getNumRanch() > 0) {
+                    System.out.println("Ranch activated for Player 1.");
+                    p1.addCoins(1 * p1.getNumRanch());
+                }
+                if (p2.getNumRanch() > 0) {
+                    System.out.println("Ranch activated for Player 2.");
+                    p2.addCoins(1 * p2.getNumRanch());
+                }
                 //p1.addCoins(1); if he has it and times how many
                 //p2.addCoins(1); if he has it and times how many
             } else if (dice == 5) {  //And if one ore both players own that card
-                System.out.println("Forest activated for Player 1.");
-                System.out.println("Forest activated for Player 2.");
+                if (p1.getNumForest() > 0) {
+                    System.out.println("Forest activated for Player 1.");
+                    p1.addCoins(1 * p1.getNumForest());
+                }
+                if (p2.getNumForest() > 0) {
+                    System.out.println("Forest activated for Player 2.");
+                    p2.addCoins(1 * p2.getNumForest());
+                }
                 //p1.addCoins(1); if he has it and times how many
                 //p2.addCoins(1); if he has it and times how many
             } 
@@ -85,9 +102,18 @@ public class MachiWoCo {
         scan.close();
         // if else statements that checks what number the player entered...
         // and then do add coins/remove card etc...
-        System.out.println("Player N chose to...");
+        System.out.println("Player N chose to..." + choice);
 
         //End turn for this player and then do this all again until the game ends...
+        if (p1.getTurn()) {
+            System.out.println("Turn ended for Player 1.");
+            p1.setTurn(false);
+            p2.setTurn(true);
+        } else if (p2.getTurn()) {
+            System.out.println("Turn ended for Player 2.");
+            p2.setTurn(false);
+            p1.setTurn(true);
+        }
         }
     }
 }
