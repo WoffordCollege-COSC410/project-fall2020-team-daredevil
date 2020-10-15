@@ -10,11 +10,11 @@ public class MachiWoCo {
 
     public static void main(String[] args) {
         //Establishment e = new Establishment("Wheat", 3, "red", "G");
-        GameState game = new GameState();
+        
         Random random = new Random();
         Player p1 = new Player();
         Player p2 = new Player();
-
+        GameState game = new GameState(p1, p2);
         
         if (args.length > 0 && args[0].equals("phase0")) {
             try {

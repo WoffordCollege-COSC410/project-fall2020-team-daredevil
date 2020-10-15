@@ -16,13 +16,13 @@ public class GameState {
     private Player p1;
     private Player p2;
     
-    public GameState() {
+    public GameState(Player p1, Player p2) {
         availableWheat = 6;
         availableRanch = 6;
         availableForest = 6;
         activated = false;
-        p1 = new Player();
-        p2 = new Player();
+        this.p1 = p1;
+        this.p2 = p2;
     }
 
     public int getAvailableWheat() {
@@ -140,26 +140,26 @@ public class GameState {
 
     public String menuOptions() {
         //all
-        String op1 = System.out.println("1. Wheat Field         BW (1)  [1]      #" + availableWheat + "\n"
+        String op1 = "1. Wheat Field         BW (1)  [1]      #" + availableWheat + "\n"
                     + "2. Ranch               BC (1)  [2]      #" + availableRanch + "\n"
-                    + "3. Forest              BG (3)  [5]      #" + availableForest);
+                    + "3. Forest              BG (3)  [5]      #" + availableForest;
         //no wheat
-        String op2 = System.out.println("1. Ranch               BC (1)  [2]      #" + availableRanch + "\n"
-                    + "2. Forest              BG (3)  [5]      #" + availableForest);
+        String op2 = "1. Ranch               BC (1)  [2]      #" + availableRanch + "\n"
+                    + "2. Forest              BG (3)  [5]      #" + availableForest;
         //no ranch
-        String op3 = System.out.println("1. Wheat Field         BW (1)  [1]      #" + availableWheat + "\n"
-                    + "2. Forest              BG (3)  [5]      #" + availableForest);
+        String op3 = "1. Wheat Field         BW (1)  [1]      #" + availableWheat + "\n"
+                    + "2. Forest              BG (3)  [5]      #" + availableForest;
         //no forest
-        String op4 = System.out.println("1. Wheat Field         BW (1)  [1]      #" + availableWheat + "\n"
-                    + "2. Ranch               BC (1)  [2]      #" + availableRanch);
+        String op4 = "1. Wheat Field         BW (1)  [1]      #" + availableWheat + "\n"
+                    + "2. Ranch               BC (1)  [2]      #" + availableRanch;
         //no wheat & ranch
-        String op5 = System.out.println("1. Forest              BG (3)  [5]      #" + availableForest);
+        String op5 = "1. Forest              BG (3)  [5]      #" + availableForest;
         //no wheat & forest
-        String op6 = System.out.println("1. Ranch               BC (1)  [2]      #" + availableRanch);
+        String op6 = "1. Ranch               BC (1)  [2]      #" + availableRanch;
         //no ranch & forest
-        String op7 = System.out.println("1. Wheat Field         BW (1)  [1]      #" + availableWheat);
+        String op7 = "1. Wheat Field         BW (1)  [1]      #" + availableWheat;
         //none
-        String op8 = System.out.println("");
+        String op8 = "";
 
         if(p1.getCoins() >= 3) {
             if(availableWheat == 0 && availableRanch == 0 && availableForest == 0) {
@@ -208,7 +208,7 @@ public class GameState {
     public void printMarketMenu() {
         System.out.println("To view details of an item, type 'view'"); //TODO how to get view working?
         System.out.println("followed by the item number. For example,");
-        System.out.println("to view item 6, type 'view 6'.")
+        System.out.println("to view item 6, type 'view 6'.");
         if (p1.getCoins() >= 7) {
             System.out.println("==========================================");
             System.out.println("---------        PURCHASE        ---------");
