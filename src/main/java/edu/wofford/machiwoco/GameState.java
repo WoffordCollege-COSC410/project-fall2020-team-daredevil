@@ -74,6 +74,38 @@ public class GameState {
 
     }
 
+    public void meanuOptions() {
+        String return_str = "";
+
+        if(numWheatFields == 0) {
+            if(numRanches == 0) {
+                return_str += ("1. Forrest             BG (3)  [5]      #" + numForrests);
+            }
+            return_str += ("1. Ranch               BC (1)  [2]      #" + numRanches + "\n" 
+                + "2. Forrest             BG (3)  [5]      #" + numForrests)
+        }
+        else if(numRanches == 0) {
+            if(numForrests == 0) {
+                return_str += ("1. Wheat Field         BW (1)  [1]      #" + numWheatFields)
+            }
+            return_str += ("1. Wheat Field         BW (1)  [1]      #" + numWheatFields + "\n" 
+                + "3. Forrest             BG (3)  [5]      #" + numForrests)
+        }
+        else if(numForrests == 0) {
+            if(numWheatFields == 0) {
+                return_str += ("1. Ranch               BC (1)  [2]      #" + numRanches)
+            }
+            return_str += ("1. Wheat Field         BW (1)  [1]      #" + numWheatFields + "\n" 
+                + "2. Ranch               BC (1)  [2]      #" + numRanches)
+        }
+        else {
+            return_str += ("1. Wheat Field         BW (1)  [1]      #" + numWheatFields + "\n"
+                + "2. Ranch               BC (1)  [2]      #" + numRanches + "\n"
+                + "3. Forrest             BG (3)  [5]      #" + numForrests)
+        }
+        return return_str;
+    }
+
     public void printMarketMenu() {
         if (playerCoins >= 7) {
             System.out.println("==========================================");
