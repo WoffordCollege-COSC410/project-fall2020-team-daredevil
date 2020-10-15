@@ -36,13 +36,13 @@ public class MachiWoCo {
             } catch (Exception u) {
                 System.out.println(u);
             }
-        }
-
+        } else if (args.length > 0 && args[0].equals("phase1")) {
         //Start of game
         System.out.println("The game has started. Player 1 will go first.");
 
         //Beginning of turn
         System.out.println("Turn started for Player 1.");
+        p1.setTurn(true);
 
         //Current Game State
             // 1. Get Market state from Market Class
@@ -88,7 +88,7 @@ public class MachiWoCo {
         System.out.println("Player N chose to...");
 
         //End turn for this player and then do this all again until the game ends...
-
+        }
     }
 }
 
