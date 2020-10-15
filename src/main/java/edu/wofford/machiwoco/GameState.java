@@ -212,9 +212,7 @@ public class GameState {
         if (p1.getCoins() >= 7) {
             System.out.println("==========================================");
             System.out.println("---------        PURCHASE        ---------");
-            System.out.println("1. Wheat Field         BW (1)  [1]      #" + availableWheat);
-            System.out.println("2. Ranch               BC (1)  [2]      #" + availableRanch);
-            System.out.println("3. Forest              BG (3)  [5]      #" + availableForest);
+            System.out.println(menuOptions());
             System.out.println("---------       CONSTRUCT        ---------");
             System.out.println("4. City Hall           NT (7)  [ ]        ");
             System.out.println("---------         CANCEL         ---------");
@@ -223,17 +221,14 @@ public class GameState {
         } else if (p1.getCoins() < 7 && p1.getCoins() >=3) {
             System.out.println("==========================================");
             System.out.println("---------        PURCHASE        ---------");
-            System.out.println("1. Wheat Field         BW (1)  [1]      #" + availableWheat);
-            System.out.println("2. Ranch               BC (1)  [2]      #" + availableRanch);
-            System.out.println("3. Forest              BG (3)  [5]      #" + availableForest);
+            System.out.println(menuOptions());
             System.out.println("---------         CANCEL         ---------");
             System.out.println("99. Do nothing                            ");
             System.out.println("==========================================");
         } else if (p1.getCoins() > 0 && p1.getCoins() < 3) {
             System.out.println("==========================================");
             System.out.println("---------        PURCHASE        ---------");
-            System.out.println("1. Wheat Field         BW (1)  [1]      #" + availableWheat);
-            System.out.println("2. Ranch               BC (1)  [2]      #" + availableRanch);
+            System.out.println(menuOptions());
             System.out.println("---------         CANCEL         ---------");
             System.out.println("99. Do nothing                            ");
             System.out.println("==========================================");
