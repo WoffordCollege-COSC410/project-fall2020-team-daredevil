@@ -6,8 +6,8 @@ import org.junit.*;
 
 public class GameStateTest {
     private GameState m;
-    private Player p1;
-    private Player p2;
+    private Player p1 = new Player();
+    private Player p2 = new Player();
 
 
 	@Before
@@ -35,6 +35,11 @@ public class GameStateTest {
         assertThat(m.isActivated(0), is(false));
     }
 
+    @Test
+    public void testGetCurrentPlayer() {
+        assertThat(m.getCurrentPlayer(), is(false));
+    }
+   
     @Test
     public void testPrintMarketState() {
     }

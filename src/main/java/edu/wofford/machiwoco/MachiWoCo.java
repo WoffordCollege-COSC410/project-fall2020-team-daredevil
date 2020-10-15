@@ -31,7 +31,6 @@ public class MachiWoCo {
         //Start of game
         p1.setTurn(true);
         System.out.println("The game has started. Player 1 will go first.");
-        System.out.println("Turn started for Player 1.");
         
         //Loop begins
         //Beginning of turn

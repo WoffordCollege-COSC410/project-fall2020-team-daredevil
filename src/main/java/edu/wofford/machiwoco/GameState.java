@@ -39,19 +39,34 @@ public class GameState {
     }
 
     public boolean isActivated(int r) {
-        int roll = 0;
-        if (roll == 1 || roll == 2 || roll == 5) {
+        if (r == 1 || r == 2 || r == 5) {
             activated = true;
             p1.addCoins(1);
             p2.addCoins(1);
         } 
         return activated;
     }
+    
+    /** A true value means P1's turn
+    * a false value means P2's turn
+    */
+    public boolean getCurrentPlayer() {
+        if (p1.getTurn()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-    public void purchaseCard() { //TODO
+    public void purchaseCard(int choice) { //TODO
     //make options array for purchase options
     //give player options -> buy that thing
+        //build choices array
+        //ifint arr[] = new int[3];
+        if (options.contains("3.")) {
+        }
         if (p1.getTurn()) {
+            
             p1.addCard("w");
         } else if (p2.getTurn()) {
             p2.addCard("w");
@@ -125,6 +140,7 @@ public class GameState {
     }
 
     public void printPlayerOneState() {
+        //TODO if turn is true then star name
         System.out.println("              Player 1* [YOU]             ");
         System.out.println("------------------------------------------");
         System.out.println("                (" + p1.getCoins() + " coins)                 ");
@@ -194,7 +210,7 @@ public class GameState {
                 return op7;
             }
             else {
-                options = op1
+                options = op1;
                 return op1;
             }
         }
