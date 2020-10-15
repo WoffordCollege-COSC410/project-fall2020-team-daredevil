@@ -79,7 +79,7 @@ public class GameState {
 
     }
 
-    public void meanuOptions() {
+    public String meanuOptions() {
         String return_str = "";
 
         if(numWheatFields == 0) {
