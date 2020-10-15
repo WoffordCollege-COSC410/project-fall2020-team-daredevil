@@ -11,7 +11,7 @@ public class Player {
 	
 	
 	public Player() {
-		//3 starting cards WheatField, Forest, Ranch
+		//1 starting card of Wheat
 		ecards = new int[3];
 		//array only stores num of cards for each type
 		ecards[0] = 1;

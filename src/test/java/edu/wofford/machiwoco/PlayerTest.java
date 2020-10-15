@@ -37,7 +37,7 @@ public class PlayerTest {
 	@Test
 	public void testAddCard() {
 		p1.addCard("r");
-//		assertThat(p1.getLastCard(), is("Wheat Field"));
+		assertThat(p1.getNumRanch(), is(1));
 	}
 	
 	@Test
