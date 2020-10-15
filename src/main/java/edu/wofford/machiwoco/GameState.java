@@ -14,7 +14,6 @@ public class GameState {
     private int numForrests;
     private int playerCoins; // pull that data from Player Class
     private boolean activated;
-    private boolean hasWon;
     private Player p1;
     private Player p2;
     
@@ -24,7 +23,6 @@ public class GameState {
         numForrests = 6;
         playerCoins = 3;
         activated = false;
-        hasWon = false;
         p1 = new Player();
         p2 = new Player();
     }
@@ -45,26 +43,21 @@ public class GameState {
         int roll = 0;
         if (roll == 1 || roll == 2 || roll == 5) {
             activated = true;
-            // add 1 coin to each player
+            p1.addCoins(1);
+            p2.addCoins(1);
         } 
         return activated;
     }
 
-    public boolean hasWon() {
-        return false;
-    }
-
-
-
     public void printMarketState() {
-        if (playerCoins >= 3) {
+        if (p1.getCoins() >= 3) {
             System.out.println("******************************************");
             System.out.println("                  MARKET                  ");
             System.out.println("------------------------------------------");
             System.out.println("Wheat Field        BW (1)  [1]      #" + numWheatFields);
             System.out.println("Ranch              BC (1)  [2]      #" + numRanches);
             System.out.println("Forrest            BG (3)  [5]      #" + numForrests);
-        } else if (playerCoins > 0 && playerCoins < 3) {
+        } else if (p1.getCoins() > 0 && playerCoins < 3) {
             System.out.println("******************************************");
             System.out.println("                  MARKET                  ");
             System.out.println("------------------------------------------");

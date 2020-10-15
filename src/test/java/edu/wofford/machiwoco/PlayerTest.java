@@ -20,6 +20,7 @@ public class PlayerTest {
 	
 	@Test
 	public void testAddCard() {
+		p1.addCard("Wheat");
 		//assertThat(p1.ecards is longer?)
 	}
 	
