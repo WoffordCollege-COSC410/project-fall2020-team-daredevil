@@ -1,7 +1,6 @@
 package edu.wofford.machiwoco; //change to class file
 
 import org.junit.*;
-//import static org.hamcrest.MatchersAssert.*;
 import static org.hamcrest.MatcherAssert.assertThat; 
 import static org.hamcrest.Matchers.is;
 

@@ -3,6 +3,7 @@ package edu.wofford.machiwoco;
 import static org.hamcrest.MatcherAssert.assertThat; 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertFalse;
+import org.junit.*;
 
 public class PlayerTest {
 	Player p1;
@@ -23,6 +24,13 @@ public class PlayerTest {
 	}
 	
 	@Test
+	public void testSetPlayerTurn() {
+		assertThat(p1.getTurn(), is(false));
+		p1.setTurn(true);
+		assertThat(p1.getTurn(), is(true));
+	}
+	
+	@Test
 	public void testGetCoins() {
 		assertThat(p1.getCoins(), is(3));
 	}
@@ -33,10 +41,24 @@ public class PlayerTest {
 		assertThat(p1.hasCityHall(), is(false));
 	}
 	
-	
+	@Test
 	public void testGetPlayerStatus() {
 		//assertThat(p1.ecards is longer?)
 	}
+	@Test
+	public void testAddCoins() {
+		assertThat(p1.getCoins(), is(3));
+		p1.addCoins(1);
+		assertThat(p1.getCoins(), is(4));
+	}
+	@Test
+	public void testRemoveCoins() {
+		assertThat(p1.getCoins(), is(3));
+		p1.removeCoins(1);
+		assertThat(p1.getCoins(), is(2));
+	}
+
+
 //	public static void main(String[] args) {
 //		
 //	}
