@@ -15,6 +15,7 @@ public class GameState {
     private boolean activated;
     private Player p1;
     private Player p2;
+    String options;
     
     public GameState(Player p1, Player p2) {
         availableWheat = 6;
@@ -137,7 +138,7 @@ public class GameState {
         System.out.println("..........................................");
     }
 
-
+    
     public String menuOptions() {
         //all
         String op1 = "1. Wheat Field         BW (1)  [1]      #" + availableWheat + "\n"
