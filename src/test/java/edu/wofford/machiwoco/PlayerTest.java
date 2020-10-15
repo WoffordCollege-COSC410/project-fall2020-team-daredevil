@@ -38,6 +38,9 @@ public class PlayerTest {
 	public void testAddCard() {
 		p1.addCard("r");
 		assertThat(p1.getNumRanch(), is(1));
+		
+		p1.addCard("city");
+		assertThat(p1.hasCityHall(), is(true));
 	}
 	
 	@Test

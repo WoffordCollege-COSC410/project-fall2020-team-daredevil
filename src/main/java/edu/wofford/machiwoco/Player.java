@@ -32,6 +32,8 @@ public class Player {
 			ecards[1] = ecards[1] + 1;
 		} else if (s.equals("f") || s.equals("F")) {
 			ecards[2] = ecards[2] + 1;
+		} else if (s.equals("city")) {
+			cityHall = true;
 		}
 	}
 	
