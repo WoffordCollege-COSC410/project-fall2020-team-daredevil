@@ -40,7 +40,7 @@ public class MachiWoCo {
         } else if (p2.getTurn()) {
             System.out.println("Turn started for Player 2.");
         }
-             //TODO PASS PLAYERS FROM MACHIWOCO INTO GAMESTATE???
+        
         //Current Game State
             // 1. Get Market state from Market Class
             // 2. Get Players' state from Players Class
@@ -53,7 +53,7 @@ public class MachiWoCo {
             // 2. Check to see if any cards are activated (pass dice to isActivated() method in GameState class)
         int low = 1;
         int high = 7;
-        int dice = random.nextInt(high - low) + low; //TODO why the high and low vars?
+        int dice = random.nextInt(high - low) + low;
         if (p1.getTurn()) {
             System.out.println("Player 1 rolled [" + dice + "] = " + dice);
         } else if (p2.getTurn()) {

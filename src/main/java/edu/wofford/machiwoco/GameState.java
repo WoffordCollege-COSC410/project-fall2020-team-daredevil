@@ -49,6 +49,8 @@ public class GameState {
     }
 
     public void purchaseCard() { //TODO
+    //make options array for purchase options
+    //give player options -> buy that thing
         if (p1.getTurn()) {
             p1.addCard("w");
         } else if (p2.getTurn()) {
