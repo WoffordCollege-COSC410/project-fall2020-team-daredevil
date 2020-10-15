@@ -31,4 +31,9 @@ public class GameStateTest {
     public void testIsActivated() {
         assertThat(m.isActivated(0), is(false));
     }
+
+    @Test
+    public void testPrintMarketState() {
+        assertThat(m.printMarketState(), is("******************************************"));
+    }
 }
