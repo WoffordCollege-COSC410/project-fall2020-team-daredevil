@@ -42,6 +42,9 @@ public class Player {
 		return coins;
 	}
 	
+	public void addCoins(int c) {
+		coins = c + coins;
+	}
 	
 	public static void main(String[] args) {
 		

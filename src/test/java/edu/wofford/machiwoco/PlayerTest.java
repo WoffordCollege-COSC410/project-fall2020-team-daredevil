@@ -45,6 +45,20 @@ public class PlayerTest {
 	public void testGetPlayerStatus() {
 		//assertThat(p1.ecards is longer?)
 	}
+	@Test
+	public void testAddCoins() {
+		assertThat(p1.getCoins(), is(3));
+		p1.addCoins(1);
+		assertThat(p1.getCoins(), is(4));
+	}
+	@Test
+	public void testRemoveCoins() {
+		assertThat(p1.removeCoins(), is(4));
+		p1.removeCoins(1);
+		assertThat(p1.removeCoins(), is(3));
+	}
+
+
 //	public static void main(String[] args) {
 //		
 //	}
