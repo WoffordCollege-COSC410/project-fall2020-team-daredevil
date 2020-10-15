@@ -161,7 +161,7 @@ public class GameState {
         //none
         String op8 = System.out.println("");
 
-        if(p1.getCoins >= 3) {
+        if(p1.getCoins() >= 3) {
             if(availableWheat == 0 && availableRanch == 0 && availableForest == 0) {
                 return op8;
             }
@@ -187,7 +187,20 @@ public class GameState {
                 return op1;
             }
         }
-        else if(p1.getCoins)
+        else if(p1.getCoins() <= 3 && p1.getCoins() >= 0) {
+            if(availableWheat == 0 && availableRanch == 0) {
+                return op8;
+            }
+            else if(availableWheat == 0) {
+                return op6;
+            }
+            else if(availableRanch == 0) {
+                return op7;
+            }
+            else {
+                return op4;
+            }
+        }
 
     }
 
