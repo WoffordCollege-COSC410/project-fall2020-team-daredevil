@@ -19,6 +19,21 @@ public class PlayerTest {
 		//assertThat(p1.ecards.length, is(20));
 	}
 	
+	@Test 
+	public void testGetNumWheat() {
+		assertThat(p1.getNumWheat(), is(1));
+	}
+	
+	@Test 
+	public void testGetNumRanch() {
+		assertThat(p1.getNumRanch(), is(0));
+	}
+	
+	@Test 
+	public void testGetNumForest() {
+		assertThat(p1.getNumForest(), is(0));
+	}
+	
 	@Test
 	public void testAddCard() {
 		p1.addCard("r");
@@ -43,10 +58,6 @@ public class PlayerTest {
 		assertThat(p1.hasCityHall(), is(false));
 	}
 	
-	@Test
-	public void testGetPlayerStatus() {
-		//assertThat(p1.ecards is longer?)
-	}
 	@Test
 	public void testAddCoins() {
 		assertThat(p1.getCoins(), is(3));

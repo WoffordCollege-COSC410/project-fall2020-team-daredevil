@@ -15,7 +15,6 @@ public class Player {
 		ecards = new int[3];
 		//array only stores num of cards for each type
 		ecards[0] = 1;
-		System.out.println(ecards[0]);
 		cityHall = false;
 		coins = 3;
 		myTurn = false;
@@ -36,10 +35,17 @@ public class Player {
 		}
 	}
 	
-//	public String getLastCard() {
-//		//String e = ecards[index].getName();
-//		//return e;
-//	}
+	public int getNumWheat(){
+		return ecards[0];
+	}
+	
+	public int getNumRanch(){
+		return ecards[1];
+	}
+	
+	public int getNumForest(){
+		return ecards[2];
+	}
 	
 	public boolean getTurn() {
 		return myTurn;
