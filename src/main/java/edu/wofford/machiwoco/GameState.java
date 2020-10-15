@@ -47,7 +47,7 @@ public class GameState {
         return activated;
     }
 
-    public void purchaseCard() {
+    public void purchaseCard() { //TODO
         if (p1.getTurn()) {
             p1.addCard("w");
         } else if (p2.getTurn()) {
@@ -193,6 +193,9 @@ public class GameState {
 
 
     public void printMarketMenu() {
+        System.out.println("To view details of an item, type 'view'"); //TODO how to get view working?
+        System.out.println("followed by the item number. For example,");
+        System.out.println("to view item 6, type 'view 6'.")
         if (p1.getCoins() >= 7) {
             System.out.println("==========================================");
             System.out.println("---------        PURCHASE        ---------");
