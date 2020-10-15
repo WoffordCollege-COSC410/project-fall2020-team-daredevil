@@ -40,7 +40,7 @@ public class MachiWoCo {
         } else if (p2.getTurn()) {
             System.out.println("Turn started for Player 2.");
         }
-
+             //TODO PASS PLAYERS FROM MACHIWOCO INTO GAMESTATE???
         //Current Game State
             // 1. Get Market state from Market Class
             // 2. Get Players' state from Players Class
@@ -90,7 +90,7 @@ public class MachiWoCo {
 
         game.printMarketMenu();
         Scanner scan = new Scanner(System.in);
-        System.out.println("Enter the number labeled of your choice ");
+        System.out.println("Choose a number to purchase or construct: ");
         int choice = scan.nextInt();
         scan.close();
         // if else statements that checks what number the player entered...
