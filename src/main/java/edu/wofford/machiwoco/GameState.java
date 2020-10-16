@@ -1,12 +1,12 @@
 package edu.wofford.machiwoco;
-
+/**
+ * @author Jacob Vannoy, Kristinn Sigurjonsson, Jaylen Muhammad, Evan Suggs
+ */
 public class GameState {
 
     /*
-
     For Phase 1, really the only thing updated on the market
     is the number of available cards
-
     */
 
     private int availableWheat;
@@ -69,8 +69,9 @@ public class GameState {
     }
     
     /**
-     * @return true initilizes turn for Player 1
-     * @return flase initilizes turn for Player 2
+     * @return true initilizes turn for Player 1.
+     * flase initilizes turn for Player 2.
+     * 
     */
     public boolean getCurrentPlayer() {
         if (p1.getTurn()) {
