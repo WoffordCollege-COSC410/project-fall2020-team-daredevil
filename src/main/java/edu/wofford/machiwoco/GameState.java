@@ -33,7 +33,8 @@ public class GameState {
     }
 
     /**
-     * 
+     * This method creates a new instance of getAvailable
+     * @return availableWheat The int value of the number of Wheat Field cards available
      */
     public int getAvailableWheat() {
         return availableWheat;
