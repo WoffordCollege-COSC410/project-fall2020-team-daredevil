@@ -578,7 +578,7 @@ public class GameState {
     }
 
     public void printMarketMenu() {
-        System.out.println("To view details of an item, type 'view'"); //TODO how to get view working?
+        System.out.println("To view details of an item, type 'view'");
         System.out.println("followed by the item number. For example,");
         System.out.println("to view item 6, type 'view 6'.");
         if (getCurrentPlayer()) {
