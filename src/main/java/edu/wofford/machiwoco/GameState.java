@@ -33,7 +33,7 @@ public class GameState {
     }
 
     /**
-     * This method creates a new instance of getAvailable
+     * This method creates a new instance of getAvailableWheat
      * @return availableWheat The int value of the number of Wheat Field cards available
      */
     public int getAvailableWheat() {
@@ -41,14 +41,16 @@ public class GameState {
     }
 
     /**
-     * 
+     * This method creates a new instance of getAvailableRanch
+     * @return availableRanch The int value of the number of Ranch cards available
      */
     public int getAvailableRanch() {
         return availableRanch;
     }
 
     /**
-     * 
+     * This method creates a new instance of getAvailableForest
+     * @return availableForest The int value of the number of Forest cards available
      */
     public int getAvailableForest() {
         return availableForest;
