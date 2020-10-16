@@ -112,6 +112,12 @@ public class MachiWoCo {
                 }
             }
         }
+        //End of game
+        
+        if(p1.hasCityHall()) {
+            System.out.println("The game is over. Player N is the winner.");
+        }
+
     }
 }
 
