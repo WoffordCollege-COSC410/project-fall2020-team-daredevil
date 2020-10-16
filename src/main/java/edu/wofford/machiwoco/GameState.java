@@ -18,10 +18,9 @@ public class GameState {
     String options; //use this to get the Market Menu String--> then parse for player options so they can buy
     
     /**
+     * Initializes the number of cards for Wheat Field, Ranch, and Forest
      * @param p1 is Player 1
      * @param p2 is Player 2
-     * Initializes the number of cards for Wheat Field, Ranch, and Forest
-     * 
      */
     public GameState(Player p1, Player p2) {
         availableWheat = 6;
@@ -57,7 +56,8 @@ public class GameState {
     }
 
     /**
-     * 
+     * @param r The int value of the number rolled
+     * @return activated if roll is 1, 2, or 5 activated becomes true
      */
     public boolean isActivated(int r) {
         if (r == 1 || r == 2 || r == 5) {
@@ -68,8 +68,9 @@ public class GameState {
         return activated;
     }
     
-    /** A true value means P1's turn
-    * a false value means P2's turn
+    /**
+    * @return true initilizes turn for Player 1
+    * @return flase initilizes turn for Player 2
     */
     public boolean getCurrentPlayer() {
         if (p1.getTurn()) {
@@ -105,7 +106,8 @@ public class GameState {
     */
 
     /**
-     * 
+     * This method prints the correct output depending on the players choice
+     * @param choice is the int value of the players choice from "Purchase" menu
      */
     public void purchaseCard(int choice) {
         if (getCurrentPlayer()) {
@@ -442,6 +444,9 @@ public class GameState {
         }
     }
 
+    /**
+     * This method prints the Player State of player 1
+     */
     public void printPlayerOneState() {
         if (getCurrentPlayer()) {
             if (p1.ecards[0] > 0 && p1.ecards[1] == 0 && p1.ecards[2] == 0) {
@@ -504,6 +509,9 @@ public class GameState {
         }
     }
 
+    /**
+     * This method prints the Player State of player 2
+     */
     public void printPlayerTwoState() {
         if (getCurrentPlayer()) {
             if (p2.ecards[0] > 0 && p2.ecards[1] == 0 && p2.ecards[2] == 0) {
@@ -566,6 +574,18 @@ public class GameState {
         }
     }
 
+    /**
+     * This method provides the selection of cards that should be printed in the "Purchase" menu
+     * depending on player N's coins and # of remaining cards
+     * @return op1 if all cards are available
+     * @return op2 if only Ranch and Forest cards are available
+     * @return op3 if only Wheat Field and Forest cards are available 
+     * @return op4 if only Wheat Field and Ranch cards are available
+     * @return op5 if only Forest card is available
+     * @return op6 if only Ranch card is available
+     * @return op7 if only Wheat Field card is available
+     * @return op8 if no cards are available
+     */
     public String menuOptions() {
         options = "";
         //all
