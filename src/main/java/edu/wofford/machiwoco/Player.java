@@ -37,7 +37,7 @@ public class Player {
 	 * card that will be given to player N.
 	 */
 	public void addCard(String s) {
-		if (s.equals("w") || s.equals("W")) {
+		if (s.equals("w") || s.equals("W")) { //Adding extra coins here?
 			ecards[0] = ecards[0] + 1;
 		} else if (s.equals("r") || s.equals("R")) {
 			ecards[1] = ecards[1] + 1;

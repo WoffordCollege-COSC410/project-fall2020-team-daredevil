@@ -87,6 +87,7 @@ public class MachiWoCo {
                 }
                 
                 if (p1.getTurn()) {
+                    System.out.println();
                     System.out.println("Player 1, would you like to purchase an");
                     System.out.println("establishment or construct a landmark? (" + p1.getCoins());
                     System.out.println("coins)");
@@ -105,6 +106,7 @@ public class MachiWoCo {
                     p1.setTurn(false);
                     p2.setTurn(true);
                 }  else if (p2.getTurn()) {
+                    System.out.println();
                     System.out.println("Player 2, would you like to purchase an");
                     System.out.println("establishment or construct a landmark? (" + p2.getCoins());
                     System.out.println("coins)");
