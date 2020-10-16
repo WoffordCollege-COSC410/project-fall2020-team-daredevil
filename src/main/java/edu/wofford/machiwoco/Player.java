@@ -81,12 +81,9 @@ public class Player {
 	}
 	
 	/**
-<<<<<<< HEAD
 	 * @param b is true or false to set
-=======
 	 * This method sets the turn for Player N.
 	 * @param b is a boolean value that sets player N's turn.
->>>>>>> 58f13f0714eebfaf48745bde9bb0543a4b3af338
 	 */
 	public void setTurn(boolean b) {
 		myTurn = b;
