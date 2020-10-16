@@ -24,6 +24,7 @@ public class Player {
 	}
 
 	/**
+	 * This method checks if Player N has constructed the City Hall.
 	 * @return cityHall 
 	 */
 	public boolean hasCityHall() {
@@ -31,8 +32,9 @@ public class Player {
 	}
 	
 	/**
-	 * 
-	 * @param s is which Establishment or Landmark to add 
+	 * This method adds a card to Player N's inventory. 
+	 * @param s is the string "w", "r", "f", or "city" representing the 
+	 * card that will be given to player N.
 	 */
 	public void addCard(String s) {
 		if (s.equals("w") || s.equals("W")) {
@@ -47,6 +49,7 @@ public class Player {
 	}
 	
 	/**
+	 * This method gets the amount of Wheat Field cards Player N has.
 	 * @return ecards[0]
 	 */
 	public int getNumWheat(){
@@ -54,6 +57,7 @@ public class Player {
 	}
 	
 	/**
+	 * This method gets the amount of Ranch cards Player N has.
 	 * @return ecards[1]
 	 */
 	public int getNumRanch(){
@@ -61,6 +65,7 @@ public class Player {
 	}
 	
 	/**
+	 * This method gets the amount of Forest cards Player N has.
 	 * @return ecard[2]
 	 */
 	public int getNumForest(){
@@ -68,6 +73,7 @@ public class Player {
 	}
 	
 	/**
+	 * This method gets the turn of Player N.
 	 * @return myTurn
 	 */
 	public boolean getTurn() {
@@ -75,14 +81,19 @@ public class Player {
 	}
 	
 	/**
+<<<<<<< HEAD
 	 * @param b is true or false to set
+=======
+	 * This method sets the turn for Player N.
+	 * @param b is a boolean value that sets player N's turn.
+>>>>>>> 58f13f0714eebfaf48745bde9bb0543a4b3af338
 	 */
 	public void setTurn(boolean b) {
 		myTurn = b;
 	}
 	
-	//how many of each card?
 	/**
+	 * This method gets the amount of coins Player N has.
 	 * @return coins
 	 */
 	public int getCoins() {
@@ -90,14 +101,16 @@ public class Player {
 	}
 	
 	/**
-	 * @param c
+	 * This method adds coins to Player N's inventory.
+	 * @param c is the int value that Player N's coins should increase.
 	 */
 	public void addCoins(int c) {
 		coins = c + coins;
 	}
 	
 	/**
-	 * @param c
+	 * This method removes coins from Player N's inventory.
+	 * @param c is the int value that Player N's coins should decrease.
 	 */
 	public void removeCoins(int c) {
 		coins = coins - c;
