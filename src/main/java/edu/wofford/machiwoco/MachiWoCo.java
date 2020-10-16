@@ -95,9 +95,11 @@ public class MachiWoCo {
                 // if else statements that checks what number the player entered...
                 // and then do add coins/remove card etc...
                 if (p1.getTurn()) {
-                    System.out.println("Player 1 chose to..." + choice);
+                    System.out.println("Player 1 chose " + choice);
+                    game.purchaseCard(choice);
                 } else if (p2.getTurn()) {
-                    System.out.println("Player 2 chose to..." + choice);
+                    System.out.println("Player 2 chose " + choice);
+                    game.purchaseCard(choice);
                 }
 
                 //End turn for this player and then do this all again until the game ends...
@@ -119,7 +121,7 @@ public class MachiWoCo {
         else if (p2.hasCityHall()){
             System.out.println("The game is over. Player 2 is the winner.");
         }
-        //print final gamestate
+        
 
 
     }
