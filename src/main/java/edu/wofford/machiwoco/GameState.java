@@ -58,6 +58,7 @@ public class GameState {
         }
     }
 
+    /*
     public void viewCard(String view, int choice) { 
         //TODO
             // Adjust condititons so the card desired is viewed
@@ -80,6 +81,7 @@ public class GameState {
             purchaseCard(choice);
         }
     }
+    */
 
     public void purchaseCard(int choice) {
         if (getCurrentPlayer()) {
@@ -654,10 +656,6 @@ public class GameState {
     }
 
     public void printMarketMenu() {
-        System.out.println("To view details of an item, type 'view'");
-        System.out.println("followed by the item number. For example,");
-        System.out.println("to view item 6, type 'view 6'.");
-        System.out.println("                                          ");
         if (getCurrentPlayer()) {
             if (p1.getCoins() >= 7) {
                 System.out.println("==========================================");
