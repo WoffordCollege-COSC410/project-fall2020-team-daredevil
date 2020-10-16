@@ -41,6 +41,8 @@ public class GameStateTest {
     @Test
     public void testGetCurrentPlayer() {
         assertThat(m.getCurrentPlayer(), is(false));
+        p1.setTurn(true);
+        assertThat(m.getCurrentPlayer(), is(true));
     }
    
     @Test
