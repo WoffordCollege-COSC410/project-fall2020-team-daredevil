@@ -78,6 +78,9 @@ public class GameState {
                     p1.addCard("F");
                     p1.removeCoins(3);
                     availableForest -= 1;
+                } else if (choice == 4) {
+                    p1.addCard("city");
+                    p1.removeCoins(7);
                 } else if (choice == 99) {
                     System.out.println("Player 1 chose not to make improvements.");
                 } else {
@@ -94,6 +97,9 @@ public class GameState {
                     p1.addCard("R");
                     p1.removeCoins(1);
                     availableRanch -= 1;
+                } else if (choice == 4) {
+                    p1.addCard("city");
+                    p1.removeCoins(7);
                 } else if (choice == 99) {
                     System.out.println("Player 1 chose not to make improvements.");
                 } else {
@@ -110,6 +116,9 @@ public class GameState {
                     p1.addCard("F");
                     p1.removeCoins(3);
                     availableForest -= 1;
+                } else if (choice == 4) {
+                    p1.addCard("city");
+                    p1.removeCoins(7);
                 } else if (choice == 99) {
                     System.out.println("Player 1 chose not to make improvements.");
                 } else {
@@ -126,6 +135,9 @@ public class GameState {
                     p1.addCard("F");
                     p1.removeCoins(3);
                     availableForest -= 1;
+                } else if (choice == 4) {
+                    p1.addCard("city");
+                    p1.removeCoins(7);
                 } else if (choice == 99) {
                     System.out.println("Player 1 chose not to make improvements.");
                 } else {
@@ -137,6 +149,9 @@ public class GameState {
                     p1.addCard("W");
                     p1.removeCoins(1);
                     availableWheat -= 1;
+                } else if (choice == 4) {
+                    p1.addCard("city");
+                    p1.removeCoins(7);
                 } else if (choice == 99) {
                     System.out.println("Player 1 chose not to make improvements.");
                 } else {
@@ -148,6 +163,9 @@ public class GameState {
                     p1.addCard("R");
                     p1.removeCoins(1);
                     availableRanch -= 1;
+                } else if (choice == 4) {
+                    p1.addCard("city");
+                    p1.removeCoins(7);
                 } else if (choice == 99) {
                     System.out.println("Player 1 chose not to make improvements.");
                 } else {
@@ -159,9 +177,19 @@ public class GameState {
                     p1.addCard("F");
                     p1.removeCoins(3);
                     availableForest -= 1;
+                } else if (choice == 4) {
+                    p1.addCard("city");
+                    p1.removeCoins(7);
+                } else if (choice == 99) {
+                    System.out.println("Player 1 chose not to make improvements.");
+                } else {
+                    System.out.println("Invalid input. Try again.");
                 }
             } else {
-                if (choice == 99) {
+                if (choice == 4) {
+                    p1.addCard("city");
+                    p1.removeCoins(7);
+                } else if (choice == 99) {
                     System.out.println("Player 1 chose not to make improvements.");
                 } else {
                     System.out.println("Invalid input. Try again.");
@@ -184,6 +212,9 @@ public class GameState {
                     p2.addCard("F");
                     p2.removeCoins(3);
                     availableForest -= 1;
+                } else if (choice == 4) {
+                    p2.addCard("city");
+                    p2.removeCoins(7);
                 } else if (choice == 99) {
                     System.out.println("Player 2 chose not to make improvements.");
                 } else {
@@ -200,6 +231,9 @@ public class GameState {
                     p2.addCard("R");
                     p2.removeCoins(1);
                     availableRanch -= 1;
+                } else if (choice == 4) {
+                    p2.addCard("city");
+                    p2.removeCoins(7);
                 } else if (choice == 99) {
                     System.out.println("Player 2 chose not to make improvements.");
                 } else {
@@ -216,6 +250,9 @@ public class GameState {
                     p2.addCard("F");
                     p2.removeCoins(3);
                     availableForest -= 1;
+                } else if (choice == 4) {
+                    p2.addCard("city");
+                    p2.removeCoins(7);
                 } else if (choice == 99) {
                     System.out.println("Player 2 chose not to make improvements.");
                 } else {
@@ -232,6 +269,9 @@ public class GameState {
                     p2.addCard("F");
                     p2.removeCoins(3);
                     availableForest -= 1;
+                } else if (choice == 4) {
+                    p2.addCard("city");
+                    p2.removeCoins(7);
                 } else if (choice == 99) {
                     System.out.println("Player 2 chose not to make improvements.");
                 } else {
@@ -243,6 +283,9 @@ public class GameState {
                     p2.addCard("W");
                     p2.removeCoins(1);
                     availableWheat -= 1;
+                } else if (choice == 4) {
+                    p2.addCard("city");
+                    p2.removeCoins(7);
                 } else if (choice == 99) {
                     System.out.println("Player 2 chose not to make improvements.");
                 } else {
@@ -254,6 +297,9 @@ public class GameState {
                     p2.addCard("R");
                     p2.removeCoins(1);
                     availableRanch -= 1;
+                } else if (choice == 4) {
+                    p2.addCard("city");
+                    p2.removeCoins(7);
                 } else if (choice == 99) {
                     System.out.println("Player 2 chose not to make improvements.");
                 } else {
@@ -265,9 +311,19 @@ public class GameState {
                     p2.addCard("F");
                     p2.removeCoins(3);
                     availableForest -= 1;
+                } else if (choice == 4) {
+                    p2.addCard("city");
+                    p2.removeCoins(7);
+                } else if (choice == 99) {
+                    System.out.println("Player 2 chose not to make improvements.");
+                } else {
+                    System.out.println("Invalid input. Try again.");
                 }
             } else {
-                if (choice == 99) {
+                if (choice == 4) {
+                    p2.addCard("city");
+                    p2.removeCoins(7);
+                } else if (choice == 99) {
                     System.out.println("Player 2 chose not to make improvements.");
                 } else {
                     System.out.println("Invalid input. Try again.");
