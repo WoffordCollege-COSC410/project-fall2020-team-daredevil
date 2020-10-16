@@ -58,9 +58,30 @@ public class GameState {
         }
     }
 
+    public void viewCard(String view, int choice) { 
+        //TODO
+            // Adjust condititons so the card desired is viewed
+            // For now, WF is the only one that can be viewd
+        if (view.equals("view")) {
+            if (choice == 1) {
+                System.out.println(".-----------------------.");
+                System.out.println("| <B>      [1]      {W} |");
+                System.out.println("|      Wheat Field      |");
+                System.out.println("|                       |");
+                System.out.println("|  Get 1 coin from the  |");
+                System.out.println("|         bank.         |");
+                System.out.println("|    (anyone's turn)    |");
+                System.out.println("|                       |");
+                System.out.println("| (1)                   |");
+                System.out.println("|_______________________|");
+                System.out.println("                         ");
+            } 
+        } else {
+            purchaseCard(choice);
+        }
+    }
+
     public void purchaseCard(int choice) {
-    //make options array for purchase options
-    //give player options -> buy that thing
         if (getCurrentPlayer()) {
             if (options.contains("3.")) {
                 if (choice == 1) {
@@ -396,7 +417,6 @@ public class GameState {
     }
 
     public void printPlayerOneState() {
-        //TODO if turn is true then star name
         if (getCurrentPlayer()) {
             if (p1.ecards[0] > 0 && p1.ecards[1] == 0 && p1.ecards[2] == 0) {
                 System.out.println("              Player 1* [YOU]             ");
@@ -637,6 +657,7 @@ public class GameState {
         System.out.println("To view details of an item, type 'view'");
         System.out.println("followed by the item number. For example,");
         System.out.println("to view item 6, type 'view 6'.");
+        System.out.println("                                          ");
         if (getCurrentPlayer()) {
             if (p1.getCoins() >= 7) {
                 System.out.println("==========================================");
@@ -647,6 +668,7 @@ public class GameState {
                 System.out.println("---------         CANCEL         ---------");
                 System.out.println("99. Do nothing                            ");
                 System.out.println("==========================================");
+                System.out.println("                                          ");
             } else if (p1.getCoins() < 7 && p1.getCoins() >=3) {
                 System.out.println("==========================================");
                 System.out.println("---------        PURCHASE        ---------");
@@ -654,6 +676,7 @@ public class GameState {
                 System.out.println("---------         CANCEL         ---------");
                 System.out.println("99. Do nothing                            ");
                 System.out.println("==========================================");
+                System.out.println("                                          ");
             } else if (p1.getCoins() > 0 && p1.getCoins() < 3) {
                 System.out.println("==========================================");
                 System.out.println("---------        PURCHASE        ---------");
@@ -661,11 +684,13 @@ public class GameState {
                 System.out.println("---------         CANCEL         ---------");
                 System.out.println("99. Do nothing                            ");
                 System.out.println("==========================================");
+                System.out.println("                                          ");
             } else {
                 System.out.println("==========================================");
                 System.out.println("---------         CANCEL         ---------");
                 System.out.println("99. Do nothing                            ");
                 System.out.println("==========================================");
+                System.out.println("                                          ");
             }
         } else {
             if (p2.getCoins() >= 7) {
@@ -677,6 +702,7 @@ public class GameState {
                 System.out.println("---------         CANCEL         ---------");
                 System.out.println("99. Do nothing                            ");
                 System.out.println("==========================================");
+                System.out.println("                                          ");
             } else if (p2.getCoins() < 7 && p2.getCoins() >=3) {
                 System.out.println("==========================================");
                 System.out.println("---------        PURCHASE        ---------");
@@ -684,6 +710,7 @@ public class GameState {
                 System.out.println("---------         CANCEL         ---------");
                 System.out.println("99. Do nothing                            ");
                 System.out.println("==========================================");
+                System.out.println("                                          ");
             } else if (p2.getCoins() > 0 && p2.getCoins() < 3) {
                 System.out.println("==========================================");
                 System.out.println("---------        PURCHASE        ---------");
@@ -691,11 +718,13 @@ public class GameState {
                 System.out.println("---------         CANCEL         ---------");
                 System.out.println("99. Do nothing                            ");
                 System.out.println("==========================================");
+                System.out.println("                                          ");
             } else {
                 System.out.println("==========================================");
                 System.out.println("---------         CANCEL         ---------");
                 System.out.println("99. Do nothing                            ");
                 System.out.println("==========================================");
+                System.out.println("                                          ");
             }
         }
     }

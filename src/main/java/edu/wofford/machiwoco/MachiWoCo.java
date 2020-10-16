@@ -43,7 +43,7 @@ public class MachiWoCo {
                 
                 //Current Game State
                     // 1. Get Market state from Market Class
-                    // 2. Get Players' state from Players Class
+                    // 2. Get Players' states from Players Class
                 game.printMarketState();
                 game.printPlayerOneState();
                 game.printPlayerTwoState();
@@ -83,28 +83,44 @@ public class MachiWoCo {
                             System.out.println("Forest activated for Player 2.");
                             p2.addCoins(1 * p2.getNumForest());
                         }
-                        //p1.addCoins(1); if he has it and times how many
-                        //p2.addCoins(1); if he has it and times how many
                     } 
                 }
-
+                
                 game.printMarketMenu();
-                Scanner scan = new Scanner(System.in);
-                System.out.println("Choose a number to purchase or construct: ");
-                int choice = scan.nextInt();
-                // if else statements that checks what number the player entered...
-                // and then do add coins/remove card etc...
-                //End turn for this player and then do this all again until the game ends...
                 if (p1.getTurn()) {
+                    System.out.println("Player 1, would you like to purchase an");
+                    System.out.println("establishment or construct a landmark? (" + p1.getCoins());
+                    System.out.println("coins)");
+                    System.out.println("To view details of an item, type 'view'");
+                    System.out.println("followed by the item number. For example,");
+                    System.out.println("to view item 6, type 'view 6'.");
+                    Scanner scanString = new Scanner(System.in);
+                    Scanner scanInt= new Scanner(System.in);
+                    String view = scanString.next();
+                    int choice = scanInt.nextInt();
+                    System.out.println("Choose a number to purchase or construct: " + view + choice);
+                    game.viewCard(view, choice);
                     game.purchaseCard(choice);
                     System.out.println("Turn ended for Player 1.");
                     p1.setTurn(false);
                     p2.setTurn(true);
-                } else if (p2.getTurn()) {
+                }  else if (p2.getTurn()) {
+                    System.out.println("Player 2, would you like to purchase an");
+                    System.out.println("establishment or construct a landmark? (" + p2.getCoins());
+                    System.out.println("coins)");
+                    System.out.println("To view details of an item, type 'view'");
+                    System.out.println("followed by the item number. For example,");
+                    System.out.println("to view item 6, type 'view 6'.");
+                    Scanner scanString = new Scanner(System.in);
+                    Scanner scanInt= new Scanner(System.in);
+                    String view = scanString.next();
+                    int choice = scanInt.nextInt();
+                    System.out.println("Choose a number to purchase or construct: " + view + choice);
+                    game.viewCard(view, choice);
                     game.purchaseCard(choice);
                     System.out.println("Turn ended for Player 2.");
-                    p2.setTurn(false);
                     p1.setTurn(true);
+                    p2.setTurn(false);
                 }
             }
         }
