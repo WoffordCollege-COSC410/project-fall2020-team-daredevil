@@ -398,7 +398,6 @@ public class GameState {
             System.out.println("Ranch              BC (1)  [2]      #" + availableRanch);
             System.out.println("Forest             BG (3)  [5]      #" + availableForest);
             System.out.println("                                          ");
-
         } else if (availableWheat > 0 && availableRanch > 0 && availableForest == 0) {
             System.out.println("******************************************");
             System.out.println("                  MARKET                  ");

@@ -44,6 +44,26 @@ public class GameStateTest {
         p1.setTurn(true);
         assertThat(m.getCurrentPlayer(), is(true));
     }
+
+    @Test
+    public void testPurchaseCard() {
+        //TODO
+    }
+
+    @Test
+    public void testPrintMarketState() {
+        //TODO
+    }
+
+    @Test
+    public void testPrintPlayerOneState() {
+        //TODO
+    }
+
+    @Test
+    public void testPrintPlayerTwoState() {
+        //TODO
+    }
    
     @Test
     public void testMenuOptions() {
@@ -57,9 +77,5 @@ public class GameStateTest {
                             + "2. Ranch               BC (1)  [2]      #" + m.getAvailableRanch() + "\n"
                             + "3. Forest              BG (3)  [5]      #" + m.getAvailableForest()));
         assertThat(p1.getCoins(), is(3));
-    }
-    
-    @Test
-    public void testPrintMarketState() {
     }
 }

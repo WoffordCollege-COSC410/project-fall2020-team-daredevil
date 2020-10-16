@@ -127,10 +127,12 @@ public class MachiWoCo {
         }
         //End of game
         if(p1.hasCityHall()) {
+            game.printPlayerOneState();
             System.out.println("Player 1 has the City Hall");
             System.out.println("The game is over. Player 1 is the winner.");
         }
         else if (p2.hasCityHall()){
+            game.printPlayerTwoState();           
             System.out.println("Player 2 has the City Hall");
             System.out.println("The game is over. Player 2 is the winner.");
         }
