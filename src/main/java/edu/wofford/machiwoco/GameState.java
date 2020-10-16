@@ -487,48 +487,93 @@ public class GameState {
         String op7 = "1. Wheat Field         BW (1)  [1]      #" + availableWheat;
         //none
         String op8 = "";
-
-        if (p1.getCoins() >= 3) {
-            if (availableWheat == 0 && availableRanch == 0 && availableForest == 0) {
-                return op8;
-            } else if (availableWheat == 0) {
-                options = op2;
-                return op2;
-            } else if (availableRanch == 0) {
-                options = op3;
-                return op3;
-            } else if (availableForest == 0) {
-                options = op4;
-                return op4;
-            } else if (availableWheat == 0 && availableRanch == 0) {
-                options = op5;
-                return op5;
-            } else if (availableWheat == 0 && availableForest == 0) {
-                options = op6;
-                return op6;
-            } else if (availableRanch == 0 && availableForest == 0) {
-                options = op7;
-                return op7;
+        
+        if (getCurrentPlayer()) {
+            if (p1.getCoins() >= 3) {
+                if (availableWheat == 0 && availableRanch == 0 && availableForest == 0) {
+                    return op8;
+                } else if (availableWheat == 0) {
+                    options = op2;
+                    return op2;
+                } else if (availableRanch == 0) {
+                    options = op3;
+                    return op3;
+                } else if (availableForest == 0) {
+                    options = op4;
+                    return op4;
+                } else if (availableWheat == 0 && availableRanch == 0) {
+                    options = op5;
+                    return op5;
+                } else if (availableWheat == 0 && availableForest == 0) {
+                    options = op6;
+                    return op6;
+                } else if (availableRanch == 0 && availableForest == 0) {
+                    options = op7;
+                    return op7;
+                } else {
+                    options = op1;
+                    return op1;
+                }
+            } else if (p1.getCoins() <= 3 && p1.getCoins() > 0) {
+                if (availableWheat == 0 && availableRanch == 0) {
+                    return op8;
+                } else if (availableWheat == 0) {
+                    options = op6;
+                    return op6;
+                } else if (availableRanch == 0) {
+                    options = op7;
+                    return op7;
+                } else {
+                    options = op4;
+                    return op4;
+                }
             } else {
-                options = op1;
-                return op1;
-            }
-        } else if (p1.getCoins() <= 3 && p1.getCoins() > 0) {
-            if (availableWheat == 0 && availableRanch == 0) {
+                options = op8;
                 return op8;
-            } else if (availableWheat == 0) {
-                options = op6;
-                return op6;
-            } else if (availableRanch == 0) {
-                options = op7;
-                return op7;
-            } else {
-                options = op4;
-                return op4;
             }
         } else {
-            options = op8;
-            return op8;
+            if (p2.getCoins() >= 3) {
+                if (availableWheat == 0 && availableRanch == 0 && availableForest == 0) {
+                    return op8;
+                } else if (availableWheat == 0) {
+                    options = op2;
+                    return op2;
+                } else if (availableRanch == 0) {
+                    options = op3;
+                    return op3;
+                } else if (availableForest == 0) {
+                    options = op4;
+                    return op4;
+                } else if (availableWheat == 0 && availableRanch == 0) {
+                    options = op5;
+                    return op5;
+                } else if (availableWheat == 0 && availableForest == 0) {
+                    options = op6;
+                    return op6;
+                } else if (availableRanch == 0 && availableForest == 0) {
+                    options = op7;
+                    return op7;
+                } else {
+                    options = op1;
+                    return op1;
+                }
+            } else if (p2.getCoins() <= 3 && p2.getCoins() > 0) {
+                if (availableWheat == 0 && availableRanch == 0) {
+                    return op8;
+                } else if (availableWheat == 0) {
+                    options = op6;
+                    return op6;
+                } else if (availableRanch == 0) {
+                    options = op7;
+                    return op7;
+                } else {
+                    options = op4;
+                    return op4;
+                }
+            } else {
+                options = op8;
+                return op8;
+            }
         }
     }
 
