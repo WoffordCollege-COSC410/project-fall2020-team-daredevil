@@ -17,6 +17,12 @@ public class GameState {
     private Player p2;
     String options; //use this to get the Market Menu String--> then parse for player options so they can buy
     
+    /**
+     * @param p1 is Player 1
+     * @param p2 is Player 2
+     * Initializes the number of cards for Wheat Field, Ranch, and Forest
+     * 
+     */
     public GameState(Player p1, Player p2) {
         availableWheat = 6;
         availableRanch = 6;
@@ -26,18 +32,30 @@ public class GameState {
         this.p2 = p2;
     }
 
+    /**
+     * 
+     */
     public int getAvailableWheat() {
         return availableWheat;
     }
 
+    /**
+     * 
+     */
     public int getAvailableRanch() {
         return availableRanch;
     }
 
+    /**
+     * 
+     */
     public int getAvailableForest() {
         return availableForest;
     }
 
+    /**
+     * 
+     */
     public boolean isActivated(int r) {
         if (r == 1 || r == 2 || r == 5) {
             activated = true;
@@ -83,6 +101,9 @@ public class GameState {
     }
     */
 
+    /**
+     * 
+     */
     public void purchaseCard(int choice) {
         if (getCurrentPlayer()) {
             if (options.contains("3.")) {
