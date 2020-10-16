@@ -7,7 +7,6 @@ public class Player {
 	private boolean cityHall;
 	private int coins;
 	private boolean myTurn;
-	private int index = 0;
 	
 	
 	public Player() {
@@ -18,7 +17,6 @@ public class Player {
 		cityHall = false;
 		coins = 3;
 		myTurn = false;
-		index++;
 	}
 	
 	public boolean hasCityHall() {
