@@ -265,7 +265,7 @@ public class GameState {
                 } else if (choice == 99) {
                     System.out.println("Player 2 chose not to make improvements.");
                 } else {
-                    System.out.println("Invalid input. Try again.");
+                    System.out.println("Player 2 chose not to make improvements.");
                 }
             } else if (options.contains("1. W") && options.contains("2. R")) {
                 if (choice == 1) {
@@ -284,7 +284,7 @@ public class GameState {
                 } else if (choice == 99) {
                     System.out.println("Player 2 chose not to make improvements.");
                 } else {
-                    System.out.println("Invalid input. Try again.");
+                    System.out.println("Player 2 chose not to make improvements.");
                 }
             } else if (options.contains("1. W") && options.contains("2. F")) {
                 if (choice == 1) {
@@ -690,7 +690,6 @@ public class GameState {
                 System.out.println("---------         CANCEL         ---------");
                 System.out.println("99. Do nothing                            ");
                 System.out.println("==========================================");
-                System.out.println("                                          ");
             } else if (p1.getCoins() < 7 && p1.getCoins() >=3) {
                 System.out.println("==========================================");
                 System.out.println("---------        PURCHASE        ---------");
@@ -698,7 +697,6 @@ public class GameState {
                 System.out.println("---------         CANCEL         ---------");
                 System.out.println("99. Do nothing                            ");
                 System.out.println("==========================================");
-                System.out.println("                                          ");
             } else if (p1.getCoins() > 0 && p1.getCoins() < 3) {
                 System.out.println("==========================================");
                 System.out.println("---------        PURCHASE        ---------");
@@ -706,13 +704,11 @@ public class GameState {
                 System.out.println("---------         CANCEL         ---------");
                 System.out.println("99. Do nothing                            ");
                 System.out.println("==========================================");
-                System.out.println("                                          ");
             } else {
                 System.out.println("==========================================");
                 System.out.println("---------         CANCEL         ---------");
                 System.out.println("99. Do nothing                            ");
                 System.out.println("==========================================");
-                System.out.println("                                          ");
             }
         } else {
             if (p2.getCoins() >= 7) {
@@ -724,7 +720,6 @@ public class GameState {
                 System.out.println("---------         CANCEL         ---------");
                 System.out.println("99. Do nothing                            ");
                 System.out.println("==========================================");
-                System.out.println("                                          ");
             } else if (p2.getCoins() < 7 && p2.getCoins() >=3) {
                 System.out.println("==========================================");
                 System.out.println("---------        PURCHASE        ---------");
@@ -732,7 +727,6 @@ public class GameState {
                 System.out.println("---------         CANCEL         ---------");
                 System.out.println("99. Do nothing                            ");
                 System.out.println("==========================================");
-                System.out.println("                                          ");
             } else if (p2.getCoins() > 0 && p2.getCoins() < 3) {
                 System.out.println("==========================================");
                 System.out.println("---------        PURCHASE        ---------");
@@ -740,13 +734,11 @@ public class GameState {
                 System.out.println("---------         CANCEL         ---------");
                 System.out.println("99. Do nothing                            ");
                 System.out.println("==========================================");
-                System.out.println("                                          ");
             } else {
                 System.out.println("==========================================");
                 System.out.println("---------         CANCEL         ---------");
                 System.out.println("99. Do nothing                            ");
                 System.out.println("==========================================");
-                System.out.println("                                          ");
             }
         }
     }
