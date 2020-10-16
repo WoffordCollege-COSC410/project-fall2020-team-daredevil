@@ -69,7 +69,7 @@ public class EstablishmentTest {
 	public void testGetEffectModifier() {
 		assertThat(e.getEffectModifier(), is('N'));
 	}
-	
+
 	@Test
 	public void testSetEffect() {
 //		"effect": {
@@ -103,6 +103,7 @@ public class EstablishmentTest {
 	@Test
 	public void testSetColor() {
 		e.setColor("blue");
-		assertThat(e.getColor(), is("blue"));
+		assertThat(e.getColor(), is("blue"));	
 	}
+
 }
