@@ -33,7 +33,7 @@ public class MachiWoCo {
         System.out.println("The game has started. Player 1 will go first.");
         
         //Loop begins
-            while (!p1.hasCityHall() || !p2.hasCityHall()) {
+            while (!p1.hasCityHall() && !p2.hasCityHall()) {
             //Beginning of turn
                 if (p1.getTurn()) {
                     System.out.println("Turn started for Player 1.");
