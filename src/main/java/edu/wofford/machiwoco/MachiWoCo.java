@@ -86,7 +86,6 @@ public class MachiWoCo {
                     } 
                 }
                 
-                game.printMarketMenu();
                 if (p1.getTurn()) {
                     System.out.println("Player 1, would you like to purchase an");
                     System.out.println("establishment or construct a landmark? (" + p1.getCoins());
@@ -94,11 +93,12 @@ public class MachiWoCo {
                     System.out.println("To view details of an item, type 'view'");
                     System.out.println("followed by the item number. For example,");
                     System.out.println("to view item 6, type 'view 6'.");
+                    game.printMarketMenu();
                     //Scanner scanString = new Scanner(System.in);
+                    System.out.println("Choose a number to purchase or construct: ");
                     Scanner scanInt= new Scanner(System.in);
                     //String view = scanString.next();
                     int choice = scanInt.nextInt();
-                    System.out.println("Choose a number to purchase or construct: " + choice);
                     //game.viewCard(view, choice);
                     game.purchaseCard(choice);
                     System.out.println("Turn ended for Player 1.");
@@ -111,11 +111,12 @@ public class MachiWoCo {
                     System.out.println("To view details of an item, type 'view'");
                     System.out.println("followed by the item number. For example,");
                     System.out.println("to view item 6, type 'view 6'.");
+                    game.printMarketMenu();
+                    System.out.println("Choose a number to purchase or construct: ");
                     //Scanner scanString = new Scanner(System.in);
                     Scanner scanInt= new Scanner(System.in);
                     //String view = scanString.next();
                     int choice = scanInt.nextInt();
-                    System.out.println("Choose a number to purchase or construct: " + choice);
                     //game.viewCard(view, choice);
                     game.purchaseCard(choice);
                     System.out.println("Turn ended for Player 2.");
