@@ -32,7 +32,7 @@ public class Player {
 	
 	/**
 	 * 
-	 * @param s
+	 * @param s is which Establishment or Landmark to add 
 	 */
 	public void addCard(String s) {
 		if (s.equals("w") || s.equals("W")) {
@@ -75,7 +75,7 @@ public class Player {
 	}
 	
 	/**
-	 * @param b
+	 * @param b is true or false to set
 	 */
 	public void setTurn(boolean b) {
 		myTurn = b;
