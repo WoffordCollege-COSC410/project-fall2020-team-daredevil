@@ -63,8 +63,8 @@ public class MachiWoCo {
                     if (dice == 1) {
                         System.out.println("Wheat Field activated for Player 1.");
                         System.out.println("Wheat Field activated for Player 2.");
-                        p1.addCoins(1 * p1.getNumWheat()); //Times the number of Wheat Field cards that player has
-                        p2.addCoins(1 * p2.getNumWheat()); // -----------------''--------------------
+                        p1.addCoins(1 * p1.getNumWheat());
+                        p2.addCoins(1 * p2.getNumWheat());
                     } else if (dice == 2) {  //And if one or both players own that card
                         if (p1.getNumRanch() > 0) {
                             System.out.println("Ranch activated for Player 1.");

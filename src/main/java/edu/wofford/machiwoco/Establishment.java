@@ -112,9 +112,4 @@ public class Establishment {
 			effectModifier = 'N';
 		}
 	}
-	
-	
-	public static void main(String[] args) {
-		//USE ME TO TEST CLASS
-	}
 }
