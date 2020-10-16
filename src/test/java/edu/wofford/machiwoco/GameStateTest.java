@@ -33,6 +33,9 @@ public class GameStateTest {
     @Test
     public void testIsActivated() {
         assertThat(m.isActivated(0), is(false));
+        assertThat(m.isActivated(1), is(true));
+        assertThat(m.isActivated(2), is(true));
+        assertThat(m.isActivated(5), is(true));
     }
 
     @Test
