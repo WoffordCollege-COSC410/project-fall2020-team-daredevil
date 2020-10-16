@@ -56,8 +56,8 @@ public class GameState {
     }
 
     /**
-     * @param r The int value of the number rolled
-     * @return activated if roll is 1, 2, or 5 activated becomes true
+     * @param r: The int value of the number rolled
+     * @return activated: if roll is 1, 2, or 5 activated becomes true
      */
     public boolean isActivated(int r) {
         if (r == 1 || r == 2 || r == 5) {
@@ -69,8 +69,8 @@ public class GameState {
     }
     
     /**
-    * @return true initilizes turn for Player 1
-    * @return flase initilizes turn for Player 2
+     * @return true initilizes turn for Player 1
+     * @return flase initilizes turn for Player 2
     */
     public boolean getCurrentPlayer() {
         if (p1.getTurn()) {
@@ -106,7 +106,8 @@ public class GameState {
     */
 
     /**
-     * This method prints the correct output depending on the players choice
+     * This method prints the correct text output of what player N has 
+     * purchased/constructed depending on the players choice.
      * @param choice is the int value of the players choice from "Purchase" menu
      */
     public void purchaseCard(int choice) {
