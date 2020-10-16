@@ -63,17 +63,219 @@ public class GameState {
     //give player options -> buy that thing
         //build choices array
         //ifint arr[] = new int[3];
-        if (options.contains("3.")) {
+        if (getCurrentPlayer()) {
+            if (options.contains("3.")) {
+                if (choice == 1) {
+                    System.out.println("Player 1 purchased a Wheat Field.");
+                    p1.addCard("W");
+                    p1.removeCoins(1);
+                    availableWheat -= 1;
+                } else if (choice == 2) {
+                    System.out.println("Player 1 purchased a Ranch.");
+                    p1.addCard("R");
+                    p1.removeCoins(1);
+                    availableRanch -= 1;
+                } else if (choice == 3) {
+                    System.out.println("Player 1 purchased a Forrest.");
+                    p1.addCard("F");
+                    p1.removeCoins(3);
+                    availableForest -= 1;
+                } else if (choice == 99) {
+                    System.out.println("Player 1 chose not to make improvements.");
+                } else {
+                    System.out.println("Invalid input. Try again.");
+                }
+            } else if (options.contains("1. W") && options.contains("2. R")) {
+                if (choice == 1) {
+                    System.out.println("Player 1 purchased a Wheat Field.");
+                    p1.addCard("W");
+                    p1.removeCoins(1);
+                    availableWheat -= 1;
+                } else if (choice == 2) {
+                    System.out.println("Player 1 purchased a Ranch.");
+                    p1.addCard("R");
+                    p1.removeCoins(1);
+                    availableRanch -= 1;
+                } else if (choice == 99) {
+                    System.out.println("Player 1 chose not to make improvements.");
+                } else {
+                    System.out.println("Invalid input. Try again.");
+                }
+            } else if (options.contains("1. W") && options.contains("2. F")) {
+                if (choice == 1) {
+                    System.out.println("Player 1 purchased a Wheat Field.");
+                    p1.addCard("W");
+                    p1.removeCoins(1);
+                    availableWheat -= 1;
+                } else if (choice == 2) {
+                    System.out.println("Player 1 purchased a Forrest.");
+                    p1.addCard("F");
+                    p1.removeCoins(3);
+                    availableForest -= 1;
+                } else if (choice == 99) {
+                    System.out.println("Player 1 chose not to make improvements.");
+                } else {
+                    System.out.println("Invalid input. Try again.");
+                }
+            } else if (options.contains("1. R") && options.contains("2. F")) {
+                if (choice == 1) {
+                    System.out.println("Player 1 purchased a Ranch.");
+                    p1.addCard("R");
+                    p1.removeCoins(1);
+                    availableRanch -= 1;
+                } else if (choice == 2) {
+                    System.out.println("Player 1 purchased a Forrest.");
+                    p1.addCard("F");
+                    p1.removeCoins(3);
+                    availableForest -= 1;
+                } else if (choice == 99) {
+                    System.out.println("Player 1 chose not to make improvements.");
+                } else {
+                    System.out.println("Invalid input. Try again.");
+                }
+            } else if (options.contains("1. W")) {
+                if (choice == 1) {
+                    System.out.println("Player 1 purchased a Wheat Field.");
+                    p1.addCard("W");
+                    p1.removeCoins(1);
+                    availableWheat -= 1;
+                } else if (choice == 99) {
+                    System.out.println("Player 1 chose not to make improvements.");
+                } else {
+                    System.out.println("Invalid input. Try again.");
+                }
+            } else if (options.contains("1. R")) {
+                if (choice == 1) {
+                    System.out.println("Player 1 purchased a Ranch.");
+                    p1.addCard("R");
+                    p1.removeCoins(1);
+                    availableRanch -= 1;
+                } else if (choice == 99) {
+                    System.out.println("Player 1 chose not to make improvements.");
+                } else {
+                    System.out.println("Invalid input. Try again.");
+                }
+            } else if (options.contains("1. F")) {
+                if (choice == 1) {
+                    System.out.println("Player 1 purchased a Forrest.");
+                    p1.addCard("F");
+                    p1.removeCoins(3);
+                    availableForest -= 1;
+                }
+            } else {
+                if (choice == 99) {
+                    System.out.println("Player 1 chose not to make improvements.");
+                } else {
+                    System.out.println("Invalid input. Try again.");
+                }
+            }
+        } else {
+            if (options.contains("3.")) {
+                if (choice == 1) {
+                    System.out.println("Player 2 purchased a Wheat Field.");
+                    p2.addCard("W");
+                    p2.removeCoins(1);
+                    availableWheat -= 1;
+                } else if (choice == 2) {
+                    System.out.println("Player 2 purchased a Ranch.");
+                    p2.addCard("R");
+                    p2.removeCoins(1);
+                    availableRanch -= 1;
+                } else if (choice == 3) {
+                    System.out.println("Player 2 purchased a Forrest.");
+                    p2.addCard("F");
+                    p2.removeCoins(3);
+                    availableForest -= 1;
+                } else if (choice == 99) {
+                    System.out.println("Player 2 chose not to make improvements.");
+                } else {
+                    System.out.println("Invalid input. Try again.");
+                }
+            } else if (options.contains("1. W") && options.contains("2. R")) {
+                if (choice == 1) {
+                    System.out.println("Player 2 purchased a Wheat Field.");
+                    p2.addCard("W");
+                    p2.removeCoins(1);
+                    availableWheat -= 1;
+                } else if (choice == 2) {
+                    System.out.println("Player 2 purchased a Ranch.");
+                    p2.addCard("R");
+                    p2.removeCoins(1);
+                    availableRanch -= 1;
+                } else if (choice == 99) {
+                    System.out.println("Player 2 chose not to make improvements.");
+                } else {
+                    System.out.println("Invalid input. Try again.");
+                }
+            } else if (options.contains("1. W") && options.contains("2. F")) {
+                if (choice == 1) {
+                    System.out.println("Player 2 purchased a Wheat Field.");
+                    p2.addCard("W");
+                    p2.removeCoins(1);
+                    availableWheat -= 1;
+                } else if (choice == 2) {
+                    System.out.println("Player 2 purchased a Forrest.");
+                    p2.addCard("F");
+                    p2.removeCoins(3);
+                    availableForest -= 1;
+                } else if (choice == 99) {
+                    System.out.println("Player 2 chose not to make improvements.");
+                } else {
+                    System.out.println("Invalid input. Try again.");
+                }
+            } else if (options.contains("1. R") && options.contains("2. F")) {
+                if (choice == 1) {
+                    System.out.println("Player 2 purchased a Ranch.");
+                    p2.addCard("R");
+                    p2.removeCoins(1);
+                    availableRanch -= 1;
+                } else if (choice == 2) {
+                    System.out.println("Player 2 purchased a Forrest.");
+                    p2.addCard("F");
+                    p2.removeCoins(3);
+                    availableForest -= 1;
+                } else if (choice == 99) {
+                    System.out.println("Player 2 chose not to make improvements.");
+                } else {
+                    System.out.println("Invalid input. Try again.");
+                }
+            } else if (options.contains("1. W")) {
+                if (choice == 1) {
+                    System.out.println("Player 2 purchased a Wheat Field.");
+                    p2.addCard("W");
+                    p2.removeCoins(1);
+                    availableWheat -= 1;
+                } else if (choice == 99) {
+                    System.out.println("Player 2 chose not to make improvements.");
+                } else {
+                    System.out.println("Invalid input. Try again.");
+                }
+            } else if (options.contains("1. R")) {
+                if (choice == 1) {
+                    System.out.println("Player 2 purchased a Ranch.");
+                    p2.addCard("R");
+                    p2.removeCoins(1);
+                    availableRanch -= 1;
+                } else if (choice == 99) {
+                    System.out.println("Player 2 chose not to make improvements.");
+                } else {
+                    System.out.println("Invalid input. Try again.");
+                }
+            } else if (options.contains("1. F")) {
+                if (choice == 1) {
+                    System.out.println("Player 2 purchased a Forrest.");
+                    p2.addCard("F");
+                    p2.removeCoins(3);
+                    availableForest -= 1;
+                }
+            } else {
+                if (choice == 99) {
+                    System.out.println("Player 2 chose not to make improvements.");
+                } else {
+                    System.out.println("Invalid input. Try again.");
+                }
+            }
         }
-        if (p1.getTurn()) {
-            
-            p1.addCard("w");
-        } else if (p2.getTurn()) {
-            p2.addCard("w");
-        }
-
-        
-
     }
 
     /**
