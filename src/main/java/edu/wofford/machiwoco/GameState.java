@@ -58,11 +58,9 @@ public class GameState {
         }
     }
 
-    public void purchaseCard(int choice) { //TODO
+    public void purchaseCard(int choice) {
     //make options array for purchase options
     //give player options -> buy that thing
-        //build choices array
-        //ifint arr[] = new int[3];
         if (getCurrentPlayer()) {
             if (options.contains("3.")) {
                 if (choice == 1) {
@@ -76,7 +74,7 @@ public class GameState {
                     p1.removeCoins(1);
                     availableRanch -= 1;
                 } else if (choice == 3) {
-                    System.out.println("Player 1 purchased a Forrest.");
+                    System.out.println("Player 1 purchased a Forest.");
                     p1.addCard("F");
                     p1.removeCoins(3);
                     availableForest -= 1;
@@ -108,7 +106,7 @@ public class GameState {
                     p1.removeCoins(1);
                     availableWheat -= 1;
                 } else if (choice == 2) {
-                    System.out.println("Player 1 purchased a Forrest.");
+                    System.out.println("Player 1 purchased a Forest.");
                     p1.addCard("F");
                     p1.removeCoins(3);
                     availableForest -= 1;
@@ -124,7 +122,7 @@ public class GameState {
                     p1.removeCoins(1);
                     availableRanch -= 1;
                 } else if (choice == 2) {
-                    System.out.println("Player 1 purchased a Forrest.");
+                    System.out.println("Player 1 purchased a Forest.");
                     p1.addCard("F");
                     p1.removeCoins(3);
                     availableForest -= 1;
@@ -157,7 +155,7 @@ public class GameState {
                 }
             } else if (options.contains("1. F")) {
                 if (choice == 1) {
-                    System.out.println("Player 1 purchased a Forrest.");
+                    System.out.println("Player 1 purchased a Forest.");
                     p1.addCard("F");
                     p1.removeCoins(3);
                     availableForest -= 1;
@@ -182,7 +180,7 @@ public class GameState {
                     p2.removeCoins(1);
                     availableRanch -= 1;
                 } else if (choice == 3) {
-                    System.out.println("Player 2 purchased a Forrest.");
+                    System.out.println("Player 2 purchased a Forest.");
                     p2.addCard("F");
                     p2.removeCoins(3);
                     availableForest -= 1;
@@ -214,7 +212,7 @@ public class GameState {
                     p2.removeCoins(1);
                     availableWheat -= 1;
                 } else if (choice == 2) {
-                    System.out.println("Player 2 purchased a Forrest.");
+                    System.out.println("Player 2 purchased a Forest.");
                     p2.addCard("F");
                     p2.removeCoins(3);
                     availableForest -= 1;
@@ -230,7 +228,7 @@ public class GameState {
                     p2.removeCoins(1);
                     availableRanch -= 1;
                 } else if (choice == 2) {
-                    System.out.println("Player 2 purchased a Forrest.");
+                    System.out.println("Player 2 purchased a Forest.");
                     p2.addCard("F");
                     p2.removeCoins(3);
                     availableForest -= 1;
@@ -263,7 +261,7 @@ public class GameState {
                 }
             } else if (options.contains("1. F")) {
                 if (choice == 1) {
-                    System.out.println("Player 2 purchased a Forrest.");
+                    System.out.println("Player 2 purchased a Forest.");
                     p2.addCard("F");
                     p2.removeCoins(3);
                     availableForest -= 1;
@@ -569,7 +567,7 @@ public class GameState {
                 System.out.println("==========================================");
             }
         } else {
-            if (p1.getCoins() >= 7) {
+            if (p2.getCoins() >= 7) {
                 System.out.println("==========================================");
                 System.out.println("---------        PURCHASE        ---------");
                 System.out.println(menuOptions());

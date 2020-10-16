@@ -36,9 +36,23 @@ public class PlayerTest {
 	
 	@Test
 	public void testAddCard() {
+		p1.addCard("w");
+		assertThat(p1.getNumWheat(), is(2));
+		p1.addCard("W");
+		assertThat(p1.getNumWheat(), is(3));
+		
 		p1.addCard("r");
 		assertThat(p1.getNumRanch(), is(1));
+		p1.addCard("R");
+		assertThat(p1.getNumRanch(), is(2));
 		
+		p1.addCard("f");
+		assertThat(p1.getNumForest(), is(1));
+		p1.addCard("F");
+		assertThat(p1.getNumForest(), is(2));
+		
+		p1.addCard("c");
+		assertThat(p1.hasCityHall(), is(false));
 		p1.addCard("city");
 		assertThat(p1.hasCityHall(), is(true));
 	}

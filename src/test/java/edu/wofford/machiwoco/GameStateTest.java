@@ -46,6 +46,13 @@ public class GameStateTest {
     }
    
     @Test
+    public void testMenuOptions() {
+        assertThat(m.menuOptions(), is("1. Wheat Field         BW (1)  [1]      #" + m.getAvailableWheat() + "\n"
+                            + "2. Ranch               BC (1)  [2]      #" + m.getAvailableRanch() + "\n"
+                            + "3. Forest              BG (3)  [5]      #" + m.getAvailableForest()));
+    }
+    
+    @Test
     public void testPrintMarketState() {
     }
 }
