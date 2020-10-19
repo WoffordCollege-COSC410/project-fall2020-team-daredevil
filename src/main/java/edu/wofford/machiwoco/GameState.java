@@ -538,7 +538,7 @@ public class GameState {
                 System.out.println("                (" + p2.getCoins() + " coins)                 ");
                 System.out.println("Wheat Field        BW (1)  [1]      #" + p2.ecards[0]);
                 System.out.println("Ranch              BC (1)  [2]      #" + p2.ecards[1]);
-                System.out.println("Ranch              BC (1)  [2]      #" + p2.ecards[2]); //TODO this should be a Forest
+                System.out.println("Forest             BC (1)  [2]      #" + p2.ecards[2]); //TODO this should be a Forest
                 System.out.println("..........................................");
                 System.out.println("City Hall          NT (7)  [ ]            ");
                 System.out.println("                                          ");
