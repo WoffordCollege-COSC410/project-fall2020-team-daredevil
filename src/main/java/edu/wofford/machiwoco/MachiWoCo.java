@@ -71,8 +71,8 @@ public class MachiWoCo {
                     if (dice == 1) {
                         System.out.println("Wheat Field activated for Player 1.");
                         System.out.println("Wheat Field activated for Player 2.");
-                        p1.addCoins(1 * p1.getNumWheat()); //Times the number of Wheat Field cards that player has
-                        p2.addCoins(1 * p2.getNumWheat()); // -----------------''--------------------
+                        p1.addCoins(1 * p1.getNumWheat());
+                        p2.addCoins(1 * p2.getNumWheat());
                     } else if (dice == 2) {  //And if one or both players own that card
                         if (p1.getNumRanch() > 0) {
                             System.out.println("Ranch activated for Player 1.");
@@ -95,6 +95,7 @@ public class MachiWoCo {
                 }
                 
                 if (p1.getTurn()) {
+                    System.out.println();
                     System.out.println("Player 1, would you like to purchase an");
                     System.out.println("establishment or construct a landmark? (" + p1.getCoins());
                     System.out.println("coins)");
@@ -113,6 +114,7 @@ public class MachiWoCo {
                     p1.setTurn(false);
                     p2.setTurn(true);
                 }  else if (p2.getTurn()) {
+                    System.out.println();
                     System.out.println("Player 2, would you like to purchase an");
                     System.out.println("establishment or construct a landmark? (" + p2.getCoins());
                     System.out.println("coins)");
@@ -135,10 +137,12 @@ public class MachiWoCo {
         }
         //End of game
         if(p1.hasCityHall()) {
+            game.printPlayerOneState();
             System.out.println("Player 1 has the City Hall");
             System.out.println("The game is over. Player 1 is the winner.");
         }
         else if (p2.hasCityHall()){
+            game.printPlayerTwoState();           
             System.out.println("Player 2 has the City Hall");
             System.out.println("The game is over. Player 2 is the winner.");
         }
