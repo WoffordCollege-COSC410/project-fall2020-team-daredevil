@@ -7,6 +7,9 @@ import static org.junit.Assert.assertTrue;
 import org.junit.*;
 
 public class PlayerTest {
+	
+	/*
+
 	Player p1;
 	
 	@Before
@@ -92,4 +95,7 @@ public class PlayerTest {
 //	public static void main(String[] args) {
 //		
 //	}
+
+	*/
+
 }

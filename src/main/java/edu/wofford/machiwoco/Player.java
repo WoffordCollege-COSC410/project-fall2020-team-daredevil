@@ -3,6 +3,11 @@ package edu.wofford.machiwoco;
 
 public class Player {
 	
+
+	/*
+
+	-------------------------------- OLD CODE ------------------------------------
+
 	int[] ecards;
 	private boolean cityHall;
 	private int coins;
@@ -73,4 +78,9 @@ public class Player {
 //		Player p1 = new Player();
 //		System.out.println(p1.getLastCard());
 //	}
+
+------------------------------------------------------------------------------------
+
+*/
+
 }

@@ -7,6 +7,14 @@ import java.util.Random;
 
 public class MachiWoCo {
 
+    public static void main(String[] args) {
+        
+    }
+
+
+    /*
+
+    ------------------------------- OLD CODE -------------------------------------
 
     public static void main(String[] args) {
         //Establishment e = new Establishment("Wheat", 3, "red", "G");
@@ -135,5 +143,9 @@ public class MachiWoCo {
             System.out.println("The game is over. Player 2 is the winner.");
         }
     }
+
+    ------------------------------------------------------------------------------------
+
+    */
 }
 
