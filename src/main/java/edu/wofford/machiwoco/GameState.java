@@ -4,7 +4,17 @@ package edu.wofford.machiwoco;
  */
 public class GameState {
 
+    public GameState() {
 
+    }
+
+    public String printMarket() {
+        return "";
+    }
+
+    public String printPlayer() {
+        return "";
+    }
 
 
     /*

@@ -113,8 +113,14 @@ public class MachiWoCo {
                 System.out.println("==========================================");
                 System.out.println("---------        PURCHASE        ---------");
                 for (int i = 0; i < 3; i++) {
+                    if (coins[turn] >= cardCost[i] && availableCards[i] > 0) {
                     System.out.println((i + 1) + ". " + cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ") [" + activation[i] + "] #" + availableCards[i]);
+                    }
                 }
+                System.out.println("==========================================");
+                System.out.println("---------         CANCEL         ---------");
+                System.out.println("99. Do nothing                            ");
+                System.out.println("==========================================");
 
                 System.out.println("Choose a number to purchase or construct: ");
                 Scanner scan = new Scanner(System.in);
@@ -129,12 +135,22 @@ public class MachiWoCo {
                         } else if (turn == 1) {
                             p2Cards[i] += 1;
                             coins[1] -= cardCost[i];
-                        }
+                        }  
+                    }
+                    else if (choice == 99) {
+                        System.out.println("Player " + (turn + 1) + " chose not to make any improvements.");
+                        break;
                     }
                 }
                 System.out.println("Turn ended for Player " + (turn + 1));
                 turn = (turn + 1) % 2;
-                System.out.println("This is the turn: " + turn);
+                if (coins[0] >= 7) {
+                    cityHall = 1;
+                    System.out.println("The game is over. Player " + cityHall + " is the winner.");
+                } else if (coins[1] >= 7) {
+                    cityHall = 2;
+                    System.out.println("The game is over. Player " + cityHall + " is the winner.");
+                }
             }
         }
 
