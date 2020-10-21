@@ -5,7 +5,6 @@ package edu.wofford.machiwoco;
  */
 public class Player {
 	
-
 	/*
 
 	-------------------------------- OLD CODE ------------------------------------
