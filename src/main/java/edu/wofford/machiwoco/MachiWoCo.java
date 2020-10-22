@@ -62,7 +62,7 @@ public class MachiWoCo {
                 // Print Player 1 State
                 System.out.println("              Player 1 [YOU]              ");
                 System.out.println("------------------------------------------");
-                System.out.println("             (" + coins[0] + " coins)     ");
+                System.out.println("                (" + coins[0] + " coins)  ");
                 for (int i = 0; i < 3; i++) {
                     if (p1Cards[i] > 0) {
                         System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ") [" + activation[i] + "] #" + p1Cards[i]);
@@ -75,7 +75,7 @@ public class MachiWoCo {
                 // Print Player 2 State
                 System.out.println("                 Player 2                 ");
                 System.out.println("------------------------------------------");
-                System.out.println("             (" + coins[1] + " coins)     ");
+                System.out.println("                (" + coins[1] + " coins)  ");
                 for (int i = 0; i < 3; i++) {
                     if (p2Cards[i] > 0) {
                         System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ") [" + activation[i] + "] #" + p2Cards[i]);
@@ -90,26 +90,33 @@ public class MachiWoCo {
                 int high = 7;
                 int dice = random.nextInt(high - low) + low;
                 System.out.println("Player " + (turn + 1) + " rolled [" + dice + "] = " + dice);
+                System.out.println();
      
                 // Check to see if the dice roll activated any cards
                 for (int i = 0; i < 3; i++) {
                     if (dice == activation[i]) {
-                        coins[0] += 1 * p1Cards[i];
-                        coins[1] += 1 * p2Cards[i];
                         if (p1Cards[i] > 0 && p2Cards[i] > 0) {
                             System.out.println(cardName[i] + " activated for Player 1");
                             System.out.println(cardName[i] + " activated for Player 2");
+                            System.out.println();
+                            coins[0] += 1 * p1Cards[i];
+                            coins[1] += 1 * p2Cards[i];
                         } else if (p1Cards[i] > 0) {
                             System.out.println(cardName[i] + " activated for Player 1");
+                            System.out.println();
+                            coins[0] += 1 * p1Cards[i];
                         } else if (p2Cards[i] > 0) {
                             System.out.println(cardName[i] + " activated for Player 2");
+                            System.out.println();
+                            coins[1] += 1 * p2Cards[i];
                         } 
                     } 
                 }
 
                 System.out.println("Player " + (turn + 1) + ", would you like to purchase an");
                 System.out.println("establishment or construct a landmark? (" + coins[turn]);
-                System.out.println(" coins)");
+                System.out.println("coins)");
+                System.out.println();
                 System.out.println("==========================================");
                 System.out.println("---------        PURCHASE        ---------");
                 for (int i = 0; i < 3; i++) {
@@ -121,6 +128,7 @@ public class MachiWoCo {
                 System.out.println("---------         CANCEL         ---------");
                 System.out.println("99. Do nothing                            ");
                 System.out.println("==========================================");
+                System.out.println();
 
                 System.out.println("Choose a number to purchase or construct: ");
                 Scanner scan = new Scanner(System.in);
@@ -128,6 +136,7 @@ public class MachiWoCo {
                 for (int i = 0; i < 3; i++) {
                     if (choice == i + 1) {
                         System.out.println("Player " + (turn + 1) + " purchased a " + cardName[i]);
+                        System.out.println();
                         availableCards[i] -= 1;
                         if (turn == 0) {
                             p1Cards[i] += 1;
@@ -139,10 +148,12 @@ public class MachiWoCo {
                     }
                     else if (choice == 99) {
                         System.out.println("Player " + (turn + 1) + " chose not to make any improvements.");
+                        System.out.println();
                         break;
                     }
                 }
                 System.out.println("Turn ended for Player " + (turn + 1));
+                System.out.println();
                 turn = (turn + 1) % 2;
                 if (coins[0] >= 7) {
                     cityHall = 1;
@@ -153,7 +164,6 @@ public class MachiWoCo {
                 }
             }
         }
-
     }
 }
 
