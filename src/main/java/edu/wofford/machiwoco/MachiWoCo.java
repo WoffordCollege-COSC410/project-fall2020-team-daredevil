@@ -8,6 +8,8 @@ import java.util.Random;
 public class MachiWoCo {
     private static int cityHall;
     private static int turn;
+//    Player p1 = new Player("Player 1");
+//    Player p2 = new Player("Player 2");
     private static int[] availableCards = {6, 6, 6};
     private static int[] p1Cards = {1, 0, 0};
     private static int[] p2Cards = {1, 0, 0};
@@ -133,6 +135,11 @@ public class MachiWoCo {
                 System.out.println("Choose a number to purchase or construct: ");
                 Scanner scan = new Scanner(System.in);
                 int choice = scan.nextInt();
+//                if (turn == 0) {
+//                    p1.purchaseCard(availableCards, cardCost, choice, cardName);
+//                } else if (turn == 1) {
+//                    p2.purchaseCard(availableCards, cardCost, choice, cardName);
+//                }
                 for (int i = 0; i < 3; i++) {
                     if (choice == i + 1) {
                         System.out.println("Player " + (turn + 1) + " purchased a " + cardName[i]);
