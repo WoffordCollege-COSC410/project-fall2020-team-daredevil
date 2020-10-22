@@ -58,7 +58,9 @@ public class MachiWoCo {
                 }
                 System.out.println("                                          ");
                 
-
+                //System.out.println("              Player " + (turn + 1) + " [YOU]              ");
+                //if (turn == 0 && p1Cards[i] > 0) {}
+                //else if (turn == 1 && p2Cards[i] > 0) {}
                 // Print Player 1 State
                 System.out.println("              Player 1 [YOU]              ");
                 System.out.println("------------------------------------------");
@@ -91,7 +93,7 @@ public class MachiWoCo {
                 int dice = random.nextInt(high - low) + low;
                 System.out.println("Player " + (turn + 1) + " rolled [" + dice + "] = " + dice);
      
-                // Check to see if the dice roll activated any cards
+                // Check to see if the dice roll activated any cards 
                 for (int i = 0; i < 3; i++) {
                     if (dice == activation[i]) {
                         coins[0] += 1 * p1Cards[i];
@@ -112,15 +114,9 @@ public class MachiWoCo {
                 System.out.println(" coins)");
                 System.out.println("==========================================");
                 System.out.println("---------        PURCHASE        ---------");
-                for (int i = 0; i < 3; i++) {
-                    if (coins[turn] >= cardCost[i] && availableCards[i] > 0) {
+                for (int i = 0; i < 3; i++) { 
                     System.out.println((i + 1) + ". " + cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ") [" + activation[i] + "] #" + availableCards[i]);
-                    }
                 }
-                System.out.println("==========================================");
-                System.out.println("---------         CANCEL         ---------");
-                System.out.println("99. Do nothing                            ");
-                System.out.println("==========================================");
 
                 System.out.println("Choose a number to purchase or construct: ");
                 Scanner scan = new Scanner(System.in);
@@ -135,22 +131,12 @@ public class MachiWoCo {
                         } else if (turn == 1) {
                             p2Cards[i] += 1;
                             coins[1] -= cardCost[i];
-                        }  
-                    }
-                    else if (choice == 99) {
-                        System.out.println("Player " + (turn + 1) + " chose not to make any improvements.");
-                        break;
+                        }
                     }
                 }
                 System.out.println("Turn ended for Player " + (turn + 1));
                 turn = (turn + 1) % 2;
-                if (coins[0] >= 7) {
-                    cityHall = 1;
-                    System.out.println("The game is over. Player " + cityHall + " is the winner.");
-                } else if (coins[1] >= 7) {
-                    cityHall = 2;
-                    System.out.println("The game is over. Player " + cityHall + " is the winner.");
-                }
+                System.out.println("This is the turn: " + turn);
             }
         }
 
