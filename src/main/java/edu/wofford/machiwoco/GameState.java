@@ -12,10 +12,6 @@ public class GameState {
         return "";
     }
 
-    public String printPlayer() {
-        return "";
-    }
-
 
     /*
 
