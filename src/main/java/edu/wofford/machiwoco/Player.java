@@ -4,7 +4,7 @@ package edu.wofford.machiwoco;
  * 
  */
 public class Player {
-	
+	/*
 	private static int[] pCards = {1, 0, 0};
 	//private static int[] coins = {3, 3};
 	private int coins;
@@ -16,7 +16,7 @@ public class Player {
 	* Creates new instance of Player
 	*/
 
-
+	/*
 	public Player(String name) {
 		pName = name;
 		//array only stores num of cards for each type
@@ -29,7 +29,8 @@ public class Player {
 	* @param availableCards, cardCost, choice, cardName
 	* 
 	*/
-		
+	
+	/*
 	public void purchaseCard(int[] availableCards, int[] cardCost, int choice, String[] cardName) {
 		if (choice == 99) {
 			System.out.println(pName + " chose not to make any improvements.");
@@ -53,6 +54,8 @@ public class Player {
 	 * This method gets the amount of coins Player N has.
 	 * @return coins
 	 */
+
+	/*
 	public int getCoins() {
 		return coins;
 	}
@@ -62,7 +65,7 @@ public class Player {
 	 * @param c is the int value that Player N's coins should increase.
 	 */
 
-	
+	/*
 	public void addCoins(int c) {
 		if (c >= 0) {
 			coins = c + coins;
@@ -73,6 +76,8 @@ public class Player {
 	 * This method removes coins from Player N's inventory.
 	 * @param c is the int value that Player N's coins should decrease.
 	 */
+
+	/*
 	public void removeCoins(int c) {
 		if (c > 0) {
 			coins = coins - c;
@@ -106,6 +111,7 @@ public class Player {
 	 * This method checks if Player N has constructed the City Hall.
 	 * @return cityHall 
 	 */
+
 	/*
 	public boolean hasCityHall() {
 		return cityHall;
@@ -116,7 +122,8 @@ public class Player {
 	 * @param s is the string "w", "r", "f", or "city" representing the 
 	 * card that will be given to player N.
 	 */
-	
+
+
 	/*
 	public void addCard(String s) {
 		if (s.equals("w") || s.equals("W")) { //Adding extra coins here?
@@ -134,6 +141,7 @@ public class Player {
 	 * This method gets the amount of Wheat Field cards Player N has.
 	 * @return ecards[0]
 	 */
+
 
 	/*
 	public int getNumWheat(){
@@ -155,6 +163,7 @@ public class Player {
 	 * @return ecard[2]
 	 */
 
+
 	/*
 	public int getNumForest(){
 		return ecards[2];
@@ -164,6 +173,7 @@ public class Player {
 	 * This method gets the turn of Player N.
 	 * @return myTurn
 	 */
+
 
 	/*
 	public boolean getTurn() {
@@ -196,6 +206,7 @@ public class Player {
 	 * @param c is the int value that Player N's coins should increase.
 	 */
 
+
 	/*
 	public void addCoins(int c) {
 		coins = c + coins;
@@ -205,6 +216,7 @@ public class Player {
 	 * This method removes coins from Player N's inventory.
 	 * @param c is the int value that Player N's coins should decrease.
 	 */
+
 	/*
 	public void removeCoins(int c) {
 		coins = coins - c;
@@ -214,9 +226,5 @@ public class Player {
 //		Player p1 = new Player();
 //		System.out.println(p1.getLastCard());
 //	}
-
-------------------------------------------------------------------------------------
-
-*/
-
+	*/
 }
