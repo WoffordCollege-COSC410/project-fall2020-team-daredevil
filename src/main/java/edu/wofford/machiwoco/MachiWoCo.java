@@ -166,33 +166,33 @@ public class MachiWoCo {
                 //TODO print market and player cards with CityHall marked
                 if (coins[0] >= 7) {
                     cityHall = 1;
-                    System.out.println("              Player 1 [YOU]              ");
-                    System.out.println("------------------------------------------");
-                    System.out.println("             (" + coins[0] + " coins)     ");
-                    for (int i = 0; i < 3; i++) {
-                        if (p1Cards[i] > 0) {
-                            System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + p1Cards[i]);
-                        }
-                    }
-                    System.out.println("..........................................");
-                    System.out.println("City Hall          NT (7)  [X]            ");
-                    System.out.println("                                          ");
-                    System.out.println("******************************************");
+                    // System.out.println("              Player 1 [YOU]              ");
+                    // System.out.println("------------------------------------------");
+                    // System.out.println("             (" + coins[0] + " coins)     ");
+                    // for (int i = 0; i < 3; i++) {
+                    //     if (p1Cards[i] > 0) {
+                    //         System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + p1Cards[i]);
+                    //     }
+                    // }
+                    // System.out.println("..........................................");
+                    // System.out.println("City Hall          NT (7)  [X]            ");
+                    // System.out.println("                                          ");
+                    // System.out.println("******************************************");
                     System.out.println("The game is over. Player " + cityHall + " is the winner.");
                 } else if (coins[1] >= 7) {
                     cityHall = 2;
-                    System.out.println("              Player 2                    ");
-                    System.out.println("------------------------------------------");
-                    System.out.println("             (" + coins[0] + " coins)     ");
-                    for (int i = 0; i < 3; i++) {
-                        if (p2Cards[i] > 0) {
-                            System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + p2Cards[i]);
-                        }
-                    }
-                    System.out.println("..........................................");
-                    System.out.println("City Hall          NT (7)  [X]            ");
-                    System.out.println("                                          ");
-                    System.out.println("******************************************");
+                    // System.out.println("              Player 2                    ");
+                    // System.out.println("------------------------------------------");
+                    // System.out.println("             (" + coins[0] + " coins)     ");
+                    // for (int i = 0; i < 3; i++) {
+                    //     if (p2Cards[i] > 0) {
+                    //         System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + p2Cards[i]);
+                    //     }
+                    // }
+                    // System.out.println("..........................................");
+                    // System.out.println("City Hall          NT (7)  [X]            ");
+                    // System.out.println("                                          ");
+                    // System.out.println("******************************************");
                     System.out.println("The game is over. Player " + cityHall + " is the winner.");
                 }
             }
