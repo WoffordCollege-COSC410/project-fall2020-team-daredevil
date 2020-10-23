@@ -101,7 +101,6 @@ public class MachiWoCo {
                 int dice = random.nextInt(high - low) + low;
                 System.out.println("******************************************");
                 System.out.println("Player " + (turn + 1) + " rolled [" + dice + "] = " + dice + ".");
-                System.out.println();
      
                 // Check to see if the dice roll activated any cards 
                 for (int i = 0; i < 3; i++) {
@@ -118,7 +117,7 @@ public class MachiWoCo {
                         } 
                     } 
                 }
-
+                System.out.println();
                 System.out.println("Player " + (turn + 1) + ", would you like to purchase an");
                 System.out.println("establishment or construct a landmark? (" + coins[turn]);
                 System.out.println("coins)");
@@ -171,7 +170,7 @@ public class MachiWoCo {
                     cityHall = 1;
                     System.out.println("             Player 1 [YOU]               ");
                     System.out.println("------------------------------------------");
-                    System.out.println("             (" + coins[0] + " coins)     ");
+                    System.out.println("                (" + coins[0] + " coins)  ");
                     for (int i = 0; i < 3; i++) {
                         if (p1Cards[i] > 0) {
                             System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + p1Cards[i]);
@@ -198,7 +197,7 @@ public class MachiWoCo {
                     cityHall = 2;
                     System.out.println("             Player 1 [YOU]               ");
                     System.out.println("------------------------------------------");
-                    System.out.println("             (" + coins[0] + " coins)     ");
+                    System.out.println("                (" + coins[0] + " coins)  ");
                     for (int i = 0; i < 3; i++) {
                         if (p1Cards[i] > 0) {
                             System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + p1Cards[i]);
