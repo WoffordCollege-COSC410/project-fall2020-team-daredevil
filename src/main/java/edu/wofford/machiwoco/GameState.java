@@ -13,6 +13,7 @@ public class GameState {
     }
 
     public String printPlayer() {
+        public class Player {
         return "";
     }
 
