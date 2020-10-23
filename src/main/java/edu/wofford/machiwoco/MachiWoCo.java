@@ -127,9 +127,11 @@ public class MachiWoCo {
                 System.out.println("coins)");
                 System.out.println("==========================================");
                 System.out.println("---------        PURCHASE        ---------");
+                int n = 0;
                 for (int i = 0; i < 3; i++) {
                     if (coins[turn] >= cardCost[i] && availableCards[i] > 0) {
-                        System.out.println((i + 1) + ". " + cardName[i] + "  " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + availableCards[i]);
+                        n++;
+                        System.out.println(n + ". " + cardName[i] + "  " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + availableCards[i]);
                     }
                 }
                 System.out.println("==========================================");
