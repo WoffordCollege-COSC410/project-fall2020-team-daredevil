@@ -60,7 +60,11 @@ public class MachiWoCo {
                 
 
                 // Print Player 1 State
-                System.out.println("              Player 1 [YOU]              ");
+                if (turn == 0) {
+                    System.out.println("              Player 1* [YOU]             ");
+                } else {
+                    System.out.println("              Player 1 [YOU]              ");
+                }
                 System.out.println("------------------------------------------");
                 System.out.println("                (" + coins[0] + " coins)  ");
                 for (int i = 0; i < 3; i++) {
@@ -73,7 +77,11 @@ public class MachiWoCo {
                 System.out.println("                                          ");
                 
                 // Print Player 2 State
-                System.out.println("                 Player 2                 ");
+                if (turn == 1) {
+                    System.out.println("                 Player 2*                ");
+                } else {
+                    System.out.println("                 Player 2                 ");
+                }
                 System.out.println("------------------------------------------");
                 System.out.println("                (" + coins[1] + " coins)  ");
                 for (int i = 0; i < 3; i++) {
@@ -156,6 +164,7 @@ public class MachiWoCo {
                 }
                 System.out.println("Turn ended for Player " + (turn + 1));
                 turn = (turn + 1) % 2;
+                //TODO print market and player cards with CityHall marked
                 if (coins[0] >= 7) {
                     cityHall = 1;
                     System.out.println("The game is over. Player " + cityHall + " is the winner.");
