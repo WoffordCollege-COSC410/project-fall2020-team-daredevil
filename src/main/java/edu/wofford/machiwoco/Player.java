@@ -4,9 +4,6 @@ package edu.wofford.machiwoco;
  * 
  */
 public class Player {
-<<<<<<< HEAD
-	//ecards should be privet
-=======
 	
 	private static int[] pCards = {1, 0, 0};
 	//private static int[] coins = {3, 3};
@@ -87,7 +84,6 @@ public class Player {
 
 	-------------------------------- OLD CODE ------------------------------------
 
->>>>>>> 21fc9488f4db066b0b3b42f9d1d71957647b8e8a
 	int[] ecards;
 	private boolean cityHall;
 	
