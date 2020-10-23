@@ -2,6 +2,7 @@ package edu.wofford.machiwoco;
 import java.util.Scanner;
 import java.io.*;
 import java.util.Random;
+import java.util.ArrayList;
 
 
 
@@ -18,6 +19,7 @@ public class MachiWoCo {
     private static String[] cardIcon = {"       BW", "             BC", "            BG"};
     private static int[] cardCost = {1, 1, 3};
     private static int[] activation = {1, 2, 5};
+    //available coices with n from loop below?
 
 
     public static void main(String[] args) {
@@ -39,8 +41,9 @@ public class MachiWoCo {
             }
         } else if (args.length > 0 && args[0].equals("phase1")) {
             // Start of game
-            System.out.println("The game has started. Player 1 will go ");
-            System.out.println("first.");
+            //TODO NEED SPACES WRITTTEN??
+            System.out.println("The game has started. Player 1 will go    ");
+            System.out.println("first.                                    ");
 
             // Loop begins
             while (cityHall == 0) {
@@ -134,7 +137,16 @@ public class MachiWoCo {
                         System.out.println(" " + (i + 1) + ". " + cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + availableCards[i]);
                     }
                 }
-                System.out.println("==========================================");
+                //STUB MAKE A ARRAY FOR NUMBER OF CHOICES
+                ArrayList<Integer> chs = new ArrayList<Integer>(n);
+                for (int i = 0; i < n; i++) {
+                    chs.add(i + 1);
+//                    System.out.println(chs.get(i));
+                }
+                chs.add(99); 
+                
+                //TODO Where is the line below shown (Cant find on Github gamelog?
+                //System.out.println("==========================================");
                 System.out.println("---------         CANCEL         ---------");
                 System.out.println("99. Do nothing                            ");
                 System.out.println("==========================================");
@@ -142,57 +154,35 @@ public class MachiWoCo {
                 System.out.println("Choose a number to purchase or construct: ");
                 Scanner scan = new Scanner(System.in);
                 int choice = scan.nextInt();
+                while (!chs.contains(choice)) {
+                    System.out.println("Choose a number to purchase or construct: ");
+                    choice = scan.nextInt();
+                }
 //                if (turn == 0) {
 //                    p1.purchaseCard(availableCards, cardCost, choice, cardName);
 //                } else if (turn == 1) {
 //                    p2.purchaseCard(availableCards, cardCost, choice, cardName);
 //                }
-                int i = 0;
-                int bk = 0;
-                while (i < 3) {  //need while loop?
-                    if (bk == 1) {
-                        i--;
-                    }
-                    if (choice == i + 1 && coins[turn] >= cardCost[i]) {
-                        System.out.println("Player " + (turn + 1) + " purchased the " + cardName[i]);
-                        availableCards[i] -= 1;
+                int p = 0;
+//                if none of possible options, repormpt, check at that first index
+                while (p < 3) {  //TODO need while loop?
+                    if (choice == p + 1 && coins[turn] >= cardCost[p]) {
+                        System.out.println("Player " + (turn + 1) + " purchased the " + cardName[p]);
+                        availableCards[p] -= 1;
                         if (turn == 0) {
-                            p1Cards[i] += 1;
+                            p1Cards[p] += 1;
                             //NEED CHECK FOR keeping coins positive
-                            coins[0] -= cardCost[i];
+                            coins[0] -= cardCost[p];
                         } else if (turn == 1) {
-                            p2Cards[i] += 1;
-                            coins[1] -= cardCost[i];
+                            p2Cards[p] += 1;
+                            coins[1] -= cardCost[p];
                         }
-                        break;
+//                        break;
                     } else if (choice == 99) {
                         System.out.println("Player " + (turn + 1) + " chose not to make any improvements.");
                         break;
-                    } else {
-                        System.out.println("Choose a number to purchase or construct: ");
-                        choice = scan.nextInt();
-                        bk = 1;
-                    }
-//                    else { //only see whatever num index (future looped options not seen
-//                        System.out.println("Choose a number to purchase or construct: ");
-//                        choice = scan.nextInt();
-////                        if (choice == i + 1) {
-////                            System.out.println("Player " + (turn + 1) + " purchased the " + cardName[i]);
-////                            availableCards[i] -= 1;
-////                            if (turn == 0) {
-////                                p1Cards[i] += 1;
-////                                coins[0] -= cardCost[i];
-////                            } else if (turn == 1) {
-////                                p2Cards[i] += 1;
-////                                coins[1] -= cardCost[i];
-////                            }
-////                        }
-////                        p = 1;
-//                    }
-//                    if (p == 1) {
-//                        break;
-//                    }
-                    i++;
+                    } 
+                    p++;
                 }
                 System.out.println("Turn ended for Player " + (turn + 1));
                 turn = (turn + 1) % 2;
