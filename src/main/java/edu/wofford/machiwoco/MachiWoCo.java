@@ -147,22 +147,52 @@ public class MachiWoCo {
 //                } else if (turn == 1) {
 //                    p2.purchaseCard(availableCards, cardCost, choice, cardName);
 //                }
-                for (int i = 0; i < 3; i++) {
-                    if (choice == i + 1) {
+                int i = 0;
+                int bk = 0;
+                while (i < 3) {  //need while loop?
+                    if (bk == 1) {
+                        i--;
+                    }
+                    if (choice == i + 1 && coins[turn] >= cardCost[i]) {
                         System.out.println("Player " + (turn + 1) + " purchased the " + cardName[i]);
                         availableCards[i] -= 1;
                         if (turn == 0) {
                             p1Cards[i] += 1;
+                            //NEED CHECK FOR keeping coins positive
                             coins[0] -= cardCost[i];
                         } else if (turn == 1) {
                             p2Cards[i] += 1;
                             coins[1] -= cardCost[i];
-                        }  
-                    }
-                    else if (choice == 99) {
+                        }
+                        break;
+                    } else if (choice == 99) {
                         System.out.println("Player " + (turn + 1) + " chose not to make any improvements.");
                         break;
+                    } else {
+                        System.out.println("Choose a number to purchase or construct: ");
+                        choice = scan.nextInt();
+                        bk = 1;
                     }
+//                    else { //only see whatever num index (future looped options not seen
+//                        System.out.println("Choose a number to purchase or construct: ");
+//                        choice = scan.nextInt();
+////                        if (choice == i + 1) {
+////                            System.out.println("Player " + (turn + 1) + " purchased the " + cardName[i]);
+////                            availableCards[i] -= 1;
+////                            if (turn == 0) {
+////                                p1Cards[i] += 1;
+////                                coins[0] -= cardCost[i];
+////                            } else if (turn == 1) {
+////                                p2Cards[i] += 1;
+////                                coins[1] -= cardCost[i];
+////                            }
+////                        }
+////                        p = 1;
+//                    }
+//                    if (p == 1) {
+//                        break;
+//                    }
+                    i++;
                 }
                 System.out.println("Turn ended for Player " + (turn + 1));
                 turn = (turn + 1) % 2;
