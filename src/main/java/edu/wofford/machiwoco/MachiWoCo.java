@@ -182,14 +182,11 @@ public class MachiWoCo {
                             p2Cards[p] += 1;
                             coins[1] -= cardCost[p];
                         }
-<<<<<<< HEAD
 //                        break;
                     } else if (coins[turn] >= 7 && choice == n) {
                         cityHall = turn + 1;
                         System.out.println("Player " + (turn + 1) + " constructed the City Hall");
                         break;
-=======
->>>>>>> a31fb57547b3144420555f25da13503a48800359
                     } else if (choice == 99) {
                         System.out.println("Player " + (turn + 1) + " chose not to make any improvements.");
                         break;
