@@ -4,11 +4,92 @@ package edu.wofford.machiwoco;
  * 
  */
 public class Player {
+<<<<<<< HEAD
 	//ecards should be privet
+=======
+	
+	private static int[] pCards = {1, 0, 0};
+	//private static int[] coins = {3, 3};
+	private int coins;
+	private String pName;
+	//private int turn;
+
+
+	/**
+	* Creates new instance of Player
+	*/
+
+
+	public Player(String name) {
+		pName = name;
+		//array only stores num of cards for each type
+		coins = 3;
+//		turn = 0;
+	}
+
+	/**
+	* This method adds a card to Player N's deck. 
+	* @param availableCards, cardCost, choice, cardName
+	* 
+	*/
+		
+	public void purchaseCard(int[] availableCards, int[] cardCost, int choice, String[] cardName) {
+		if (choice == 99) {
+			System.out.println(pName + " chose not to make any improvements.");
+			System.out.println();
+		} else {
+			for (int i = 0; i < 3; i++) {
+				if (choice == i + 1) {
+					System.out.println(pName + " purchased a " + cardName[i]);
+					System.out.println();
+					availableCards[i] -= 1;
+					pCards[i] += 1;
+					coins -= cardCost[i];  
+				}	
+			}
+		}
+	}
+	
+//	TODO setName()
+	
+	/**
+	 * This method gets the amount of coins Player N has.
+	 * @return coins
+	 */
+	public int getCoins() {
+		return coins;
+	}
+		
+	/**
+	 * This method adds coins to Player N's inventory.
+	 * @param c is the int value that Player N's coins should increase.
+	 */
+
+	
+	public void addCoins(int c) {
+		if (c >= 0) {
+			coins = c + coins;
+		} 
+	}
+	
+	/**
+	 * This method removes coins from Player N's inventory.
+	 * @param c is the int value that Player N's coins should decrease.
+	 */
+	public void removeCoins(int c) {
+		if (c > 0) {
+			coins = coins - c;
+		}
+	}
+		
+
+	/*
+
+	-------------------------------- OLD CODE ------------------------------------
+
+>>>>>>> 21fc9488f4db066b0b3b42f9d1d71957647b8e8a
 	int[] ecards;
 	private boolean cityHall;
-	private int coins;
-	private boolean myTurn;
 	
 	/**
 	 * Creates new instance of Player
