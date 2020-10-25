@@ -9,57 +9,6 @@ public class GameState {
     }
 
     public String printMarket() {
-        /*
-        // Print Market State
-        System.out.println("******************************************");
-        System.out.println("                  MARKET                  ");
-        System.out.println("------------------------------------------");
-        for (int i = 0; i < 3; i++) {
-            if (availableCards[i] > 0) {
-                System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + availableCards[i]);
-            }
-        }
-        System.out.println();
-        */
-        return "";
-    }
-
-    public String printPlayer() {
-        /*
-        //print player state
-        if (turn == 0) {
-            System.out.println("             Player 1* [YOU]              ");
-        } else {
-            System.out.println("             Player 1 [YOU]               ");
-        }
-        System.out.println("------------------------------------------");
-        System.out.println("                (" + coins[0] + " coins)  ");
-        for (int i = 0; i < 3; i++) {
-            if (p1Cards[i] > 0) {
-                System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + p1Cards[i]);
-            }
-        }
-        System.out.println("..........................................");
-        System.out.println("City Hall          NT (7)  [ ]            ");
-        System.out.println("                                          ");
-        
-        // Print Player 2 State
-        if (turn == 1) {
-            System.out.println("                 Player 2*                ");
-        } else {
-            System.out.println("                 Player 2                 ");
-        }
-        System.out.println("------------------------------------------");
-        System.out.println("                (" + coins[1] + " coins)  ");
-        for (int i = 0; i < 3; i++) {
-            if (p2Cards[i] > 0) {
-                System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + p2Cards[i]);
-            }
-        }
-        System.out.println("..........................................");
-        System.out.println("City Hall          NT (7)  [ ]            ");
-        System.out.println("                                          ");
-        */
         return "";
     }
 

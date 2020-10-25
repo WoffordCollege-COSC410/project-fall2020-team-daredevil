@@ -104,7 +104,6 @@ public class MachiWoCo {
                 int dice = random.nextInt(high - low) + low;
                 System.out.println("******************************************");
                 System.out.println("Player " + (turn + 1) + " rolled [" + dice + "] = " + dice + ".");
-                System.out.println();
      
                 // Check to see if the dice roll activated any cards 
                 for (int i = 0; i < 3; i++) {
@@ -121,7 +120,7 @@ public class MachiWoCo {
                         } 
                     } 
                 }
-
+                System.out.println();
                 System.out.println("Player " + (turn + 1) + ", would you like to purchase an");
                 System.out.println("establishment or construct a landmark? (" + coins[turn]);
                 System.out.println("coins)");
@@ -137,6 +136,12 @@ public class MachiWoCo {
                         System.out.println(" " + (i + 1) + ". " + cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + availableCards[i]);
                     }
                 }
+                if (coins[turn] >= 7) {
+                    n++;
+                    System.out.println("---------       CONSTRUCT        ---------");
+                    System.out.println(" " + n + ". " + "City Hall          NT (7)  [ ] " );
+                }
+
                 //STUB MAKE A ARRAY FOR NUMBER OF CHOICES
                 ArrayList<Integer> chs = new ArrayList<Integer>(n);
                 for (int i = 0; i < n; i++) {
@@ -177,20 +182,44 @@ public class MachiWoCo {
                             p2Cards[p] += 1;
                             coins[1] -= cardCost[p];
                         }
+                    } else if (coins[turn] >= 7 && choice == n) {
+                        cityHall = turn + 1;
+                        System.out.println("Player " + (turn + 1) + " constructed the City Hall");
+                        if (turn == 0) {
+                            p1Cards[p] += 1;
+                            //NEED CHECK FOR keeping coins positive
+                            coins[0] -= 7; //TODO put in cardCost arr?
+                        } else if (turn == 1) {
+                            p2Cards[p] += 1;
+                            coins[1] -= 7; //TODO put in cardCost arr?
+                        }
+                        break;
                     } else if (choice == 99) {
                         System.out.println("Player " + (turn + 1) + " chose not to make any improvements.");
                         break;
                     } 
                     p++;
                 }
+                
                 System.out.println("Turn ended for Player " + (turn + 1));
-                turn = (turn + 1) % 2;
-                //TODO print market and player cards with CityHall marked
-                if (coins[0] >= 7) {
-                    cityHall = 1;
+                
+                // Print Market State if cityHall is bought
+                if (cityHall > 0) {
+                    System.out.println("******************************************");
+                    System.out.println("                  MARKET                  ");
+                    System.out.println("------------------------------------------");
+                    for (int i = 0; i < 3; i++) {
+                        if (availableCards[i] > 0) {
+                            System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + availableCards[i]);
+                        }
+                    }
+                    System.out.println();
+                }
+
+                if (cityHall == 1) {
                     System.out.println("             Player 1 [YOU]               ");
                     System.out.println("------------------------------------------");
-                    System.out.println("             (" + coins[0] + " coins)     ");
+                    System.out.println("                (" + coins[0] + " coins)  ");
                     for (int i = 0; i < 3; i++) {
                         if (p1Cards[i] > 0) {
                             System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + p1Cards[i]);
@@ -202,7 +231,7 @@ public class MachiWoCo {
                     System.out.println("******************************************");
                     System.out.println("                 Player 2                 ");
                     System.out.println("------------------------------------------");
-                    System.out.println("                (" + coins[0] + " coins)  ");
+                    System.out.println("                (" + coins[1] + " coins)  ");
                     for (int i = 0; i < 3; i++) {
                         if (p2Cards[i] > 0) {
                             System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + p2Cards[i]);
@@ -213,11 +242,10 @@ public class MachiWoCo {
                     System.out.println("                                          ");
                     System.out.println("******************************************");
                     System.out.println("The game is over. Player " + cityHall + " is the winner.");
-                } else if (coins[1] >= 7) {
-                    cityHall = 2;
+                } else if (cityHall == 2) {
                     System.out.println("             Player 1 [YOU]               ");
                     System.out.println("------------------------------------------");
-                    System.out.println("             (" + coins[0] + " coins)     ");
+                    System.out.println("                (" + coins[0] + " coins)  ");
                     for (int i = 0; i < 3; i++) {
                         if (p1Cards[i] > 0) {
                             System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + p1Cards[i]);
@@ -229,7 +257,7 @@ public class MachiWoCo {
                     System.out.println("******************************************");
                     System.out.println("                 Player 2                 ");
                     System.out.println("------------------------------------------");
-                    System.out.println("                (" + coins[0] + " coins)  ");
+                    System.out.println("                (" + coins[1] + " coins)  ");
                     for (int i = 0; i < 3; i++) {
                         if (p2Cards[i] > 0) {
                             System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + p2Cards[i]);
@@ -240,6 +268,9 @@ public class MachiWoCo {
                     System.out.println("                                          ");
                     System.out.println("******************************************");
                     System.out.println("The game is over. Player " + cityHall + " is the winner.");
+                } else {
+                    //TURN changes like normal
+                    turn = (turn + 1) % 2;
                 }
             }
         }
