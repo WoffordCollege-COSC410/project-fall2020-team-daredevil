@@ -14,7 +14,7 @@ public class MachiWoCo {
     private static int[] availableCards = {6, 6, 6};
     private static int[] p1Cards = {1, 0, 0};
     private static int[] p2Cards = {1, 0, 0};
-    private static int[] coins = {3, 3};
+    private static int[] coins = {3, 3}; //better to make an array of players
     private static String[] cardName = {"Wheat Field", "Ranch", "Forest"};
     private static String[] cardIcon = {"       BW", "             BC", "            BG"};
     private static int[] cardCost = {1, 1, 3};
@@ -177,7 +177,6 @@ public class MachiWoCo {
                             p2Cards[p] += 1;
                             coins[1] -= cardCost[p];
                         }
-//                        break;
                     } else if (choice == 99) {
                         System.out.println("Player " + (turn + 1) + " chose not to make any improvements.");
                         break;
