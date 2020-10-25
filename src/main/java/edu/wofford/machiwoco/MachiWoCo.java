@@ -200,7 +200,9 @@ public class MachiWoCo {
                     } 
                     p++;
                 }
-                //TODO CityHall Marked AFTER TURN ENDED?
+                
+                System.out.println("Turn ended for Player " + (turn + 1));
+                //TODO Add Market print if cityHall is bought
                 if (cityHall == 1) {
                     System.out.println("             Player 1 [YOU]               ");
                     System.out.println("------------------------------------------");
@@ -254,7 +256,7 @@ public class MachiWoCo {
                     System.out.println("******************************************");
                     System.out.println("The game is over. Player " + cityHall + " is the winner.");
                 } else {
-                    System.out.println("Turn ended for Player " + (turn + 1));
+                    //TURN changes like normal
                     turn = (turn + 1) % 2;
                 }
             }
