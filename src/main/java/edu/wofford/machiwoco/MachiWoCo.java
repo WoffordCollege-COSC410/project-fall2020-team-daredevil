@@ -186,11 +186,9 @@ public class MachiWoCo {
                         cityHall = turn + 1;
                         System.out.println("Player " + (turn + 1) + " constructed the City Hall");
                         if (turn == 0) {
-                            p1Cards[p] += 1;
                             //NEED CHECK FOR keeping coins positive
                             coins[0] -= 7; //TODO put in cardCost arr?
                         } else if (turn == 1) {
-                            p2Cards[p] += 1;
                             coins[1] -= 7; //TODO put in cardCost arr?
                         }
                         break;
@@ -215,9 +213,8 @@ public class MachiWoCo {
                     }
                     System.out.println();
                 }
-
                 if (cityHall == 1) {
-                    System.out.println("             Player 1 [YOU]               ");
+                    System.out.println("             Player 1* [YOU]              ");
                     System.out.println("------------------------------------------");
                     System.out.println("                (" + coins[0] + " coins)  ");
                     for (int i = 0; i < 3; i++) {
@@ -228,7 +225,6 @@ public class MachiWoCo {
                     System.out.println("..........................................");
                     System.out.println("City Hall          NT (7)  [X]            ");
                     System.out.println("                                          ");
-                    System.out.println("******************************************");
                     System.out.println("                 Player 2                 ");
                     System.out.println("------------------------------------------");
                     System.out.println("                (" + coins[1] + " coins)  ");
@@ -254,8 +250,7 @@ public class MachiWoCo {
                     System.out.println("..........................................");
                     System.out.println("City Hall          NT (7)  [ ]            ");
                     System.out.println("                                          ");
-                    System.out.println("******************************************");
-                    System.out.println("                 Player 2                 ");
+                    System.out.println("                 Player 2*                ");
                     System.out.println("------------------------------------------");
                     System.out.println("                (" + coins[1] + " coins)  ");
                     for (int i = 0; i < 3; i++) {
