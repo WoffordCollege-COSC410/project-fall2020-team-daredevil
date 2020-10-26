@@ -41,7 +41,6 @@ public class MachiWoCo {
             }
         } else if (args.length > 0 && args[0].equals("phase1")) {
             // Start of game
-            //TODO NEED SPACES WRITTTEN??
             System.out.println("The game has started. Player 1 will go    ");
             System.out.println("first.                                    ");
 
@@ -121,6 +120,8 @@ public class MachiWoCo {
                     } 
                 }
                 System.out.println();
+                
+                //Prompt for purchase and show MarketMenu (Purchase/Construct screen)
                 System.out.println("Player " + (turn + 1) + ", would you like to purchase an");
                 System.out.println("establishment or construct a landmark? (" + coins[turn]);
                 System.out.println("coins)");
@@ -146,7 +147,6 @@ public class MachiWoCo {
                 ArrayList<Integer> chs = new ArrayList<Integer>(n);
                 for (int i = 0; i < n; i++) {
                     chs.add(i + 1);
-//                    System.out.println(chs.get(i));
                 }
                 chs.add(99); 
                 
@@ -163,11 +163,7 @@ public class MachiWoCo {
                     System.out.println("Choose a number to purchase or construct: ");
                     choice = scan.nextInt();
                 }
-//                if (turn == 0) {
-//                    p1.purchaseCard(availableCards, cardCost, choice, cardName);
-//                } else if (turn == 1) {
-//                    p2.purchaseCard(availableCards, cardCost, choice, cardName);
-//                }
+
                 int p = 0;
 //                if none of possible options, repormpt, check at that first index
                 while (p < 3) {  //TODO need while loop?
@@ -176,7 +172,7 @@ public class MachiWoCo {
                         availableCards[p] -= 1;
                         if (turn == 0) {
                             p1Cards[p] += 1;
-                            //NEED CHECK FOR keeping coins positive
+                            //NEED CHECK FOR keeping coins positive??
                             coins[0] -= cardCost[p];
                         } else if (turn == 1) {
                             p2Cards[p] += 1;
@@ -186,7 +182,7 @@ public class MachiWoCo {
                         cityHall = turn + 1;
                         System.out.println("Player " + (turn + 1) + " constructed the City Hall");
                         if (turn == 0) {
-                            //NEED CHECK FOR keeping coins positive
+                            //NEED CHECK FOR keeping coins positive??
                             coins[0] -= 7; //TODO put in cardCost arr?
                         } else if (turn == 1) {
                             coins[1] -= 7; //TODO put in cardCost arr?
@@ -199,6 +195,7 @@ public class MachiWoCo {
                     p++;
                 }
                 
+                //TURN ENDED MESSAGE
                 System.out.println("Turn ended for Player " + (turn + 1));
                 
                 // Print Market State if cityHall is bought
