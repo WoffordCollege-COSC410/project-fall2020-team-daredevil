@@ -3,22 +3,114 @@ package edu.wofford.machiwoco;
  * @author Jacob Vannoy, Kristinn Sigurjonsson, Jaylen Muhammad, Evan Suggs
  */
 public class GameState {
+    private static int turn; // Player class??
+    private static int[] p1Cards = {1, 0, 0}; // Player class??
+    private static int[] p2Cards = {1, 0, 0}; // Player class??
+    private static int[] coins = {3, 3}; // Player class??
+
+    private static int[] availableCards;
+    private static String[] cardName;
+    private static String[] cardIcon;
+    private static int[] cardCost;
+    private static int[] activation;
 
     public GameState() {
-
+        
+        availableCards = new int[] {6, 6, 6};
+        cardName = new String[] {"Wheat Field", "Ranch", "Forest"};
+        cardIcon = new String[] {"       BW", "             BC", "            BG"};
+        cardCost = new int[] {1, 1, 3};
+        activation = new int[] {1, 2, 5};
     }
 
     public String printMarket() {
-        return "";
+        String str = "******************************************\n" +
+                     "                  MARKET                  \n" +
+                     "------------------------------------------\n";
+        for (int i = 0; i < 3; i++) {
+            if (availableCards[i] > 0) {
+                str = str + cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + availableCards[i] + "\n";
+            }
+        }
+        return str;
+        //return "";
     }
 
-    public String printPlayerState() {
-        return "";
+    public String printPlayerState(int turn) {
+        String str = "";
+        //p1 state
+        if (turn == 0) {
+            str = str + "             Player 1* [YOU]              " + "\n";
+        } else {
+            str = str + "             Player 1 [YOU]               " + "\n";
+        }
+        str = str + "------------------------------------------" + "\n" + "                (" + coins[0] + " coins)  " + "\n";
+        for (int i = 0; i < 3; i++) {
+            if (p1Cards[i] > 0) {
+                str = str + cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + p1Cards[i] + "\n";
+            }
+        }
+        str = str + ".........................................." + "\n" + "City Hall          NT (7)  [ ]            " + "\n";
+        //p2 state
+        if (turn == 1) {
+            str = str + "             Player 2* [YOU]              " + "\n";
+        } else {
+            str = str + "             Player 2 [YOU]               " + "\n";
+        }
+        str = str + "------------------------------------------" + "\n" + "                (" + coins[1] + " coins)  " + "\n";
+        for (int i = 0; i < 3; i++) {
+            if (p2Cards[i] > 0) {
+                str = str + cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + p2Cards[i] + "\n";
+            }
+        }
+        str = str + ".........................................." + "\n" + "City Hall          NT (7)  [ ]            " + "\n" + "                                          ";
+        return str;
+        //return "";
     }
+
+    public String getCardName(int i) {
+        return cardName[i];
+    }
+
+    public String getCardIcon(int i) {
+        return cardIcon[i];
+    }
+
+    public int getCardCost(int i) {
+        return cardCost[i];
+    }
+
+    public int getAvailableCards(int i) {
+        return availableCards[i];
+    }
+
+    public int getActivation(int i) {
+        return activation[i];
+    }
+
+    // Player class??
+    public int getP1Cards(int i) {
+        return p1Cards[i];
+    }
+
+    // Player class??
+    public int getP2Cards(int i) {
+        return p2Cards[i];
+    }
+
+    // Player class??
+    public int getCoins(int i) {
+        return coins[i];
+    }
+
+    // Player class??
+    public void setCoins(int[] newValue) {
+        this.coins = newValue;
+    }
+
 
 
     /*
-
     --------------------------- OLD CODE -----------------------------
 
     For Phase 1, really the only thing updated on the market
