@@ -9,8 +9,6 @@ import java.util.ArrayList;
 public class MachiWoCo {
     private static int cityHall;
     private static int turn;
-//    Player p1 = new Player("Player 1");
-//    Player p2 = new Player("Player 2");
     private static int[] availableCards = {6, 6, 6};
     private static int[] p1Cards = {1, 0, 0};
     private static int[] p2Cards = {1, 0, 0};
@@ -151,10 +149,8 @@ public class MachiWoCo {
                 for (int i = 0; i < n; i++) {
                     chs.add(i + 1);
                 }
-                chs.add(99); 
+                chs.add(99);
                 
-                //TODO Where is the line below shown (Cant find on Github gamelog?
-                //System.out.println("==========================================");
                 System.out.println("---------         CANCEL         ---------");
                 System.out.println("99. Do nothing                            ");
                 System.out.println("==========================================");
@@ -169,7 +165,7 @@ public class MachiWoCo {
 
                 int p = 0;
 //                if none of possible options, repormpt, check at that first index
-                while (p < 3) {  //TODO need while loop?
+                while (p < 3) {
                     if (choice == p + 1 && coins[turn] >= cardCost[p]) {
                         System.out.println("Player " + (turn + 1) + " purchased the " + cardName[p]);
                         availableCards[p] -= 1;
