@@ -1,9 +1,59 @@
 package edu.wofford.machiwoco;
 
-/**
- * 
- */
+
 public class Player {
+    private static int turn;
+	private static int cityHall;
+	private static int[] pCards; 
+    private static int coins; 
+
+public Player() {
+	pCards = new int[] {1, 0, 0};
+	coins = 3;
+} 
+			public String purchaseCard(int choice, int[] cardCost, int[] availableCards, String[] cardName) {
+				int p = 0;
+				int n = 0;
+				String str = "";
+				
+				GameState g = new GameState();
+
+				//if none of possible options, reprompt, check at that first index
+                while (p < 3) {  //TODO need while loop?
+                    if (choice == p + 1 && coins >= cardCost[p]) {
+                        str = str + "Player " + (turn + 1) + " purchased the " + cardName[p] + "\n";
+                        availableCards[p] -= 1;
+                        coins -= cardCost[p];
+                        pCards[p] += 1; 
+                    } else if (coins >= 7 && choice == n) {
+                        cityHall = turn + 1;
+                        str = str + "Player " + (turn + 1) + " constructed the City Hall" + "\n";
+                        coins -= 7; //TODO put in cardCost arr?
+                        break;
+                    } else if (choice == 99) {
+                        str = str + "Player " + (turn + 1) + " chose not to make any improvements." + "\n";
+                        break;
+                    } 
+                    p++;
+                }
+				return str;
+			}
+
+	public int getpCards() {
+		return 0;
+	}
+	public void setpCards() {
+
+	}
+
+    public int getCoins(int i) {
+        return coins;
+    }
+
+    public void setCoins(int[] newValue) {
+		
+    }
+
 	/*
 	private static int[] pCards = {1, 0, 0};
 	//private static int[] coins = {3, 3};
