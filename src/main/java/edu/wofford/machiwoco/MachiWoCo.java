@@ -10,9 +10,10 @@ public class MachiWoCo {
     private static int cityHall;
     private static int turn;
     private static int[] availableCards = {6, 6, 6};
-    private static int[] p1Cards = {1, 0, 0};
-    private static int[] p2Cards = {1, 0, 0};
-    private static int[] coins = {3, 3}; //better to make an array of players
+    // private static int[] p1Cards = {1, 0, 0};
+    // private static int[] p2Cards = {1, 0, 0};
+    // private static int[] coins = {3, 3}; //better to make an array of players
+    private static Player[] players = new Player[2];
     private static String[] cardName = {"Wheat Field", "Ranch", "Forest"};
     private static String[] cardIcon = {"       BW", "             BC", "            BG"};
     private static int[] cardCost = {1, 1, 3};
@@ -71,10 +72,10 @@ public class MachiWoCo {
                     System.out.println("             Player 1 [YOU]               ");
                 }
                 System.out.println("------------------------------------------");
-                System.out.println("                (" + coins[0] + " coins)  ");
+                System.out.println("                (" + players[0].getCoins() + " coins)  ");
                 for (int i = 0; i < 3; i++) {
-                    if (p1Cards[i] > 0) {
-                        System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + p1Cards[i]);
+                    if (players[0].getPCards(i) > 0) {
+                        System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + players[0].getPCards(i));
                     }
                 }
                 System.out.println("..........................................");
@@ -88,10 +89,10 @@ public class MachiWoCo {
                      System.out.println("                 Player 2                 ");
                  }
                  System.out.println("------------------------------------------");
-                 System.out.println("                (" + coins[1] + " coins)  ");
+                 System.out.println("                (" + players[1].getCoins() + " coins)  ");
                  for (int i = 0; i < 3; i++) {
-                     if (p2Cards[i] > 0) {
-                         System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + p2Cards[i]);
+                     if (players[1].getPCards(i) > 0) {
+                         System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + players[1].getPCards(i));
                      }
                 }
                 System.out.println("..........................................");
@@ -108,14 +109,14 @@ public class MachiWoCo {
 //                 Check to see if the dice roll activated any cards 
                 for (int i = 0; i < 3; i++) {
                     if (dice == activation[i]) {
-                        coins[0] += 1 * p1Cards[i];
-                        coins[1] += 1 * p2Cards[i];
-                        if (p1Cards[i] > 0 && p2Cards[i] > 0) {
+                        players[0].setCoins(1 * players[0].getPCards(i));
+                        players[1].setCoins(1 * players[1].getPCards(i));
+                        if (players[0].getPCards(i) > 0 && players[1].getPCards(i) > 0) {
                             System.out.println(cardName[i] + " activated for Player 1");
                             System.out.println(cardName[i] + " activated for Player 2");
-                        } else if (p1Cards[i] > 0) {
+                        } else if (players[0].getPCards(i) > 0) {
                             System.out.println(cardName[i] + " activated for Player 1");
-                        } else if (p2Cards[i] > 0) {
+                        } else if (players[1].getPCards(i) > 0) {
                             System.out.println(cardName[i] + " activated for Player 2");
                         } 
                     } 
@@ -170,11 +171,11 @@ public class MachiWoCo {
                         System.out.println("Player " + (turn + 1) + " purchased the " + cardName[p]);
                         availableCards[p] -= 1;
                         if (turn == 0) {
-                            p1Cards[p] += 1;
+                            players[0].setPCards(p);
                             //NEED CHECK FOR keeping coins positive??
                             coins[0] -= cardCost[p];
                         } else if (turn == 1) {
-                            p2Cards[p] += 1;
+                            players[1].setPCards(p);
                             coins[1] -= cardCost[p];
                         }
                     } else if (coins[turn] >= 7 && choice == n) {
@@ -214,8 +215,8 @@ public class MachiWoCo {
                     System.out.println("------------------------------------------");
                     System.out.println("                (" + coins[0] + " coins)  ");
                     for (int i = 0; i < 3; i++) {
-                        if (p1Cards[i] > 0) {
-                            System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + p1Cards[i]);
+                        if (players[0].getPCards(i) > 0) {
+                            System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" +  players[0].getPCards(i));
                         }
                     }
                     System.out.println("..........................................");
@@ -225,8 +226,8 @@ public class MachiWoCo {
                     System.out.println("------------------------------------------");
                     System.out.println("                (" + coins[1] + " coins)  ");
                     for (int i = 0; i < 3; i++) {
-                        if (p2Cards[i] > 0) {
-                            System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + p2Cards[i]);
+                        if (players[1].getPCards(i) > 0) {
+                            System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" +  players[1].getPCards(p));
                         }
                     }
                     System.out.println("..........................................");
@@ -239,8 +240,8 @@ public class MachiWoCo {
                     System.out.println("------------------------------------------");
                     System.out.println("                (" + coins[0] + " coins)  ");
                     for (int i = 0; i < 3; i++) {
-                        if (p1Cards[i] > 0) {
-                            System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + p1Cards[i]);
+                        if (players[0].getPCards(i) > 0) {
+                            System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + players[0].getPCards(p));
                         }
                     }
                     System.out.println("..........................................");
@@ -250,8 +251,8 @@ public class MachiWoCo {
                     System.out.println("------------------------------------------");
                     System.out.println("                (" + coins[1] + " coins)  ");
                     for (int i = 0; i < 3; i++) {
-                        if (p2Cards[i] > 0) {
-                            System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + p2Cards[i]);
+                        if (players[1].getPCards(i) > 0) {
+                            System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + players[1].getPCards(p));
                         }
                     }
                     System.out.println("..........................................");

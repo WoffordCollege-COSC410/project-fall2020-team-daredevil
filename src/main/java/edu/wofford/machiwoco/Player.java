@@ -45,14 +45,15 @@ public class Player {
 	}
 	public void setPCards(int i) {
 		//set pcards at the index passed in
+		pCards[i] += 1;
 	}
 
-    public int getCoins(int i) {
+    public int getCoins() {
         return coins;
     }
 
-    public void setCoins(int[] newValue) {
-		
+    public void setCoins(int num) {
+		coins += num;
     }
 
 	/*
