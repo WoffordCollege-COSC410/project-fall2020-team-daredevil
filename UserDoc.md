@@ -60,12 +60,12 @@ An overview of every establishment card:
     | (6)                   |  | (3)                   |  | (3)                   |  
     |_______________________|  |_______________________|  |_______________________| 
 
-* <> 
-* []
-* {}
-* Card Name
-* Card Action
-* ()
+* The value in angled brackets<> is the abbreviation for color of the card (**B**lue, **G**reen, **R**ed, **P**urple, or **N**one). 
+* The value/range in the square brackets[] is the activation range of the card
+* The value in curly brackets{} is the abbreviation for the icon on the card (**W**heat, **B**read, **C**ow, **G**ear, **F**actory, Fruit **O**, Cup **U**, or **T**ower).
+* Below the value/range is the card name
+* The text in the center of the card represents the card action.
+* The value in parentheses() is the cost of the card.
 
 ### 2. Landmarks
 An overview of every landmark card:
@@ -82,19 +82,19 @@ An overview of every landmark card:
     | (4)               [ ] |  | (10)              [ ] |  | (16)              [ ] |  | (22)              [ ] |
     |_______________________|  |_______________________|  |_______________________|  |_______________________|
 
-* <>
-* Card Type
-* {}
-* Card Name
-* Card Action
-* ()
-* [ ]
+* The value in angled brackets<> is the abbreviation for color of the card (**B**lue, **G**reen, **R**ed, **P**urple, or **N**one). In this case, landmark cards contain no color or **N**one.
+* At the center-top is the type of the card, which in these cases are LANDMARK.
+* The value in curly brackets{} is the abbreviation for the icon on the card (**W**heat, **B**read, **C**ow, **G**ear, **F**actory, Fruit **O**, Cup **U**, or **T**ower). All landmark cards have the **T**ower icon.
+* Below the card type is the card name
+* The text in the center of the card represents the card action.
+* The value in parentheses() is the cost of the card.
+* The value/range in the square brackets[] is empty [ ] if the landmark has not yet been constructed. If the landmark has been constructed, the square brackets will contain an X or [X].
 
 ## The game comes in 7 different versions or "phases":
 
   * Phase 0: No actual "game" is played in this particular phase. The only thing that occurs is that three establishment cards (*Wheat Field*, *Ranch*, *Forest*) and one landmark card (*City Hall*) are displayed on the console.
 
-  * Phase 1: In the Phase 1 version of the game, the only cards in play are the ones described above in Phase 0. The *City Hall* costs 7 coins to construct. All players start with a single *Wheat Field*, and there are 6 of each of the three establishments in the market. The first player to complete the *City Hall* wins the game.
+  * Phase 1: In the Phase 1 version of the game, the only cards in play are the ones described above in Phase 0. The *City Hall* costs 7 coins to construct. The *City Hall* landmark is not an official game card. It is only temporary for this particular phase so that players can get a sense of how the game works. All players start with a single *Wheat Field*, and there are 6 of each of the three establishments in the market. The first player to complete the *City Hall* wins the game.
 
   * Phase 2: details...
 
@@ -107,7 +107,67 @@ An overview of every landmark card:
   * Phase 6: details...
 
 ## Objectives
-...
+The main goal of this game is to collect coins and purchase establishments in order to construct landmarks. When a player has constructed all landmarks which are included in a particular phase, the player has won the game. To collect coins, a player would want to stock up on establishment cards and hope that when dice are rolled, it would activate some of its cards. When a card is activated, a player can collect coins from the bank or from another player, depending on the card's action. The more establishment cards a player has, the greater potential there is for coin return. Landmarks do not have to be constructed in any particular order. The player turns rotates in a clock wise order, and will continue to circle around until the game has a winner. 
+
+## Current Game State
+The current market state and the current player states are displayed at the start of every game, as well as after each player turn has ended. An example of a market state is presented as followed:
+
+    ******************************************
+                      MARKET                  
+    ------------------------------------------
+    Bakery             GB (1)  [2-3]    #5
+    Cafe               RU (2)  [3]      #6
+    Convenience Store  GB (2)  [4]      #5
+    Forest             BG (3)  [5]      #1
+    Stadium            PT (6)  [6]      #1
+    Business Complex   PT (8)  [6]      #1
+    Cheese Factory     GF (5)  [7]      #2
+    Furniture Factory  GF (3)  [8]      #4
+    Mine               BG (6)  [9]      #1
+    Family Restaurant  RU (3)  [9-10]   #3
+    Apple Orchard      BW (3)  [10]     #2
+
+The current market state holds every establishment that is up for grabs. At the leftmost part of every line listed on the market is the name of the card, followed by a two letter abbreviation where the first letter represents the color of the card and the second letter represents the icon of the card. Following those two letters is number inside parenthasies, which represents the cost of the card. Followed by the cost inside the square brackets is the activation number/range. Lastly, the number right after the hash symbol represents the number available of that particular card.
+
+Following the current market state are the player states. An example of a player state for each player is presented as followed:
+
+                 Player 1* [YOU]              
+    ------------------------------------------
+                    (2 coins)                 
+    Wheat Field        BW (1)  [1]      #3
+    Ranch              BC (1)  [2]      #3
+    Bakery             GB (1)  [2-3]    #1
+    Convenience Store  GB (2)  [4]      #1
+    Forest             BG (3)  [5]      #3
+    Furniture Factory  GF (3)  [8]      #1
+    Mine               BG (6)  [9]      #2
+    Apple Orchard      BW (3)  [10]     #2
+    ..........................................
+    Train Station      NT (4)  [X]
+    Shopping Mall      NT (10) [X]
+    Amusement Park     NT (16) [X]
+    Radio Tower        NT (22) [ ]
+    
+                     Player 2                 
+    ------------------------------------------
+                    (4 coins)                 
+    Wheat Field        BW (1)  [1]      #5
+    Ranch              BC (1)  [2]      #3
+    Bakery             GB (1)  [2-3]    #2
+    Forest             BG (3)  [5]      #2
+    Cheese Factory     GF (5)  [7]      #1
+    Mine               BG (6)  [9]      #1
+    Farmers Market     GO (2)  [11-12]  #2
+    ..........................................
+    Train Station      NT (4)  [X]
+    Shopping Mall      NT (10) [X]
+    Amusement Park     NT (16) [ ]
+    Radio Tower        NT (22) [ ]
+    
+    ******************************************
+
+The current player state holds every establishment and the number of coins a player has, followed by a list of landmarks in which a player has or has not constructed. At the leftmost part of every line listed on the player state is the name of the card, followed by a two letter abbreviation where the first letter represents the color of the card and the second letter represents the icon of the card. Following those two letters is number inside parenthasies, which represents the cost of the card. Followed by the cost inside the square brackets is the activation number/range. Lastly, the number right after the hash symbol represents the number available of that particular card.
+
 
 ## Gameplay
 
