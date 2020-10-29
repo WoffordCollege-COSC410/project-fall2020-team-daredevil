@@ -39,8 +39,8 @@ public class Player {
 		return str;
 	}
 
-	public int getpCards() {
-		return 0;
+	public int getpCards(int i) {
+		return pCards[i];
 	}
 	public void setpCards() {
 
