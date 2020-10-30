@@ -125,7 +125,7 @@ public class MachiWoCo {
                 
                 //Prompt for purchase and show MarketMenu (Purchase/Construct screen)
                 System.out.println("Player " + (turn + 1) + ", would you like to purchase an");
-                System.out.println("establishment or construct a landmark? (" + coins[turn]);
+                System.out.println("establishment or construct a landmark? (" + players[turn].getCoins());
                 System.out.println("coins)");
                 System.out.println("(To view details of an item, type 'view'  ");
                 System.out.println("followed by the item number. For example, ");
@@ -134,12 +134,12 @@ public class MachiWoCo {
                 System.out.println("---------        PURCHASE        ---------");
                 int n = 0;
                 for (int i = 0; i < 3; i++) {
-                    if (coins[turn] >= cardCost[i] && availableCards[i] > 0) {
+                    if (players[turn].getCoins() >= cardCost[i] && availableCards[i] > 0) {
                         n++;
                         System.out.println(" " + (i + 1) + ". " + cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + availableCards[i]);
                     }
                 }
-                if (coins[turn] >= 7) {
+                if (players[turn].getCoins() >= 7) {
                     n++;
                     System.out.println("---------       CONSTRUCT        ---------");
                     System.out.println(" " + n + ". " + "City Hall          NT (7)  [ ] " );
@@ -167,7 +167,7 @@ public class MachiWoCo {
                 int p = 0;
 //                if none of possible options, repormpt, check at that first index
                 while (p < 3) {
-                    if (choice == p + 1 && coins[turn] >= cardCost[p]) {
+                    if (choice == p + 1 && players[turn].getCoins() >= cardCost[p]) {
                         System.out.println("Player " + (turn + 1) + " purchased the " + cardName[p]);
                         availableCards[p] -= 1;
                         if (turn == 0) {
@@ -178,7 +178,7 @@ public class MachiWoCo {
                             players[1].setPCards(p);
                             coins[1] -= cardCost[p];
                         }
-                    } else if (coins[turn] >= 7 && choice == n) {
+                    } else if (players[turn].getCoins() >= 7 && choice == n) {
                         cityHall = turn + 1;
                         System.out.println("Player " + (turn + 1) + " constructed the City Hall");
                         if (turn == 0) {
@@ -213,7 +213,7 @@ public class MachiWoCo {
                 if (cityHall == 1) {
                     System.out.println("             Player 1* [YOU]              ");
                     System.out.println("------------------------------------------");
-                    System.out.println("                (" + coins[0] + " coins)  ");
+                    System.out.println("                (" + players[0].getCoins() + " coins)  ");
                     for (int i = 0; i < 3; i++) {
                         if (players[0].getPCards(i) > 0) {
                             System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" +  players[0].getPCards(i));
@@ -224,7 +224,7 @@ public class MachiWoCo {
                     System.out.println("                                          ");
                     System.out.println("                 Player 2                 ");
                     System.out.println("------------------------------------------");
-                    System.out.println("                (" + coins[1] + " coins)  ");
+                    System.out.println("                (" + players[1].getCoins() + " coins)  ");
                     for (int i = 0; i < 3; i++) {
                         if (players[1].getPCards(i) > 0) {
                             System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" +  players[1].getPCards(p));
@@ -238,7 +238,7 @@ public class MachiWoCo {
                 } else if (cityHall == 2) {
                     System.out.println("             Player 1 [YOU]               ");
                     System.out.println("------------------------------------------");
-                    System.out.println("                (" + coins[0] + " coins)  ");
+                    System.out.println("                (" + players[0].getCoins() + " coins)  ");
                     for (int i = 0; i < 3; i++) {
                         if (players[0].getPCards(i) > 0) {
                             System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + players[0].getPCards(p));
@@ -249,7 +249,7 @@ public class MachiWoCo {
                     System.out.println("                                          ");
                     System.out.println("                 Player 2*                ");
                     System.out.println("------------------------------------------");
-                    System.out.println("                (" + coins[1] + " coins)  ");
+                    System.out.println("                (" + players[1].getCoins() + " coins)  ");
                     for (int i = 0; i < 3; i++) {
                         if (players[1].getPCards(i) > 0) {
                             System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + players[1].getPCards(p));
