@@ -23,6 +23,8 @@ public class MachiWoCo {
     public static void main(String[] args) {
         cityHall = 0;
         turn = 0;
+        players[0] = new Player();
+        players[1] = new Player();
         Random random = new Random();
 
         // Determine which phase of the game we're playing
