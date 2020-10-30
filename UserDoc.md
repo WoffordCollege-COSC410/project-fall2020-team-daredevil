@@ -107,10 +107,10 @@ An overview of every landmark card:
   * Phase 6: details...
 
 ## Objectives
-The main goal of this game is to collect coins and purchase establishments in order to construct landmarks. When a player has constructed all landmarks which are included in a particular phase, the player has won the game. To collect coins, a player would want to stock up on establishment cards and hope that when dice are rolled, it would activate some of its cards. When a card is activated, a player can collect coins from the bank or from another player, depending on the card's action. The more establishment cards a player has, the greater potential there is for coin return. Landmarks do not have to be constructed in any particular order. The player turns rotates in a clock wise order, and will continue to circle around until the game has a winner. 
+The main goal of this game is to collect coins and purchase establishments in order to construct landmarks. When a player has constructed all landmarks in a particular phase, the player has won the game. To collect coins, a player would want to stock up on establishment cards and hope that when dice are rolled, it would activate some of their cards. When a card is activated, a player can collect coins from the bank or from another player, depending on the card's action. The more establishment cards a player has, the greater potential there is for coin return. Landmarks do not have to be constructed in any particular order. The player turns rotates in a clock wise order, and will continue to circle around until the game has a winner.
 
 ## Current Game State
-The current market state and the current player states are displayed at the start of every game, as well as after each player turn has ended. An example of a market state is presented as followed:
+The current market state and the current player states are displayed at the start of every game, as well as after each player turn. An example of a market state is as follows:
 
     ******************************************
                       MARKET                  
@@ -127,7 +127,7 @@ The current market state and the current player states are displayed at the star
     Family Restaurant  RU (3)  [9-10]   #3
     Apple Orchard      BW (3)  [10]     #2
 
-The current market state holds every establishment that is up for grabs. At the leftmost part of every line listed on the market is the name of the card, followed by a two letter abbreviation where the first letter represents the color of the card and the second letter represents the icon of the card. Following those two letters is a number inside parenthasies, which represents the cost of the card. Followed by the cost inside the square brackets is the activation number/range. Lastly, the number right after the hash symbol represents the number available of that particular card.
+The current market state holds every establishment that is up for grabs. The name of the card is first, followed by a two letter abbreviation where the first letter represents the color and the second letter represents the icon of the card. The number inside parenthesis is the cost of the card. The square brackets hold the activation number/s. Lastly, the number after the hash symbol is the available number of that particular card.
 
 Following the current market state are the player states. An example of a player state for each player is presented as followed:
 
