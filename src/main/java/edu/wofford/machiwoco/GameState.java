@@ -3,7 +3,6 @@ package edu.wofford.machiwoco;
  * @author Jacob Vannoy, Kristinn Sigurjonsson, Jaylen Muhammad, Evan Suggs
  */
 public class GameState {
-    private static int turn; // Player class??
     private static int[] p1Cards = {1, 0, 0}; // Player class??
     private static int[] p2Cards = {1, 0, 0}; // Player class??
     private static int[] coins = {3, 3}; // Player class??
