@@ -173,19 +173,19 @@ public class MachiWoCo {
                         if (turn == 0) {
                             players[0].setPCards(p);
                             //NEED CHECK FOR keeping coins positive??
-                            coins[0] -= cardCost[p];
+                            players[0].setCoins(-cardCost[p]);
                         } else if (turn == 1) {
                             players[1].setPCards(p);
-                            coins[1] -= cardCost[p];
+                            players[1].setCoins(-cardCost[p]);
                         }
                     } else if (players[turn].getCoins() >= 7 && choice == n) {
                         cityHall = turn + 1;
                         System.out.println("Player " + (turn + 1) + " constructed the City Hall");
                         if (turn == 0) {
                             //NEED CHECK FOR keeping coins positive??
-                            coins[0] -= 7; //TODO put in cardCost arr?
+                            players[0].setCoins(-7); //TODO put in cardCost arr?
                         } else if (turn == 1) {
-                            coins[1] -= 7; //TODO put in cardCost arr?
+                            players[1].setCoins(-7); //TODO put in cardCost arr?
                         }
                         break;
                     } else if (choice == 99) {
