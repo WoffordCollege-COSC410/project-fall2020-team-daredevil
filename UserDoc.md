@@ -127,7 +127,7 @@ The current market state and the current player states are displayed at the star
     Family Restaurant  RU (3)  [9-10]   #3
     Apple Orchard      BW (3)  [10]     #2
 
-The current market state holds every establishment that is up for grabs. At the leftmost part of every line listed on the market is the name of the card, followed by a two letter abbreviation where the first letter represents the color of the card and the second letter represents the icon of the card. Following those two letters is number inside parenthasies, which represents the cost of the card. Followed by the cost inside the square brackets is the activation number/range. Lastly, the number right after the hash symbol represents the number available of that particular card.
+The current market state holds every establishment that is up for grabs. At the leftmost part of every line listed on the market is the name of the card, followed by a two letter abbreviation where the first letter represents the color of the card and the second letter represents the icon of the card. Following those two letters is a number inside parenthasies, which represents the cost of the card. Followed by the cost inside the square brackets is the activation number/range. Lastly, the number right after the hash symbol represents the number available of that particular card.
 
 Following the current market state are the player states. An example of a player state for each player is presented as followed:
 
@@ -166,10 +166,44 @@ Following the current market state are the player states. An example of a player
     
     ******************************************
 
-The current player state holds every establishment and the number of coins a player has, followed by a list of landmarks in which a player has or has not constructed. At the leftmost part of every line listed on the player state is the name of the card, followed by a two letter abbreviation where the first letter represents the color of the card and the second letter represents the icon of the card. Following those two letters is number inside parenthasies, which represents the cost of the card. Followed by the cost inside the square brackets is the activation number/range. Lastly, the number right after the hash symbol represents the number available of that particular card.
+The current player state holds every establishment and the number of coins a player has, followed by a list of landmarks in which a player has or has not constructed. At the leftmost part of every line listed on the player state is the name of the card, followed by a two letter abbreviation where the first letter represents the color of the card and the second letter represents the icon of the card. Following those two letters is a number inside parenthasies, which represents the cost of the card. Followed by the cost inside the square brackets is the activation number/range. Lastly, the number right after the hash symbol represents the number available of that particular card. Below are the landmarks, and are either marked empty or with an 'X' inside the square brackets, depending on whether the player has constructed the landmark or not.
+
+## Purchase Menu
+After a player has rolled the dice, a promt will show up if any cards are activated for the players participating, and coins will be distributed accordingly. Next, the active player will get the opportunity to buy an establishment or construct a landmark listed in the purchase menu. An example of a purchase menu is presented as followed:
+
+    Player 1, would you like to purchase an   
+    establishment or construct a landmark? (27 
+    coins)                                    
+    (To view details of an item, type 'view'  
+    followed by the item number. For example, 
+    to view item 6, type 'view 6'.)           
+    ========================================== 
+    ---------        PURCHASE        --------- 
+     1. Bakery             GB (1)  [2-3]    #4 
+     2. Cafe               RU (2)  [3]      #6 
+     3. Convenience Store  GB (2)  [4]      #5 
+     4. Forest             BG (3)  [5]      #1 
+     5. Stadium            PT (6)  [6]      #1 
+     6. Business Complex   PT (8)  [6]      #1 
+     7. Cheese Factory     GF (5)  [7]      #2 
+     8. Furniture Factory  GF (3)  [8]      #1 
+     9. Mine               BG (6)  [9]      #1 
+    10. Family Restaurant  RU (3)  [9-10]   #3 
+    11. Apple Orchard      BW (3)  [10]     #1 
+    ---------       CONSTRUCT        --------- 
+    12. Radio Tower        NT (22) [ ]        
+    ---------         CANCEL         --------- 
+    99. Do nothing                            
+    ========================================== 
+    Choose a number to purchase or construct: 
+
+The active player will get a reminder of how many coins he has in his possesion. Only establishments and landmarks will be on the purchase menu that a player can afford and is allowed to purchase. A player can also choose to view a card if before making his decision if he pleases. Even though a player has purchasing options, he can still choose not to make any improvements and enter 99, and then the turn will go to the next player. 
+
+## Rules
+* A player may only purchase one establishment or construct one landmark in each turn.
+* If a card is activated that has the action to take coins from another player, but the player does not have the amount required to pay, he will then pay the remaining amount he has. 
+* A player can choose to roll 1 or 2 dice during his turn.
+* A player must always wait until his turn is up to purchase an establishment or construct a landmark.
 
 
-## Gameplay
-
-### This is a detailed rundown of the gamelog for each phase. 
-...
+We hope your enjoy MachiWoco and good luck!
