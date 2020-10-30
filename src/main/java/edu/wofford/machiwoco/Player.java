@@ -3,8 +3,8 @@ package edu.wofford.machiwoco;
 
 public class Player {
 	private static int cityHall;
-	private static int[] pCards; 
-    private static int coins; 
+	private int[] pCards; 
+    private int coins; 
 
 	public Player() {
 		pCards = new int[] {1, 0, 0};

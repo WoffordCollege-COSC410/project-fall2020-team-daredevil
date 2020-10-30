@@ -13,7 +13,7 @@ public class MachiWoCo {
     // private static int[] p1Cards = {1, 0, 0};
     // private static int[] p2Cards = {1, 0, 0};
     // private static int[] coins = {3, 3}; //better to make an array of players
-    private static Player[] players = new Player[2];
+    private static Player[] players;
     private static String[] cardName = {"Wheat Field", "Ranch", "Forest"};
     private static String[] cardIcon = {"       BW", "             BC", "            BG"};
     private static int[] cardCost = {1, 1, 3};
@@ -23,8 +23,7 @@ public class MachiWoCo {
     public static void main(String[] args) {
         cityHall = 0;
         turn = 0;
-        players[0] = new Player();
-        players[1] = new Player();
+        players = new Player[] {new Player(), new Player()};
         Random random = new Random();
 
         // Determine which phase of the game we're playing
