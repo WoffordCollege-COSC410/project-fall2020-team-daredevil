@@ -134,12 +134,12 @@ public class MachiWoCo {
                 System.out.println("---------        PURCHASE        ---------");
                 int n = 0;
                 for (int i = 0; i < 3; i++) {
-                    if (coins[turn] >= cardCost[i] && availableCards[i] > 0) {
+                    if (players[turn].getCoins() >= cardCost[i] && availableCards[i] > 0) {
                         n++;
                         System.out.println(" " + (i + 1) + ". " + cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + availableCards[i]);
                     }
                 }
-                if (coins[turn] >= 7) {
+                if (players[turn].getCoins() >= 7) {
                     n++;
                     System.out.println("---------       CONSTRUCT        ---------");
                     System.out.println(" " + n + ". " + "City Hall          NT (7)  [ ] " );
@@ -167,7 +167,7 @@ public class MachiWoCo {
                 int p = 0;
 //                if none of possible options, repormpt, check at that first index
                 while (p < 3) {
-                    if (choice == p + 1 && coins[turn] >= cardCost[p]) {
+                    if (choice == p + 1 && players[turn].getCoins() >= cardCost[p]) {
                         System.out.println("Player " + (turn + 1) + " purchased the " + cardName[p]);
                         availableCards[p] -= 1;
                         if (turn == 0) {
