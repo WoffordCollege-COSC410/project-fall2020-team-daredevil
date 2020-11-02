@@ -7,21 +7,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.*;
 
 public class PlayerTest {
-	
 	/*
-
-	Player p1;
-	
-	@Before
-	public void setup() {
-		p1 = new Player();
-	}
-	
-	@Test
-	public void testConstructor() {
-		//assertThat(p1.ecards.length, is(20));
-	}
-	
 	@Test 
 	public void testGetNumWheat() {
 		assertThat(p1.getNumWheat(), is(1));
