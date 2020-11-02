@@ -172,9 +172,9 @@ public class MachiWoCo {
                         System.out.println("Player " + (turn + 1) + " purchased the " + cardName[p]);
                         availableCards[p] -= 1;
                         if (turn == 0) {
-                            players[0].setPCards(p);
+                            players[turn].setPCards(p);
                             //NEED CHECK FOR keeping coins positive??
-                            players[0].setCoins(-cardCost[p]);
+                            players[turn].setCoins(-cardCost[p]);
                         } else if (turn == 1) {
                             players[1].setPCards(p);
                             players[1].setCoins(-cardCost[p]);

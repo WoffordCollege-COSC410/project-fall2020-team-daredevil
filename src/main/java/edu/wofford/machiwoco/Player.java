@@ -2,7 +2,6 @@ package edu.wofford.machiwoco;
 
 
 public class Player {
-    private static int turn;
 	private static int cityHall;
 	private int[] pCards; 
     private int coins; 
