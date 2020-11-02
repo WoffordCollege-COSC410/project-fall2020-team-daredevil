@@ -9,7 +9,7 @@ import org.junit.*;
 public class PlayerTest {
 	
 	/*
-
+      
 	Player p1;
 	
 	@Before
@@ -22,7 +22,7 @@ public class PlayerTest {
 		//assertThat(p1.ecards.length, is(20));
 	}
 	
-	@Test 
+	@Test   
 	public void testGetNumWheat() {
 		assertThat(p1.getNumWheat(), is(1));
 	}

@@ -33,16 +33,17 @@ public class MarketMenu {
         
     }
     
-    public String printPurchaseMenu() {
+    public String printMenu() {
+        String p = "";
         
 //        TODO n is the possible numbers to buy, for loop shows all purchasable cards to player
-        int n = 0;
-        for (int i = 0; i < 3; i++) {
+//        int n = 0;
+//        for (int i = 0; i < 3; i++) {
 //            if (coins[turn] >= cardCost[i] && availableCards[i] > 0) {
 //                n++;
 //                System.out.println(" " + (i + 1) + ". " + cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + availableCards[i]);
 //            }
-        }
+//        }
         
 //        TODO separate check whether player can buy CityHall
 //        if (coins[turn] >= 7) {
@@ -52,10 +53,10 @@ public class MarketMenu {
 //        }
         
         //if Player has no money and no available cards
-        String s = menu;
-        s += "---------         CANCEL         ---------\n";
-        s += "99. Do nothing                            \n";
-        s += "==========================================\n";
+        p = menu;
+//        p = "---------         CANCEL         ---------\n";
+//        p += "99. Do nothing                            \n";
+//        p += "==========================================\n";
         
 //        STUB: Build array to check player input to valid purchase actions
 //        ArrayList<Integer> chs = new ArrayList<Integer>(n);
@@ -64,7 +65,7 @@ public class MarketMenu {
 //            System.out.println(chs.get(i));
 //        }
 //        chs.add(99); 
-        return s;
+        return menu;
     }
     
     
