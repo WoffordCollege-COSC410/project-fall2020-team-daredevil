@@ -8,7 +8,24 @@ import org.junit.*;
 
 public class PlayerTest {
 	/*
+<<<<<<< HEAD
 	@Test 
+=======
+      
+	Player p1;
+	
+	@Before
+	public void setup() {
+		p1 = new Player();
+	}
+	
+	@Test
+	public void testConstructor() {
+		//assertThat(p1.ecards.length, is(20));
+	}
+	
+	@Test   
+>>>>>>> ce98d4ce077d65ef56ff0436ed15f383191faa4a
 	public void testGetNumWheat() {
 		assertThat(p1.getNumWheat(), is(1));
 	}
