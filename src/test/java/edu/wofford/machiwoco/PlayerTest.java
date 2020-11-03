@@ -7,9 +7,11 @@ import static org.junit.Assert.assertTrue;
 import org.junit.*;
 
 public class PlayerTest {
-	
 	/*
-
+<<<<<<< HEAD
+	@Test 
+=======
+      
 	Player p1;
 	
 	@Before
@@ -22,7 +24,8 @@ public class PlayerTest {
 		//assertThat(p1.ecards.length, is(20));
 	}
 	
-	@Test 
+	@Test   
+>>>>>>> ce98d4ce077d65ef56ff0436ed15f383191faa4a
 	public void testGetNumWheat() {
 		assertThat(p1.getNumWheat(), is(1));
 	}

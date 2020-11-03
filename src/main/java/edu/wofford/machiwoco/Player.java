@@ -6,6 +6,10 @@ public class Player {
 	private int[] pCards; 
     private int coins; 
 
+
+	/**
+	* Creates new instance of Player
+	*/
 	public Player() {
 		pCards = new int[] {1, 0, 0};
 		coins = 3;
@@ -47,10 +51,18 @@ public class Player {
 		pCards[i] += 1;
 	}
 
+	/**
+	 * This method gets the amount of coins Player N has.
+	 * @return coins
+	 */
     public int getCoins() {
         return coins;
     }
 
+	/**
+	 * This method set coins for the Player
+	 * @param num is the int value that Player N's coins should change.
+	 */
     public void setCoins(int num) {
 		coins += num;
     }
