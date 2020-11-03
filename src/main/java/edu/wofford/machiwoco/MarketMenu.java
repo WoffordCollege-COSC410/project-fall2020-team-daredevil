@@ -1,4 +1,5 @@
 package edu.wofford.machiwoco;
+import java.util.Scanner;
 
 
 /**
@@ -8,8 +9,8 @@ public class MarketMenu {
     //Add a gametate 
     GameState g;
     
-    public MarketMenu(GameState q) {
-        
+    public MarketMenu(GameState q) { //Scanner scnr
+        //NOTE THE SCANNER OBJECT PARAMETER!
         g = q;
         
         String s = ""; //This first chunk is always the same 
@@ -39,7 +40,7 @@ public class MarketMenu {
 //        TODO n is the possible numbers to buy, for loop shows all purchasable cards to player
 //        int n = 0;
 //        for (int i = 0; i < 3; i++) {
-//            if (coins[turn] >= cardCost[i] && availableCards[i] > 0) {
+//            if (players[turn].getCoins() >= cardCost[i] && availableCards[i] > 0) {
 //                n++;
 //                System.out.println(" " + (i + 1) + ". " + cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + availableCards[i]);
 //            }

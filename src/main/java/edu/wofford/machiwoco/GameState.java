@@ -3,10 +3,11 @@ package edu.wofford.machiwoco;
  * @author Jacob Vannoy, Kristinn Sigurjonsson, Jaylen Muhammad, Evan Suggs
  */
 public class GameState {
-    private static int[] p1Cards = {1, 0, 0}; // Player class??
-    private static int[] p2Cards = {1, 0, 0}; // Player class??
-    private static int[] coins = {3, 3}; // Player class??
+//    private static int[] p1Cards = {1, 0, 0}; // Player class??
+//    private static int[] p2Cards = {1, 0, 0}; // Player class??
+//    private static int[] coins = {3, 3}; // Player class??
 
+    private static Player[] players;
     private static int[] availableCards;
     private static String[] cardName;
     private static String[] cardIcon;
@@ -15,6 +16,7 @@ public class GameState {
 
     public GameState() {
         
+        players = new Player[] {new Player(), new Player()};
         availableCards = new int[] {6, 6, 6};
         cardName = new String[] {"Wheat Field", "Ranch", "Forest"};
         cardIcon = new String[] {"       BW", "             BC", "            BG"};
@@ -32,39 +34,39 @@ public class GameState {
             }
         }
         return str;
-        //return "";
     }
 
     public String printPlayerState(int turn) {
         String str = "";
+        
         //p1 state
         if (turn == 0) {
-            str = str + "             Player 1* [YOU]              " + "\n";
+            str = str + "             Player 1* [YOU]              \n";
         } else {
-            str = str + "             Player 1 [YOU]               " + "\n";
+            str = str + "             Player 1 [YOU]               \n";
         }
-        str = str + "------------------------------------------" + "\n" + "                (" + coins[0] + " coins)  " + "\n";
+        str = str + "------------------------------------------" + "\n" + "                (" + players[0].getCoins() + " coins)  \n";
         for (int i = 0; i < 3; i++) {
-            if (p1Cards[i] > 0) {
-                str = str + cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + p1Cards[i] + "\n";
+            if (players[0].getPCards(i) > 0) {
+                str = str + cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + players[0].getPCards(i) + "\n";
             }
         }
-        str = str + ".........................................." + "\n" + "City Hall          NT (7)  [ ]            " + "\n";
+        str = str + ".........................................." + "\n" + "City Hall          NT (7)  [ ]\n";
         //p2 state
         if (turn == 1) {
-            str = str + "             Player 2* [YOU]              " + "\n";
+            str = str + "                 Player 2*                " + "\n";
         } else {
-            str = str + "             Player 2 [YOU]               " + "\n";
+            str = str + "                 Player 2                 " + "\n";
         }
-        str = str + "------------------------------------------" + "\n" + "                (" + coins[1] + " coins)  " + "\n";
+        str = str + "------------------------------------------" + "\n" + "                (" + players[1].getCoins() + " coins)  \n";
         for (int i = 0; i < 3; i++) {
-            if (p2Cards[i] > 0) {
-                str = str + cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + p2Cards[i] + "\n";
+            if (players[1].getPCards(i) > 0) {
+                str = str + cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + players[1].getPCards(i) + "\n";
             }
         }
-        str = str + ".........................................." + "\n" + "City Hall          NT (7)  [ ]            " + "\n" + "                                          ";
+        str = str + "..........................................\n" + "City Hall          NT (7)  [ ]\n";
+        
         return str;
-        //return "";
     }
 
     public String getCardName(int i) {
@@ -86,26 +88,12 @@ public class GameState {
     public int getActivation(int i) {
         return activation[i];
     }
-
-    // Player class??
-    public int getP1Cards(int i) {
-        return p1Cards[i];
-    }
-
-    // Player class??
-    public int getP2Cards(int i) {
-        return p2Cards[i];
-    }
-
-    // Player class??
-    public int getCoins(int i) {
-        return coins[i];
-    }
-
-    // Player class??
-    public void setCoins(int[] newValue) {
-        this.coins = newValue;
-    }
+    
+//    public static void main(String[] args) {
+//        GameState g = new GameState();
+//        System.out.println(g.printPlayerState(0));
+//        System.out.print("*************************");
+//    }
 
 
 

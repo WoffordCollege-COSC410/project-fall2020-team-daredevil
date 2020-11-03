@@ -6,67 +6,84 @@ import org.junit.*;
 
 public class GameStateTest {
 
-    /*
 
-    private GameState m;
-    private Player p1 = new Player();
-    private Player p2 = new Player();
+    GameState m;
+//    private Player p1 = new Player();
+//    private Player p2 = new Player();
 
 
 	@Before
 	public void setup() {
-		m = new GameState(p1, p2);
+		m = new GameState();
     }
     
     @Test
-    public void testGetAvailableWheat() {
-        assertThat(m.getAvailableWheat(), is(6));
+    public void testPrintMarket() {
+        String a = "";
+        a += "******************************************\n";
+        a += "                  MARKET                  \n";
+        a += "------------------------------------------\n";
+        a += "Wheat Field        BW (1)  [1]      #6\n";
+        a += "Ranch              BC (1)  [2]      #6\n";
+        a += "Forest             BG (3)  [5]      #6\n";
+        
+        assertThat(m.printMarket(), is(a));
     }
-
+    
+    
     @Test
-    public void testGetAvailableRanch() {
-        assertThat(m.getAvailableRanch(), is(6));
+    public void testPrintPlayerOnesTurn() {
+        //TODO ???make players array public so can test dynamically?
+        String a = "";
+        
+        
+        a = a + "             Player 1* [YOU]              \n";
+        a = a + "------------------------------------------\n" +
+                "                (3 coins)  \n";
+        a += "Wheat Field        BW (1)  [1]      #1\n" +
+                "..........................................\n";
+        a = a + "City Hall          NT (7)  [ ]\n";
+        a = a + "                 Player 2                 \n";
+        a = a + "------------------------------------------\n" +
+                "                (3 coins)  \n";
+        a += "Wheat Field        BW (1)  [1]      #1\n" + 
+                "..........................................\n";
+        a = a + "City Hall          NT (7)  [ ]\n";
+        assertThat(m.printPlayerState(0), is(a));
     }
-
+    
     @Test
-    public void testGetAvailableForest() {
-        assertThat(m.getAvailableForest(), is(6));
+    public void testPrintPlayerTwosTurn() {
+        //TODO ???make players array public so can test dynamically?
+        String a = "";
+        
+        
+        a = a + "             Player 1 [YOU]               \n";
+        a = a + "------------------------------------------\n" +
+                "                (3 coins)  \n";
+        a += "Wheat Field        BW (1)  [1]      #1\n" +
+                "..........................................\n";
+        a = a + "City Hall          NT (7)  [ ]\n";
+        a = a + "                 Player 2*                \n";
+        a = a + "------------------------------------------\n" +
+                "                (3 coins)  \n";
+        a += "Wheat Field        BW (1)  [1]      #1\n" + 
+                "..........................................\n";
+        a = a + "City Hall          NT (7)  [ ]\n";
+        
+        assertThat(m.printPlayerState(1), is(a));
     }
-
-    @Test
-    public void testIsActivated() {
-        assertThat(m.isActivated(0), is(false));
-        assertThat(m.isActivated(1), is(true));
-        assertThat(m.isActivated(2), is(true));
-        assertThat(m.isActivated(5), is(true));
-    }
-
-    @Test
-    public void testGetCurrentPlayer() {
-        assertThat(m.getCurrentPlayer(), is(false));
-        p1.setTurn(true);
-        assertThat(m.getCurrentPlayer(), is(true));
-    }
+    
+/*
 
     @Test
     public void testPurchaseCard() {
         //TODO
     }
 
-    @Test
-    public void testPrintMarketState() {
-        //TODO
-    }
 
-    @Test
-    public void testPrintPlayerOneState() {
-        //TODO
-    }
 
-    @Test
-    public void testPrintPlayerTwoState() {
-        //TODO
-    }
+   
    
     @Test
     public void testMenuOptions() {
