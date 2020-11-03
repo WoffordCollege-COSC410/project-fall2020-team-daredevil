@@ -206,7 +206,7 @@ The active player will get a reminder of how many coins he has in his possesion.
 * A player must always wait until his turn is up to purchase an establishment or construct a landmark.
 
 ## Random AI
-Except for Phase 0, there is an option to play with a random AI instead of a human player. The random AI traverses the game by making uniform random choises when given an option. To play with an Random AI, type **--ai** in the terminal.
+Except for Phase 0, there is an option to play with a random AI instead of a human player. The random AI traverses the game by making uniform random choices when given an option. To play with an Random AI, type **--ai** in the terminal.
 
 
 We hope your enjoy MachiWoco and good luck!
