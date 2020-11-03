@@ -7,25 +7,39 @@ import static org.junit.Assert.assertTrue;
 import org.junit.*;
 
 public class PlayerTest {
+
+	Player p;
+
+
+@Before
+public void setup() {
+	p = new Player();
+}
+
+@Test
+public void testgetPCards() {
+	assertThat(p.getPCards(1), is(0));
+}
+
+@Test
+public void testsetPCards() {
+	p.setPCards(1);
+	assertThat(p.getPCards(0), is(1));
+}
+
+@Test
+public void testgetCoins() {
+	assertThat(p.getCoins(), is(3));
+}
+
+@Test
+public void testsetCoins() {
+	assertThat(p.getCoins(), is(3));
+	p.setCoins(1);
+	assertThat(p.getCoins(), is(4));
+}
 	/*
-<<<<<<< HEAD
 	@Test 
-=======
-      
-	Player p1;
-	
-	@Before
-	public void setup() {
-		p1 = new Player();
-	}
-	
-	@Test
-	public void testConstructor() {
-		//assertThat(p1.ecards.length, is(20));
-	}
-	
-	@Test   
->>>>>>> ce98d4ce077d65ef56ff0436ed15f383191faa4a
 	public void testGetNumWheat() {
 		assertThat(p1.getNumWheat(), is(1));
 	}

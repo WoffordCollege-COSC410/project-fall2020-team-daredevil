@@ -37,7 +37,7 @@ public class Player {
 //			} else if (choice == 99) {
 //				str = str + "Player " + (turn + 1) + " chose not to make any improvements." + "\n";
 //				break;
-//			} 
+//			}
 //			p++;
 //		}
 //		return str;
