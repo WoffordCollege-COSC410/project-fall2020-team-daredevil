@@ -73,6 +73,28 @@ public class GameStateTest {
         
         assertThat(m.printPlayerState(1), is(a));
     }
+
+        @Test
+        public void testGetCardName() {
+                assertThat(m.getCardName(0), is("Wheat Field"));
+        }
+        @Test
+        public void testGetCardIcon() {
+                assertThat(m.getCardIcon(0), is("       BW"));
+        }
+
+        @Test
+        public void testGetCardCost() {
+                assertThat(m.getCardCost(1), is(1));
+        }
+        @Test
+        public void testGetAvailableCards() {
+                assertThat(m.getAvailableCards(0), is(6));
+        }
+        @Test
+        public void testGetActivation() {
+                assertThat(m.getActivation(2), is(5));
+        }
     
 /*
 
