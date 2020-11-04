@@ -43,6 +43,11 @@ public class Player {
 //		return str;
 //	}
 
+	/**
+	* Get the number from a Player's deck. 
+	* @param index i
+	* @return The 
+	*/
 	public int getPCards(int i) {
 		return pCards[i];
 	}
@@ -61,32 +66,14 @@ public class Player {
 
 	/**
 	 * This method set coins for the Player
-	 * @param num is the int value that Player N's coins should change.
+	 * @param num is the int value that a Player's coins will change.
 	 */
     public void setCoins(int num) {
 		coins += num;
     }
 
 	/*
-	private static int[] pCards = {1, 0, 0};
-	//private static int[] coins = {3, 3};
-	private int coins;
-	private String pName;
-	//private int turn;
-
-
-	/**
-	* Creates new instance of Player
-	*/
-
-	/*
-	public Player(String name) {
-		pName = name;
-		//array only stores num of cards for each type
-		coins = 3;
-//		turn = 0;
-	}
-
+	
 	/**
 	* This method adds a card to Player N's deck. 
 	* @param availableCards, cardCost, choice, cardName
@@ -94,24 +81,7 @@ public class Player {
 	*/
 	
 	/*
-	public void purchaseCard(int[] availableCards, int[] cardCost, int choice, String[] cardName) {
-		if (choice == 99) {
-			System.out.println(pName + " chose not to make any improvements.");
-			System.out.println();
-		} else {
-			for (int i = 0; i < 3; i++) {
-				if (choice == i + 1) {
-					System.out.println(pName + " purchased a " + cardName[i]);
-					System.out.println();
-					availableCards[i] -= 1;
-					pCards[i] += 1;
-					coins -= cardCost[i];  
-				}	
-			}
-		}
-	}
 	
-//	TODO setName()
 	
 	/**
 	 * This method gets the amount of coins Player N has.
