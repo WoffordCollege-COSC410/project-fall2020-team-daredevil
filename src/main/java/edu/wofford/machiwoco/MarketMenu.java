@@ -20,8 +20,12 @@ public class MarketMenu {
         s += "==========================================\n";
         s += "---------        PURCHASE        ---------\n";
         menu = s;
+
+    }
         
-        
+    public static int getChoice(Scanner sc) { 
+        return 0;
+    }
 //        pass in a scanner object (checked)
 //        TODO Prompt for player choice (how to jacocoTest???)
 //        System.out.println("Choose a number to purchase or construct: ");
@@ -32,9 +36,9 @@ public class MarketMenu {
 //            choice = scan.nextInt();
 //        }
         
-    }
     
-    public String printMenu() {
+    
+    public static String printMenu() {
         String p = "";
         
 //        TODO n is the possible numbers to buy, for loop shows all purchasable cards to player
@@ -54,7 +58,7 @@ public class MarketMenu {
 //        }
         
         //if Player has no money and no available cards
-        p = menu;
+    //    p = menu;
 //        p = "---------         CANCEL         ---------\n";
 //        p += "99. Do nothing                            \n";
 //        p += "==========================================\n";
@@ -66,7 +70,7 @@ public class MarketMenu {
 //            System.out.println(chs.get(i));
 //        }
 //        chs.add(99); 
-        return menu;
+        return "";
     }
     
     
