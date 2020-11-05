@@ -23,13 +23,20 @@ public class MarketMenu {
 
     }
         
-    public static int getChoice(Scanner sc) { 
-        return 0;
+    public static int getChoice(String str) { //add valid chs array
+//        System.out.println("Choose a number to purchase or construct: "); LEAVE THIS TO MACHIWOCO???
+        Scanner scan = new Scanner(str);
+        int choice = scan.nextInt();
+//        while (!chs.contains(choice)) {
+//            System.out.println("Choose a number to purchase or construct: ");
+//            choice = scan.nextInt();
+//        }
+        return choice;
     }
 //        pass in a scanner object (checked)
 //        TODO Prompt for player choice (how to jacocoTest???)
 //        System.out.println("Choose a number to purchase or construct: ");
-//        Scanner scan = new Scanner(System.in);
+//        Scanner scan = new Scanner(sc);
 //        int choice = scan.nextInt();
 //        while (!chs.contains(choice)) {
 //            System.out.println("Choose a number to purchase or construct: ");
@@ -38,7 +45,7 @@ public class MarketMenu {
         
     
     
-    public static String printMenu() {
+    public static String printMenu(int coins, String[] cName, String[] icon, int[] cost, int[] activation, int[] available) {
         String p = "";
         
 //        TODO n is the possible numbers to buy, for loop shows all purchasable cards to player
