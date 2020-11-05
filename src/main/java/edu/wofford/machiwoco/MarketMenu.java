@@ -40,9 +40,9 @@ public class MarketMenu {
 //        TODO n is the possible numbers to buy, for loop shows all purchasable cards to player
 //        int n = 0;
 //        for (int i = 0; i < 3; i++) {
-//            if (players[turn].getCoins() >= cardCost[i] && availableCards[i] > 0) {
+//            if (players[0].getCoins(i) >= cardCost[i] && availableCards[i] > 0) {
 //                n++;
-//                System.out.println(" " + (i + 1) + ". " + cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + availableCards[i]);
+//                p = " " + (i + 1) + ". " + g.getCardName(i) + " " + g.getCardIcon(i) + " (" + g.getCardCost(i) + ")  [" + g.getActivation(i) + "]      #" + g.getAvailableCards(i) + "\n";
 //            }
 //        }
         

@@ -17,7 +17,7 @@ public class MarketMenuTest {
     }
     
     @Test
-    public void testMarketMenuCons() {
+    public void testMarketMenuConstructor() {
         String s = "";
         s = s + "(To view details of an item, type 'view'  \n";
         s = s + "followed by the item number. For example, \n";
