@@ -385,7 +385,6 @@ The console interface should provide the following notifications:
 ##### Start of Game 
 The game should start with the notification "The game has started. Player *N* will go    
 first." (where *N* is the starting player number).
-
 ##### Beginning of Turn
 A turn should start with the notification "Turn started for Player *N*." (where *N* is the player's number).
 
