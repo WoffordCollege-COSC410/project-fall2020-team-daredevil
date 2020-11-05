@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
 */
 public class MarketMenu {
-    String menu;
+    static String menu;
     //Add a gametate 
     GameState g;
     
@@ -58,7 +58,7 @@ public class MarketMenu {
 //        }
         
         //if Player has no money and no available cards
-    //    p = menu;
+        //p = menu;
 //        p = "---------         CANCEL         ---------\n";
 //        p += "99. Do nothing                            \n";
 //        p += "==========================================\n";
@@ -70,7 +70,7 @@ public class MarketMenu {
 //            System.out.println(chs.get(i));
 //        }
 //        chs.add(99); 
-        return "";
+        return menu;
     }
     
     
