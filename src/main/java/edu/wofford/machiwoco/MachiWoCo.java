@@ -104,40 +104,41 @@ public class MachiWoCo {
                      }
                  }
                  System.out.println();
-                 g.printPlayerState(turn, players);
-                // Print Player 1 State
-                if (turn == 0) {
-                    System.out.println("             Player 1* [YOU]              ");
-                } else {
-                    System.out.println("             Player 1 [YOU]               ");
-                }
-                System.out.println("------------------------------------------");
-                System.out.println("                (" + players[0].getCoins() + " coins)  ");
-                for (int i = 0; i < 3; i++) {
-                    if (players[0].getPCards(i) > 0) {
-                        System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + players[0].getPCards(i));
-                    }
-                }
-                System.out.println("..........................................");
-                System.out.println("City Hall          NT (7)  [ ]            ");
-                System.out.println("                                          ");
                 
-                // Print Player 2 State
-                if (turn == 1) {
-                    System.out.println("                 Player 2*                ");
-                 } else {
-                     System.out.println("                 Player 2                 ");
-                 }
-                 System.out.println("------------------------------------------");
-                 System.out.println("                (" + players[1].getCoins() + " coins)  ");
-                 for (int i = 0; i < 3; i++) {
-                     if (players[1].getPCards(i) > 0) {
-                         System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + players[1].getPCards(i));
-                     }
-                }
-                System.out.println("..........................................");
-                System.out.println("City Hall          NT (7)  [ ]            ");
-                System.out.println("                                          ");
+                 System.out.println(g.printPlayerState(turn, players));
+                // Print Player 1 State
+//                if (turn == 0) {
+//                    System.out.println("             Player 1* [YOU]              ");
+//                } else {
+//                    System.out.println("             Player 1 [YOU]               ");
+//                }
+//                System.out.println("------------------------------------------");
+//                System.out.println("                (" + players[0].getCoins() + " coins)  ");
+//                for (int i = 0; i < 3; i++) {
+//                    if (players[0].getPCards(i) > 0) {
+//                        System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + players[0].getPCards(i));
+//                    }
+//                }
+//                System.out.println("..........................................");
+//                System.out.println("City Hall          NT (7)  [ ]            ");
+//                System.out.println("                                          ");
+//                
+//                // Print Player 2 State
+//                if (turn == 1) {
+//                    System.out.println("                 Player 2*                ");
+//                 } else {
+//                     System.out.println("                 Player 2                 ");
+//                 }
+//                 System.out.println("------------------------------------------");
+//                 System.out.println("                (" + players[1].getCoins() + " coins)  ");
+//                 for (int i = 0; i < 3; i++) {
+//                     if (players[1].getPCards(i) > 0) {
+//                         System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + players[1].getPCards(i));
+//                     }
+//                }
+//                System.out.println("..........................................");
+//                System.out.println("City Hall          NT (7)  [ ]            ");
+//                System.out.println("                                          ");
 
                 // Dice Roll
                 int low = 1;

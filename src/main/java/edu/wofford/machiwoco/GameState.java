@@ -51,7 +51,8 @@ public class GameState {
                 str = str + cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + players[0].getPCards(i) + "\n";
             }
         }
-        str = str + ".........................................." + "\n" + "City Hall          NT (7)  [ ]\n";
+        //note the extra newline character at the end
+        str = str + ".........................................." + "\n" + "City Hall          NT (7)  [ ]\n" + "\n";
         //p2 state
         if (turn == 1) {
             str = str + "                 Player 2*                " + "\n";

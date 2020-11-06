@@ -44,7 +44,7 @@ public class GameStateTest {
                 "                (3 coins)  \n";
         a += "Wheat Field        BW (1)  [1]      #1\n" +
                 "..........................................\n";
-        a = a + "City Hall          NT (7)  [ ]\n";
+        a = a + "City Hall          NT (7)  [ ]\n" + "\n";
         a = a + "                 Player 2                 \n";
         a = a + "------------------------------------------\n" +
                 "                (3 coins)  \n";
@@ -65,7 +65,7 @@ public class GameStateTest {
                 "                (3 coins)  \n";
         a += "Wheat Field        BW (1)  [1]      #1\n" +
                 "..........................................\n";
-        a = a + "City Hall          NT (7)  [ ]\n";
+        a = a + "City Hall          NT (7)  [ ]\n" + "\n";
         a = a + "                 Player 2*                \n";
         a = a + "------------------------------------------\n" +
                 "                (3 coins)  \n";
