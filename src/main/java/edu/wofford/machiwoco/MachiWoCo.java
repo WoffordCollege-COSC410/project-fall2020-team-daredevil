@@ -23,7 +23,7 @@ public class MachiWoCo {
     private static int[] cardCost = {1, 1, 3};
     private static int[] activation = {1, 2, 5};
     //available coices with n from loop below?
-
+    private static GameState g = new GameState();
     public static void main(String[] args) {
         cityHall = 0;
         turn = 0;
@@ -32,7 +32,6 @@ public class MachiWoCo {
         Random random = new Random();
 
 // ************************************************** SHADOW/TRIAL CODE ********************************************************************
-
 
 
 
@@ -91,6 +90,10 @@ public class MachiWoCo {
                 // Beginning of turn
                 System.out.println("Turn started for Player " + (turn + 1) + ".");
                 
+                
+                // System.out.println(g.printMarket());
+
+
                 // Print Market State
                  System.out.println("******************************************");
                  System.out.println("                  MARKET                  ");
@@ -101,7 +104,7 @@ public class MachiWoCo {
                      }
                  }
                  System.out.println();
-
+                 g.printPlayerState(turn, players);
                 // Print Player 1 State
                 if (turn == 0) {
                     System.out.println("             Player 1* [YOU]              ");
