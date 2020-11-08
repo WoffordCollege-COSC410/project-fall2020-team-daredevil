@@ -391,74 +391,94 @@ public class MachiWoCo {
                         } 
                     } 
                 }
+                
                 int n = 0;
-
                 // Check to see if the acitve player is Human or the Random AI
-                if (turn == 0) {
-                    //Prompt for purchase and show MarketMenu (Purchase/Construct screen)
-                    System.out.println();
-                    System.out.println("Player " + (turn + 1) + ", would you like to purchase an");
-                    System.out.println("establishment or construct a landmark? (" + players[turn].getCoins());
-                    System.out.println("coins)");
-                    System.out.println("(To view details of an item, type 'view'  ");
-                    System.out.println("followed by the item number. For example, ");
-                    System.out.println("to view item 6, type 'view 6'.)           ");
-                    System.out.println("==========================================");
-                    System.out.println("---------        PURCHASE        ---------");
+                if (turn == 0) { //player is human
+                    // count the number of possible options
                     for (int i = 0; i < 3; i++) {
                         if (players[turn].getCoins() >= cardCost[i] && availableCards[i] > 0) {
                             n++;
+                        }
+                    }
+
+
+                    if (n > 0) { // player has at least 1 option to buy
+                        //Prompt for purchase and show MarketMenu (Purchase/Construct screen)
+                        System.out.println();
+                        System.out.println("Player " + (turn + 1) + ", would you like to purchase an");
+                        System.out.println("establishment or construct a landmark? (" + players[turn].getCoins());
+                        System.out.println("coins)");
+                        System.out.println("(To view details of an item, type 'view'  ");
+                        System.out.println("followed by the item number. For example, ");
+                        System.out.println("to view item 6, type 'view 6'.)           ");
+                        System.out.println("==========================================");
+                        System.out.println("---------        PURCHASE        ---------");
+                        for (int i = 0; i < n; i++) {
                             System.out.println(" " + (i + 1) + ". " + cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + availableCards[i]);
                         }
-                    }
-                    if (players[turn].getCoins() >= 7) {
-                        n++;
-                        System.out.println("---------       CONSTRUCT        ---------");
-                        System.out.println(" " + n + ". " + "City Hall          NT (7)  [ ] " );
-                    }
 
-                    ArrayList<Integer> chs = new ArrayList<Integer>(0);
-
-                    //STUB MAKE A ARRAY FOR NUMBER OF CHOICES
-                    for (int i = 0; i < n; i++) {
-                        chs.add(i + 1);
-                    }
-                    chs.add(99);
-                    
-                    System.out.println("---------         CANCEL         ---------");
-                    System.out.println("99. Do nothing                            ");
-                    System.out.println("==========================================");
-                    System.out.println("Choose a number to purchase or construct: ");
-                    Scanner scan = new Scanner(System.in);
-                    choice = scan.nextInt();
-                    while (!chs.contains(choice)) {
-                        System.out.println("Choose a number to purchase or construct: ");
-                        choice = scan.nextInt();
-                    }
-                }
-
-                if (turn == 1) {
-                    for (int i = 0; i < 3; i++) {
-                        if (players[turn].getCoins() >= cardCost[i] && availableCards[i] > 0) {
+                        if (players[turn].getCoins() >= 7) {
                             n++;
+                            System.out.println("---------       CONSTRUCT        ---------");
+                            System.out.println(" " + n + ". " + "City Hall          NT (7)  [ ] " );
                         }
-                    }
-                    if (players[turn].getCoins() >= 7) {
-                        n++;
-                    }
 
-                    ArrayList<Integer> chs = new ArrayList<Integer>(0);
 
-                    //STUB MAKE A ARRAY FOR NUMBER OF CHOICES
-                    for (int i = 0; i < n; i++) {
-                        chs.add(i + 1);
+                        // create an array of choices
+                        ArrayList<Integer> chs = new ArrayList<Integer>(0);
+
+                        for (int i = 0; i < n; i++) {
+                            chs.add(i + 1);
+                        }
+                        chs.add(99);
+                        
+                        System.out.println("---------         CANCEL         ---------");
+                        System.out.println("99. Do nothing                            ");
+                        System.out.println("==========================================");
+                        System.out.println("Choose a number to purchase or construct: ");
+                        Scanner scan = new Scanner(System.in);
+                        choice = scan.nextInt();
+                        while (!chs.contains(choice)) {
+                            System.out.println("Choose a number to purchase or construct: ");
+                            choice = scan.nextInt();
+                        }
+                    } else { //player has no possible options
+                        System.out.println("Player 1 did not enough money to make improvements");
                     }
-                    chs.add(99);
+                } else if (turn == 1) { // player is AI
+                        // count the number of possible options
+                        for (int i = 0; i < 3; i++) {
+                            if (players[turn].getCoins() >= cardCost[i] && availableCards[i] > 0) {
+                                n++;
+                            }
+                        }
+                        // if the AI player has 7 or more coins, he automatically wins the game
+                        if (players[turn].getCoins() >= 7) {
+                            cityHall = 2;
+                            break;
+                        }
 
-                    Random random2 = new Random();
-                    choice = chs.get(random2.nextInt(n));
+                        if (n > 0) { // if AI has at least one option
+                            
+
+                            // create an array of choices
+                            ArrayList<Integer> chs = new ArrayList<Integer>(0);
+
+                            for (int i = 0; i < n; i++) {
+                                chs.add(i + 1);
+                            }
+                            chs.add(99);
+
+                            // use a random number generator to make the choice for the AI
+                            Random random2 = new Random();
+                            choice = chs.get(random2.nextInt(n));
+                            System.out.println(chs);
+                        } else {
+                            System.out.println("Player 1 did not enough money to make improvements");
+                        }
                 }
-
+                
                 int p = 0;
 //                if none of possible options, repormpt, check at that first index
                 while (p < 3) {
