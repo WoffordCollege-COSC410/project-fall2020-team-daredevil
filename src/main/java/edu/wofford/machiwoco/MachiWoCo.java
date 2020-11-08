@@ -90,55 +90,13 @@ public class MachiWoCo {
                 // Beginning of turn
                 System.out.println("Turn started for Player " + (turn + 1) + ".");
                 
-                
-                // System.out.println(g.printMarket());
 
 
                 // Print Market State
-                 System.out.println("******************************************");
-                 System.out.println("                  MARKET                  ");
-                 System.out.println("------------------------------------------");
-                 for (int i = 0; i < 3; i++) {
-                     if (availableCards[i] > 0) {
-                         System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + availableCards[i]);
-                     }
-                 }
-                 System.out.println();
+                 System.out.println(g.printMarket());
                 
+                // Print Player States
                  System.out.println(g.printPlayerState(turn, players));
-                // Print Player 1 State
-//                if (turn == 0) {
-//                    System.out.println("             Player 1* [YOU]              ");
-//                } else {
-//                    System.out.println("             Player 1 [YOU]               ");
-//                }
-//                System.out.println("------------------------------------------");
-//                System.out.println("                (" + players[0].getCoins() + " coins)  ");
-//                for (int i = 0; i < 3; i++) {
-//                    if (players[0].getPCards(i) > 0) {
-//                        System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + players[0].getPCards(i));
-//                    }
-//                }
-//                System.out.println("..........................................");
-//                System.out.println("City Hall          NT (7)  [ ]            ");
-//                System.out.println("                                          ");
-//                
-//                // Print Player 2 State
-//                if (turn == 1) {
-//                    System.out.println("                 Player 2*                ");
-//                 } else {
-//                     System.out.println("                 Player 2                 ");
-//                 }
-//                 System.out.println("------------------------------------------");
-//                 System.out.println("                (" + players[1].getCoins() + " coins)  ");
-//                 for (int i = 0; i < 3; i++) {
-//                     if (players[1].getPCards(i) > 0) {
-//                         System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + players[1].getPCards(i));
-//                     }
-//                }
-//                System.out.println("..........................................");
-//                System.out.println("City Hall          NT (7)  [ ]            ");
-//                System.out.println("                                          ");
 
                 // Dice Roll
                 int low = 1;
@@ -316,7 +274,7 @@ public class MachiWoCo {
 
 
 
-// *************************************************  FEATURE 2 (2 Human Players) *********************************************************
+// *************************************************  FEATURE 3 (Add an Random AI Player) *********************************************************
 
         else if (args.length == 2 && args[0].equals("phase1") && args[1].equals("--ai")) {
             // Start of game
