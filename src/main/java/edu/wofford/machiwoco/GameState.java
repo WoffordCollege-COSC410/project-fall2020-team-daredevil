@@ -16,7 +16,7 @@ public class GameState {
 
     public GameState() {
         
-        players = new Player[] {new Player(), new Player()};
+//        players = new Player[] {new Player(), new Player()};
         availableCards = new int[] {6, 6, 6};
         cardName = new String[] {"Wheat Field", "Ranch", "Forest"};
         cardIcon = new String[] {"       BW", "             BC", "            BG"};
@@ -36,7 +36,7 @@ public class GameState {
         return str;
     }
 
-    public String printPlayerState(int turn) {
+    public String printPlayerState(int turn, Player players[]) {
         String str = "";
         
         //p1 state
@@ -51,7 +51,8 @@ public class GameState {
                 str = str + cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + players[0].getPCards(i) + "\n";
             }
         }
-        str = str + ".........................................." + "\n" + "City Hall          NT (7)  [ ]\n";
+        //note the extra newline character at the end
+        str = str + ".........................................." + "\n" + "City Hall          NT (7)  [ ]\n" + "\n";
         //p2 state
         if (turn == 1) {
             str = str + "                 Player 2*                " + "\n";

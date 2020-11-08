@@ -8,13 +8,15 @@ public class GameStateTest {
 
 
     GameState m;
-//    private Player p1 = new Player();
-//    private Player p2 = new Player();
-
+    private Player p1 = new Player();
+    private Player p2 = new Player();
+    private Player[] players;
 
 	@Before
 	public void setup() {
 		m = new GameState();
+        players = new Player[] {p1, p2};
+        //        players = new Player[] {new Player(), new Player()};
     }
     
     @Test
@@ -42,14 +44,14 @@ public class GameStateTest {
                 "                (3 coins)  \n";
         a += "Wheat Field        BW (1)  [1]      #1\n" +
                 "..........................................\n";
-        a = a + "City Hall          NT (7)  [ ]\n";
+        a = a + "City Hall          NT (7)  [ ]\n" + "\n";
         a = a + "                 Player 2                 \n";
         a = a + "------------------------------------------\n" +
                 "                (3 coins)  \n";
         a += "Wheat Field        BW (1)  [1]      #1\n" + 
                 "..........................................\n";
         a = a + "City Hall          NT (7)  [ ]\n";
-        assertThat(m.printPlayerState(0), is(a));
+        assertThat(m.printPlayerState(0, players), is(a));
     }
     
     @Test
@@ -63,7 +65,7 @@ public class GameStateTest {
                 "                (3 coins)  \n";
         a += "Wheat Field        BW (1)  [1]      #1\n" +
                 "..........................................\n";
-        a = a + "City Hall          NT (7)  [ ]\n";
+        a = a + "City Hall          NT (7)  [ ]\n" + "\n";
         a = a + "                 Player 2*                \n";
         a = a + "------------------------------------------\n" +
                 "                (3 coins)  \n";
@@ -71,7 +73,7 @@ public class GameStateTest {
                 "..........................................\n";
         a = a + "City Hall          NT (7)  [ ]\n";
         
-        assertThat(m.printPlayerState(1), is(a));
+        assertThat(m.printPlayerState(1, players), is(a));
     }
 
         @Test
