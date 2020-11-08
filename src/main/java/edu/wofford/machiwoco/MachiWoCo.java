@@ -448,7 +448,7 @@ public class MachiWoCo {
                             choice = scan.nextInt();
                         }
                     } else { //player has no possible options
-                        System.out.println("Player 1 did not enough money to make improvements");
+                        System.out.println("Player " + (turn + 1) + " did not enough money to make improvements");
                     }
                 } else if (turn == 1) { // player is AI
                         // count the number of possible options
@@ -459,11 +459,10 @@ public class MachiWoCo {
                         }
                         // if the AI player has 7 or more coins, he automatically wins the game
                         if (players[turn].getCoins() >= 7) {
-                            cityHall = 2;
-                            break;
+                            n++;
                         }
 
-                        if (n > 0) { // if AI has at least one option
+                        if (n > 0 && n < 4) { // if AI has at least one option and less than 4 options (not enough coins to win)
                             
 
                             // create an array of choices
@@ -477,9 +476,10 @@ public class MachiWoCo {
                             // use a random number generator to make the choice for the AI
                             Random random2 = new Random();
                             choice = chs.get(random2.nextInt(n));
-                            System.out.println(chs);
+                        } else if (n == 4) {
+                            cityHall = 2;
                         } else {
-                            System.out.println("Player 1 did not enough money to make improvements");
+                            System.out.println("Player 2 did not enough money to make improvements");
                         }
                 }
                 
