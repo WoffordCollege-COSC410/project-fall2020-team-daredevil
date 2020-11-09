@@ -96,7 +96,7 @@ public class MachiWoCo {
                  System.out.println(g.printMarket());
                 
                 // Print Player States
-                 System.out.println(g.printPlayerState(turn, players));
+                System.out.println(g.printPlayerState(turn, players));
 
                 // Dice Roll
                 int low = 1;
