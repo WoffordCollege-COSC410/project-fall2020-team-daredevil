@@ -14,9 +14,6 @@ public class MachiWoCo {
     private static int cityHall;
     private static int turn;
     private static int[] availableCards = {6, 6, 6};
-    // private static int[] p1Cards = {1, 0, 0};
-    // private static int[] p2Cards = {1, 0, 0};
-    // private static int[] coins = {3, 3}; //better to make an array of players
     private static Player[] players;
     private static String[] cardName = {"Wheat Field", "Ranch", "Forest"};
     private static String[] cardIcon = {"       BW", "             BC", "            BG"};
@@ -24,6 +21,7 @@ public class MachiWoCo {
     private static int[] activation = {1, 2, 5};
     //available coices with n from loop below?
     private static GameState g = new GameState();
+    
     public static void main(String[] args) {
         cityHall = 0;
         turn = 0;
@@ -90,8 +88,6 @@ public class MachiWoCo {
                 // Beginning of turn
                 System.out.println("Turn started for Player " + (turn + 1) + ".");
                 
-
-
                 // Print Market State
                  System.out.println(g.printMarket());
                 
