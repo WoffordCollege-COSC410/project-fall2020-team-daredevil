@@ -1,5 +1,6 @@
 package edu.wofford.machiwoco;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 
 /**
@@ -7,11 +8,12 @@ import java.util.Scanner;
 public class MarketMenu {
     static String menu;
     //Add a gametate 
-    GameState g;
+//    GameState g;
+    ArrayList<Integer> chs = new ArrayList<Integer>(0);
     
-    public MarketMenu(GameState q) { //Scanner scnr
+    public MarketMenu() { //Scanner scnr
         //NOTE THE SCANNER OBJECT PARAMETER!
-        g = q;
+//        g = q;
         
         String s = ""; //This first chunk is always the same 
         s = s + "(To view details of an item, type 'view'  \n";
@@ -20,38 +22,36 @@ public class MarketMenu {
         s += "==========================================\n";
         s += "---------        PURCHASE        ---------\n";
         menu = s;
+        
 
     }
         
-    public static int getChoice(String str) { //add valid chs array
-//        System.out.println("Choose a number to purchase or construct: "); LEAVE THIS TO MACHIWOCO???
-        Scanner scan = new Scanner(str);
+    public static int getChoice(Scanner scan, ArrayList<Integer> chs) { //add valid chs array
+        
+        //        //ARRAY FOR NUMBER OF CHOICES
+        //        for (int i = 0; i < n; i++) {
+        //            chs.add(i + 1);
+        //        }
+        //        chs.add(99);
+        
+        System.out.println("Choose a number to purchase or construct: "); //LEAVE THIS TO MACHIWOCO???
+//        Scanner scan = new Scanner(str);
         int choice = scan.nextInt();
-//        while (!chs.contains(choice)) {
-//            System.out.println("Choose a number to purchase or construct: ");
-//            choice = scan.nextInt();
-//        }
+        while (!chs.contains(choice)) {
+            System.out.println("Choose a number to purchase or construct: ");
+            choice = scan.nextInt();
+        }
         return choice;
     }
-//        pass in a scanner object (checked)
-//        TODO Prompt for player choice (how to jacocoTest???)
-//        System.out.println("Choose a number to purchase or construct: ");
-//        Scanner scan = new Scanner(sc);
-//        int choice = scan.nextInt();
-//        while (!chs.contains(choice)) {
-//            System.out.println("Choose a number to purchase or construct: ");
-//            choice = scan.nextInt();
-//        }
-        
     
     
     public static String printMenu(int coins, String[] cName, String[] icon, int[] cost, int[] activation, int[] available) {
         String p = "";
         
 //        TODO n is the possible numbers to buy, for loop shows all purchasable cards to player
-//        int n = 0;
+        int n = 0;
 //        for (int i = 0; i < 3; i++) {
-//            if (players[0].getCoins(i) >= cardCost[i] && availableCards[i] > 0) {
+//            if (players[0].getCoins(i) >= cost[i] && available[i] > 0) {
 //                n++;
 //                p = " " + (i + 1) + ". " + g.getCardName(i) + " " + g.getCardIcon(i) + " (" + g.getCardCost(i) + ")  [" + g.getActivation(i) + "]      #" + g.getAvailableCards(i) + "\n";
 //            }
@@ -70,13 +70,6 @@ public class MarketMenu {
 //        p += "99. Do nothing                            \n";
 //        p += "==========================================\n";
         
-//        STUB: Build array to check player input to valid purchase actions
-//        ArrayList<Integer> chs = new ArrayList<Integer>(n);
-//        for (int i = 0; i < n; i++) {
-//            chs.add(i + 1);
-//            System.out.println(chs.get(i));
-//        }
-//        chs.add(99); 
         return menu;
     }
     

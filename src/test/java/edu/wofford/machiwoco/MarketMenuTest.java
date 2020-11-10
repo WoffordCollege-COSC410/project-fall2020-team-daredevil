@@ -4,36 +4,31 @@ import org.junit.Test;
 import static org.hamcrest.MatcherAssert.assertThat; 
 import static org.hamcrest.Matchers.is;
 import org.junit.*;
+import java.util.ArrayList;
+import java.util.*;
 
 
 public class MarketMenuTest {
     MarketMenu m;
-    GameState g;
+//    GameState g;
     private static int[] availableCards;
     private static String[] cardName;
     private static String[] cardIcon;
     private static int[] cardCost;
     private static int[] activation;
 //    Scanner sc;
-    
-//    ArrayList<Integer> chs = new ArrayList<Integer>(0);
-//
-//    //STUB MAKE A ARRAY FOR NUMBER OF CHOICES
-//    for (int i = 0; i < n; i++) {
-//        chs.add(i + 1);
-//    }
-//    chs.add(99);
 
     
     @Before
     public void setup() {
-        g = new GameState();
-        m = new MarketMenu(g);
+//        g = new GameState();
+        m = new MarketMenu();
         cardName = new String[] {"Wheat Field", "Ranch", "Forest"};
         cardIcon = new String[] {"       BW", "             BC", "            BG"};
         cardCost = new int[] {1, 1, 3};
         activation = new int[] {1, 2, 5};
         availableCards = new int[] {6, 6, 6};
+        
     }
     
     @Test
@@ -46,6 +41,7 @@ public class MarketMenuTest {
         s += "==========================================\n";
         s += "---------        PURCHASE        ---------\n";
         String a = m.printMenu(3, cardName, cardIcon, cardCost, activation, availableCards);
+        
         assertThat(a, is(s));
     }
     
@@ -64,8 +60,15 @@ public class MarketMenuTest {
     
     @Test
     public void testGetNumChoices() {
-        String str = "99\n";
+        Scanner str = new Scanner("99\n");
 //        sc = new Scanner(s);
-        assertThat(m.getChoice(str), is(99));
+        //ARRAY FOR NUMBER OF CHOICES
+        ArrayList<Integer> chs = new ArrayList<Integer>(0);
+        for (int i = 0; i < 4; i++) {
+            chs.add(i + 1);
+        }
+        chs.add(99);
+        
+        assertThat(m.getChoice(str, chs), is(99));
     }
 }

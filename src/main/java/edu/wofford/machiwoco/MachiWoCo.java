@@ -21,6 +21,7 @@ public class MachiWoCo {
     private static int[] activation = {1, 2, 5};
     //available coices with n from loop below?
     private static GameState g = new GameState();
+    private static MarketMenu m = new MarketMenu();
     
     public static void main(String[] args) {
         cityHall = 0;
@@ -154,20 +155,16 @@ public class MachiWoCo {
                 System.out.println("99. Do nothing                            ");
                 System.out.println("==========================================");
 
-                System.out.println("Choose a number to purchase or construct: ");
                 Scanner scan = new Scanner(System.in);
-                choice = scan.nextInt();
-                while (!chs.contains(choice)) {
-                    System.out.println("Choose a number to purchase or construct: ");
-                    choice = scan.nextInt();
-                }
-
+                choice = m.getChoice(scan, chs);
+                
                 int p = 0;
 //                if none of possible options, repormpt, check at that first index
                 while (p < 3) {
                     if (choice == p + 1 && players[turn].getCoins() >= cardCost[p]) {
                         System.out.println("Player " + (turn + 1) + " purchased the " + cardName[p]);
                         availableCards[p] -= 1;
+                        g.removeAvailableCards(p);
                         if (turn == 0) {
                             players[turn].setPCards(p);
                             //NEED CHECK FOR keeping coins positive??
