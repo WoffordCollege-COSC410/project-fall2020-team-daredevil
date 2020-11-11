@@ -85,6 +85,10 @@ public class GameState {
     public int getAvailableCards(int i) {
         return availableCards[i];
     }
+    
+    public void removeAvailableCards(int i) {
+        availableCards[i] -= 1;
+    }
 
     public int getActivation(int i) {
         return activation[i];

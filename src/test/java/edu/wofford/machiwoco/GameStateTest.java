@@ -7,14 +7,14 @@ import org.junit.*;
 public class GameStateTest {
 
 
-    GameState m;
+    GameState g;
     private Player p1 = new Player();
     private Player p2 = new Player();
     private Player[] players;
 
-	@Before
-	public void setup() {
-		m = new GameState();
+    @Before
+    public void setup() {
+        g = new GameState();
         players = new Player[] {p1, p2};
         //        players = new Player[] {new Player(), new Player()};
     }
@@ -29,7 +29,7 @@ public class GameStateTest {
         a += "Ranch              BC (1)  [2]      #6\n";
         a += "Forest             BG (3)  [5]      #6\n";
         
-        assertThat(m.printMarket(), is(a));
+        assertThat(g.printMarket(), is(a));
     }
     
     
@@ -51,7 +51,7 @@ public class GameStateTest {
         a += "Wheat Field        BW (1)  [1]      #1\n" + 
                 "..........................................\n";
         a = a + "City Hall          NT (7)  [ ]\n";
-        assertThat(m.printPlayerState(0, players), is(a));
+        assertThat(g.printPlayerState(0, players), is(a));
     }
     
     @Test
@@ -73,29 +73,36 @@ public class GameStateTest {
                 "..........................................\n";
         a = a + "City Hall          NT (7)  [ ]\n";
         
-        assertThat(m.printPlayerState(1, players), is(a));
+        assertThat(g.printPlayerState(1, players), is(a));
     }
 
         @Test
         public void testGetCardName() {
-                assertThat(m.getCardName(0), is("Wheat Field"));
+            assertThat(g.getCardName(0), is("Wheat Field"));
         }
         @Test
         public void testGetCardIcon() {
-                assertThat(m.getCardIcon(0), is("       BW"));
+            assertThat(g.getCardIcon(0), is("       BW"));
         }
 
         @Test
         public void testGetCardCost() {
-                assertThat(m.getCardCost(1), is(1));
+            assertThat(g.getCardCost(1), is(1));
         }
         @Test
         public void testGetAvailableCards() {
-                assertThat(m.getAvailableCards(0), is(6));
+            assertThat(g.getAvailableCards(0), is(6));
         }
         @Test
+        public void testRemoveAvailableCards() {
+            assertThat(g.getAvailableCards(0), is(6));
+            g.removeAvailableCards(0);
+            assertThat(g.getAvailableCards(0), is(5));
+        }
+
+        @Test
         public void testGetActivation() {
-                assertThat(m.getActivation(2), is(5));
+            assertThat(g.getActivation(2), is(5));
         }
     
 /*

@@ -1,83 +1,73 @@
 package edu.wofford.machiwoco;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 
 /**
 */
 public class MarketMenu {
-    static String menu;
+    private static final String PREAMBLE = "(To view details of an item, type 'view'  \n" +
+                                           "followed by the item number. For example, \n" +
+                                           "to view item 6, type 'view 6'.)\n" +
+                                           "==========================================\n" +
+                                           "---------        PURCHASE        ---------\n";
+//    static String menu;
     //Add a gametate 
-    GameState g;
+//    GameState g;
+    ArrayList<Integer> chs = new ArrayList<Integer>(0);
     
-    public MarketMenu(GameState q) { //Scanner scnr
-        //NOTE THE SCANNER OBJECT PARAMETER!
-        g = q;
+    public MarketMenu() { //Scanner scnr
+        //TODO Add THE SCANNER OBJECT PARAMETER HERE
         
-        String s = ""; //This first chunk is always the same 
-        s = s + "(To view details of an item, type 'view'  \n";
-        s = s + "followed by the item number. For example, \n";
-        s += "to view item 6, type 'view 6'.)\n";
-        s += "==========================================\n";
-        s += "---------        PURCHASE        ---------\n";
-        menu = s;
 
     }
         
-    public static int getChoice(String str) { //add valid chs array
-//        System.out.println("Choose a number to purchase or construct: "); LEAVE THIS TO MACHIWOCO???
-        Scanner scan = new Scanner(str);
+    public static int getChoice(Scanner scan, ArrayList<Integer> chs) {
+        
+        //TODO Add code below in here (to remove from MachiWoco?
+        //        //ARRAY FOR NUMBER OF CHOICES
+        //        for (int i = 0; i < n; i++) {
+        //            chs.add(i + 1);
+        //        }
+        //        chs.add(99);
+        
+        System.out.println("Choose a number to purchase or construct: "); //TODO LEAVE THIS TO MACHIWOCO???
         int choice = scan.nextInt();
-//        while (!chs.contains(choice)) {
-//            System.out.println("Choose a number to purchase or construct: ");
-//            choice = scan.nextInt();
-//        }
+        while (!chs.contains(choice)) {
+            System.out.println("Choose a number to purchase or construct: ");
+            choice = scan.nextInt();
+        }
         return choice;
     }
-//        pass in a scanner object (checked)
-//        TODO Prompt for player choice (how to jacocoTest???)
-//        System.out.println("Choose a number to purchase or construct: ");
-//        Scanner scan = new Scanner(sc);
-//        int choice = scan.nextInt();
-//        while (!chs.contains(choice)) {
-//            System.out.println("Choose a number to purchase or construct: ");
-//            choice = scan.nextInt();
-//        }
-        
     
     
     public static String printMenu(int coins, String[] cName, String[] icon, int[] cost, int[] activation, int[] available) {
-        String p = "";
+        String menu = "";
+        //ASSumes coins > 0
+        if (coins == 0) {
+            return menu;
+        }
+//        n is the possible numbers to buy, for loop shows all purchasable cards to player
+        int n = 0;
+        for (int i = 0; i < 3; i++) { //STUB make the 3 the number of available cards (or total cards
+            if (coins >= cost[i] && available[i] > 0) {
+                n++;
+                menu = " " + (i + 1) + ". " + cName[i] + " " + icon[i] + " (" + cost[i] + ")  [" + activation[i] + "]      #" + available[i] + "\n";
+            }
+        }
         
-//        TODO n is the possible numbers to buy, for loop shows all purchasable cards to player
-//        int n = 0;
-//        for (int i = 0; i < 3; i++) {
-//            if (players[0].getCoins(i) >= cardCost[i] && availableCards[i] > 0) {
-//                n++;
-//                p = " " + (i + 1) + ". " + g.getCardName(i) + " " + g.getCardIcon(i) + " (" + g.getCardCost(i) + ")  [" + g.getActivation(i) + "]      #" + g.getAvailableCards(i) + "\n";
-//            }
-//        }
+        if (coins >= 7) {
+            n++;
+            System.out.println("---------       CONSTRUCT        ---------");
+            System.out.println(" " + n + ". " + "City Hall          NT (7)  [ ] ");
+        }
         
-//        TODO separate check whether player can buy CityHall
-//        if (coins[turn] >= 7) {
-//            n++;
-//            System.out.println("---------       CONSTRUCT        ---------");
-//            System.out.println(" " + n + ". " + "City Hall          NT (7)  [ ] ");
-//        }
-        
-        //if Player has no money and no available cards
-        //p = menu;
+        //Default added
 //        p = "---------         CANCEL         ---------\n";
 //        p += "99. Do nothing                            \n";
 //        p += "==========================================\n";
-        
-//        STUB: Build array to check player input to valid purchase actions
-//        ArrayList<Integer> chs = new ArrayList<Integer>(n);
-//        for (int i = 0; i < n; i++) {
-//            chs.add(i + 1);
-//            System.out.println(chs.get(i));
-//        }
-//        chs.add(99); 
-        return menu;
+//        System.out.println(menu);
+        return PREAMBLE + menu;
     }
     
     
