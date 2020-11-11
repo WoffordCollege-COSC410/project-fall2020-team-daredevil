@@ -6,36 +6,32 @@ import java.util.ArrayList;
 /**
 */
 public class MarketMenu {
-    static String menu;
+    private static final String PREAMBLE = "(To view details of an item, type 'view'  \n" +
+                                           "followed by the item number. For example, \n" +
+                                           "to view item 6, type 'view 6'.)\n" +
+                                           "==========================================\n" +
+                                           "---------        PURCHASE        ---------\n";
+//    static String menu;
     //Add a gametate 
 //    GameState g;
     ArrayList<Integer> chs = new ArrayList<Integer>(0);
     
     public MarketMenu() { //Scanner scnr
-        //NOTE THE SCANNER OBJECT PARAMETER!
-//        g = q;
-        
-        String s = ""; //This first chunk is always the same 
-        s = s + "(To view details of an item, type 'view'  \n";
-        s = s + "followed by the item number. For example, \n";
-        s += "to view item 6, type 'view 6'.)\n";
-        s += "==========================================\n";
-        s += "---------        PURCHASE        ---------\n";
-        menu = s;
+        //TODO Add THE SCANNER OBJECT PARAMETER HERE
         
 
     }
         
-    public static int getChoice(Scanner scan, ArrayList<Integer> chs) { //add valid chs array
+    public static int getChoice(Scanner scan, ArrayList<Integer> chs) {
         
+        //TODO Add code below in here (to remove from MachiWoco?
         //        //ARRAY FOR NUMBER OF CHOICES
         //        for (int i = 0; i < n; i++) {
         //            chs.add(i + 1);
         //        }
         //        chs.add(99);
         
-        System.out.println("Choose a number to purchase or construct: "); //LEAVE THIS TO MACHIWOCO???
-//        Scanner scan = new Scanner(str);
+        System.out.println("Choose a number to purchase or construct: "); //TODO LEAVE THIS TO MACHIWOCO???
         int choice = scan.nextInt();
         while (!chs.contains(choice)) {
             System.out.println("Choose a number to purchase or construct: ");
@@ -46,31 +42,32 @@ public class MarketMenu {
     
     
     public static String printMenu(int coins, String[] cName, String[] icon, int[] cost, int[] activation, int[] available) {
-        String p = "";
-        
-//        TODO n is the possible numbers to buy, for loop shows all purchasable cards to player
+        String menu = "";
+        //ASSumes coins > 0
+        if (coins == 0) {
+            return menu;
+        }
+//        n is the possible numbers to buy, for loop shows all purchasable cards to player
         int n = 0;
-//        for (int i = 0; i < 3; i++) {
-//            if (players[0].getCoins(i) >= cost[i] && available[i] > 0) {
-//                n++;
-//                p = " " + (i + 1) + ". " + g.getCardName(i) + " " + g.getCardIcon(i) + " (" + g.getCardCost(i) + ")  [" + g.getActivation(i) + "]      #" + g.getAvailableCards(i) + "\n";
-//            }
-//        }
+        for (int i = 0; i < 3; i++) { //STUB make the 3 the number of available cards (or total cards
+            if (coins >= cost[i] && available[i] > 0) {
+                n++;
+                menu = " " + (i + 1) + ". " + cName[i] + " " + icon[i] + " (" + cost[i] + ")  [" + activation[i] + "]      #" + available[i] + "\n";
+            }
+        }
         
-//        TODO separate check whether player can buy CityHall
-//        if (coins[turn] >= 7) {
-//            n++;
-//            System.out.println("---------       CONSTRUCT        ---------");
-//            System.out.println(" " + n + ". " + "City Hall          NT (7)  [ ] ");
-//        }
+        if (coins >= 7) {
+            n++;
+            System.out.println("---------       CONSTRUCT        ---------");
+            System.out.println(" " + n + ". " + "City Hall          NT (7)  [ ] ");
+        }
         
-        //if Player has no money and no available cards
-        //p = menu;
+        //Default added
 //        p = "---------         CANCEL         ---------\n";
 //        p += "99. Do nothing                            \n";
 //        p += "==========================================\n";
-        
-        return menu;
+//        System.out.println(menu);
+        return PREAMBLE + menu;
     }
     
     
