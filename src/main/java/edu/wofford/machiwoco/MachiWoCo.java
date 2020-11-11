@@ -349,19 +349,18 @@ public class MachiWoCo {
                 
                 //ArrayList of valid indexes -> ex: [0,1,2] or [1,2]...
                 ArrayList<Integer> r = new ArrayList<>(0);
-                for (int i = 0; i < 3; i++) {
+                for (int i = 0; i < availableCards.length; i++) {
                     if (players[turn].getCoins() >= cardCost[i] && availableCards[i] > 0) {
                         r.add(i);
                     }
                 }
                 
                 //ArrayList of valid landmaks to check
-                ArrayList<Integer> lm = new ArrayList<>(0);
-                for (int i = 0; i < 3; i++){   
-                    if (players[turn].getCoins() >= 7) {
-                        lm.add(i);
-                    }
+                ArrayList<Integer> lm = new ArrayList<>();
+                if (players[turn].getCoins() >= 7) {
+                    lm.add(1);
                 }
+
                 //ArrayList of choices
                 ArrayList<Integer> chs = new ArrayList<Integer>(0);
                 for (int i = 0; i < (r.size()+lm.size()); i++) {
@@ -405,51 +404,23 @@ public class MachiWoCo {
                             choice = scan.nextInt();
                         }
                     } else if (turn == 1) { // player is AI
-                        if (lm.size() > 0) {
-                            cityHall = 2; //build cityhall 
-                        } else { // if AI has at least one option and less than 4 options (not enough coins to win)
-                            // use a random number generator to make the choice for the AI
-                            Random random2 = new Random();
-                            choice = chs.get(random2.nextInt(r.size()));
-                        }
+                        //System.out.println("AI makes a choice");
+                        Random random2 = new Random();
+                        choice = chs.get(random2.nextInt(r.size()+lm.size()));
+                        
                     }   
                 }
                 
                 //r = [1,2]  lm = [1]
                 //chs = [1,2,3,99]
-                
-                //first check 99
-                //if (choice == 99) {
-                //  System.out.println("Player " + (turn + 1) + " chose not to make any improvements.");
-                //} else if (choice > r.size()) {
-                //    then it is a landmark
-                //     cityHall = turn + 1;
-                    //     System.out.println("Player " + (turn + 1) + " constructed the City Hall");
-                    //     if (turn == 0) {
-                    //         //NEED CHECK FOR keeping coins positive??
-                    //         players[0].setCoins(-7); //TODO put in cardCost arr?
-                    //     } else if (turn == 1) {
-                    //         players[1].setCoins(-7); //TODO put in cardCost arr?
-                    //     }
-                    // //idex = choice - (r.size() + 1)
-                //} else {it is a property
-                //}
-
-                //choice == lm.get()
-                    int p = 0;
-                    if (choice == p + 1) {
-                        System.out.println("Player " + (turn + 1) + " purchased the " + cardName[r.get(p)]);
-                        availableCards[r.get(p)] -= 1;
-                        if (turn == 0) {
-                            players[turn].setPCards(r.get(p));
-                            //NEED CHECK FOR keeping coins positive??
-                            players[turn].setCoins(-cardCost[r.get(p)]);
-                        } else if (turn == 1) {
-                            players[1].setPCards(r.get(p));
-                            players[1].setCoins(-cardCost[r.get(p)]);
-                            //break;
-                        }
-                    } else if (players[turn].getCoins() >= 7 && choice == r.size()) {
+                //int index = choice - (r.size() + 1); multiple landmark loop
+                //TODO add conditional: is choice valid
+                int index = choice - 1;
+                if (choice > 0 && r.size()+lm.size() > 0) {
+                    //first check 99
+                    if (choice == 99) {
+                        System.out.println("Player " + (turn + 1) + " chose not to make any improvements.");
+                    } else if (choice > r.size() && lm.size() > 0) {  //then it is a landmark
                         cityHall = turn + 1;
                         System.out.println("Player " + (turn + 1) + " constructed the City Hall");
                         if (turn == 0) {
@@ -458,12 +429,49 @@ public class MachiWoCo {
                         } else if (turn == 1) {
                             players[1].setCoins(-7); //TODO put in cardCost arr?
                         }
-                        //break;
-                    } else if (choice == 99) {
-                        System.out.println("Player " + (turn + 1) + " chose not to make any improvements.");
-                        //break;
-                    } 
-                    p++;
+                    } else { //it is a property
+                        System.out.println("Player " + (turn + 1) + " purchased the " + cardName[r.get(index)]);
+                        availableCards[r.get(index)] -= 1;
+                        if (turn == 0) {
+                            players[turn].setPCards(r.get(index));
+                            //NEED CHECK FOR keeping coins positive??
+                            players[turn].setCoins(-cardCost[r.get(index)]);
+                        } else if (turn == 1) {
+                            players[1].setPCards(r.get(index));
+                            players[1].setCoins(-cardCost[r.get(index)]);
+                        }
+                    }
+                }
+
+                //choice == lm.get()
+                    // int p = 0;
+                    // if (choice == p + 1) {
+                    //     System.out.println("Player " + (turn + 1) + " purchased the " + cardName[r.get(p)]);
+                    //     availableCards[r.get(p)] -= 1;
+                    //     if (turn == 0) {
+                    //         players[turn].setPCards(r.get(p));
+                    //         //NEED CHECK FOR keeping coins positive??
+                    //         players[turn].setCoins(-cardCost[r.get(p)]);
+                    //     } else if (turn == 1) {
+                    //         players[1].setPCards(r.get(p));
+                    //         players[1].setCoins(-cardCost[r.get(p)]);
+                    //         //break;
+                    //     }
+                    // } else if (players[turn].getCoins() >= 7 && choice == r.size()) {
+                    //     cityHall = turn + 1;
+                    //     System.out.println("Player " + (turn + 1) + " constructed the City Hall");
+                    //     if (turn == 0) {
+                    //         //NEED CHECK FOR keeping coins positive??
+                    //         players[0].setCoins(-7); //TODO put in cardCost arr?
+                    //     } else if (turn == 1) {
+                    //         players[1].setCoins(-7); //TODO put in cardCost arr?
+                    //     }
+                    //     //break;
+                    // } else if (choice == 99) {
+                    //     System.out.println("Player " + (turn + 1) + " chose not to make any improvements.");
+                    //     //break;
+                    // } 
+                    // p++;
                 
                 
                 //TURN ENDED MESSAGE
@@ -497,7 +505,7 @@ public class MachiWoCo {
                     System.out.println("                (" + players[1].getCoins() + " coins)  ");
                     for (int i = 0; i < 3; i++) {
                         if (players[1].getPCards(i) > 0) {
-                            System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" +  players[1].getPCards(p));
+                            System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" +  players[1].getPCards(i));
                         }
                     }
                     System.out.println("..........................................");
@@ -511,7 +519,7 @@ public class MachiWoCo {
                     System.out.println("                (" + players[0].getCoins() + " coins)  ");
                     for (int i = 0; i < 3; i++) {
                         if (players[0].getPCards(i) > 0) {
-                            System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + players[0].getPCards(p));
+                            System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + players[0].getPCards(i));
                         }
                     }
                     System.out.println("..........................................");
@@ -522,7 +530,7 @@ public class MachiWoCo {
                     System.out.println("                (" + players[1].getCoins() + " coins)  ");
                     for (int i = 0; i < 3; i++) {
                         if (players[1].getPCards(i) > 0) {
-                            System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + players[1].getPCards(p));
+                            System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + players[1].getPCards(i));
                         }
                     }
                     System.out.println("..........................................");
