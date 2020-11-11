@@ -354,18 +354,33 @@ public class MachiWoCo {
                     } 
                 }
                 
-                int n = 0;
-                // Check to see if the acitve player is Human or the Random AI
-                if (turn == 0) { //player is human
-                    // count the number of possible options
-                    for (int i = 0; i < 3; i++) {
-                        if (players[turn].getCoins() >= cardCost[i] && availableCards[i] > 0) {
-                            n++;
-                        }
+                //ArrayList of valid indexes -> ex: [0,1,2] or [1,2]...
+                ArrayList<Integer> r = new ArrayList<>(0);
+                for (int i = 0; i < 3; i++) {
+                    if (players[turn].getCoins() >= cardCost[i] && availableCards[i] > 0) {
+                        r.add(i);
                     }
+                }
+                
+                //ArrayList of valid landmaks to check
+                ArrayList<Integer> lm = new ArrayList<>(0);
+                for (int i = 0; i < 3; i++){   
+                    if (players[turn].getCoins() >= 7) {
+                        lm.add(i);
+                    }
+                }
+                //ArrayList of choices
+                ArrayList<Integer> chs = new ArrayList<Integer>(0);
+                for (int i = 0; i < (r.size()+lm.size()); i++) {
+                    chs.add(i + 1);
+                }
+                chs.add(99);
 
-
-                    if (n > 0) { // player has at least 1 option to buy
+                //Nothing can be purchased
+                if(r.size()+lm.size() == 0){
+                    System.out.println("Player " + (turn + 1) + " did not enough money to make improvements");
+                } else { //Something can be purchased
+                    if (turn == 0) { //player is human
                         //Prompt for purchase and show MarketMenu (Purchase/Construct screen)
                         System.out.println();
                         System.out.println("Player " + (turn + 1) + ", would you like to purchase an");
@@ -376,24 +391,15 @@ public class MachiWoCo {
                         System.out.println("to view item 6, type 'view 6'.)           ");
                         System.out.println("==========================================");
                         System.out.println("---------        PURCHASE        ---------");
-                        for (int i = 0; i < n; i++) {
-                            System.out.println(" " + (i + 1) + ". " + cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + availableCards[i]);
+                        for (int i = 0; i < r.size(); i++) {
+                            System.out.println(" " + (i + 1) + ". " + cardName[r.get(i)] + " " + cardIcon[r.get(i)] + " (" + cardCost[r.get(i)] + ")  [" + activation[r.get(i)] + "]      #" + availableCards[r.get(i)]);
                         }
-
-                        if (players[turn].getCoins() >= 7) {
-                            n++;
+                        
+                        //new for loop looing across landmark list... if true construct 
+                        if (lm.size() > 0) {        //later loop across lm
                             System.out.println("---------       CONSTRUCT        ---------");
-                            System.out.println(" " + n + ". " + "City Hall          NT (7)  [ ] " );
+                            System.out.println(" " + (r.size()+1) + ". " + "City Hall          NT (7)  [ ] " );
                         }
-
-
-                        // create an array of choices
-                        ArrayList<Integer> chs = new ArrayList<Integer>(0);
-
-                        for (int i = 0; i < n; i++) {
-                            chs.add(i + 1);
-                        }
-                        chs.add(99);
                         
                         System.out.println("---------         CANCEL         ---------");
                         System.out.println("99. Do nothing                            ");
@@ -405,58 +411,52 @@ public class MachiWoCo {
                             System.out.println("Choose a number to purchase or construct: ");
                             choice = scan.nextInt();
                         }
-                    } else { //player has no possible options
-                        System.out.println("Player " + (turn + 1) + " did not enough money to make improvements");
-                    }
-                } else if (turn == 1) { // player is AI
-                        // count the number of possible options
-                        for (int i = 0; i < 3; i++) {
-                            if (players[turn].getCoins() >= cardCost[i] && availableCards[i] > 0) {
-                                n++;
-                            }
-                        }
-                        // if the AI player has 7 or more coins, he automatically wins the game
-                        if (players[turn].getCoins() >= 7) {
-                            n++;
-                        }
-
-                        if (n > 0 && n < 4) { // if AI has at least one option and less than 4 options (not enough coins to win)
-                            
-
-                            // create an array of choices
-                            ArrayList<Integer> chs = new ArrayList<Integer>(0);
-
-                            for (int i = 0; i < n; i++) {
-                                chs.add(i + 1);
-                            }
-                            chs.add(99);
-
+                    } else if (turn == 1) { // player is AI
+                        if (lm.size() > 0) {
+                            cityHall = 2; //build cityhall 
+                        } else { // if AI has at least one option and less than 4 options (not enough coins to win)
                             // use a random number generator to make the choice for the AI
                             Random random2 = new Random();
-                            choice = chs.get(random2.nextInt(n));
-                        } else if (n == 4) {
-                            cityHall = 2;
-                        } else {
-                            System.out.println("Player 2 did not enough money to make improvements");
+                            choice = chs.get(random2.nextInt(r.size()));
                         }
+                    }   
                 }
                 
-                int p = 0;
-//                if none of possible options, repormpt, check at that first index
-                while (p < 3) {
-                    if (choice == p + 1 && players[turn].getCoins() >= cardCost[p]) {
-                        System.out.println("Player " + (turn + 1) + " purchased the " + cardName[p]);
-                        availableCards[p] -= 1;
+                //r = [1,2]  lm = [1]
+                //chs = [1,2,3,99]
+                
+                //first check 99
+                //if (choice == 99) {
+                //  System.out.println("Player " + (turn + 1) + " chose not to make any improvements.");
+                //} else if (choice > r.size()) {
+                //    then it is a landmark
+                //     cityHall = turn + 1;
+                    //     System.out.println("Player " + (turn + 1) + " constructed the City Hall");
+                    //     if (turn == 0) {
+                    //         //NEED CHECK FOR keeping coins positive??
+                    //         players[0].setCoins(-7); //TODO put in cardCost arr?
+                    //     } else if (turn == 1) {
+                    //         players[1].setCoins(-7); //TODO put in cardCost arr?
+                    //     }
+                    // //idex = choice - (r.size() + 1)
+                //} else {it is a property
+                //}
+
+                //choice == lm.get()
+                    int p = 0;
+                    if (choice == p + 1) {
+                        System.out.println("Player " + (turn + 1) + " purchased the " + cardName[r.get(p)]);
+                        availableCards[r.get(p)] -= 1;
                         if (turn == 0) {
-                            players[turn].setPCards(p);
+                            players[turn].setPCards(r.get(p));
                             //NEED CHECK FOR keeping coins positive??
-                            players[turn].setCoins(-cardCost[p]);
+                            players[turn].setCoins(-cardCost[r.get(p)]);
                         } else if (turn == 1) {
-                            players[1].setPCards(p);
-                            players[1].setCoins(-cardCost[p]);
-                            break;
+                            players[1].setPCards(r.get(p));
+                            players[1].setCoins(-cardCost[r.get(p)]);
+                            //break;
                         }
-                    } else if (players[turn].getCoins() >= 7 && choice == n) {
+                    } else if (players[turn].getCoins() >= 7 && choice == r.size()) {
                         cityHall = turn + 1;
                         System.out.println("Player " + (turn + 1) + " constructed the City Hall");
                         if (turn == 0) {
@@ -465,13 +465,13 @@ public class MachiWoCo {
                         } else if (turn == 1) {
                             players[1].setCoins(-7); //TODO put in cardCost arr?
                         }
-                        break;
+                        //break;
                     } else if (choice == 99) {
                         System.out.println("Player " + (turn + 1) + " chose not to make any improvements.");
-                        break;
+                        //break;
                     } 
                     p++;
-                }
+                
                 
                 //TURN ENDED MESSAGE
                 System.out.println("Turn ended for Player " + (turn + 1));
