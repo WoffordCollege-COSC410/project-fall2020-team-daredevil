@@ -57,7 +57,7 @@ public class MachiWoCo {
 
 
 
-// **************************************************** FEATURE 1 (Phase 0) ***************************************************************
+// **************************************************** FEATURE 1 (Phase 0) **************************************************************
 
         // Determine which phase of the game we're playing
         if (args.length > 0 && args[0].equals("phase0")) {
@@ -77,7 +77,7 @@ public class MachiWoCo {
 
 
 
-// *************************************************  FEATURE 2 (2 Human Players) *********************************************************
+// *************************************************  FEATURE 2 (Phase 1 - 2 Human Players) ***********************************************
 
           else if (args.length == 1 && args[0].equals("phase1")) {
             // Start of game
@@ -262,12 +262,12 @@ public class MachiWoCo {
             }
         }
 
-// ****************************************************************************************************************************************
+// ***********************************************************************************************************************************************************
 
 
 
 
-// *************************************************  FEATURE 3 (Add an Random AI Player) *********************************************************
+// ******************************************************  FEATURE 3 (Phase 1 - Human vs. Random AI) *********************************************************
 
         else if (args.length == 2 && args[0].equals("phase1") && args[1].equals("--ai")) {
             // Start of game
@@ -278,51 +278,12 @@ public class MachiWoCo {
             while (cityHall == 0) {
                 // Beginning of turn
                 System.out.println("Turn started for Player " + (turn + 1) + ".");
-                
+
                 // Print Market State
-                 System.out.println("******************************************");
-                 System.out.println("                  MARKET                  ");
-                 System.out.println("------------------------------------------");
-                 for (int i = 0; i < 3; i++) {
-                     if (availableCards[i] > 0) {
-                         System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + availableCards[i]);
-                     }
-                 }
-                 System.out.println();
-                 
-                // Print Player 1 State
-                if (turn == 0) {
-                    System.out.println("             Player 1* [YOU]              ");
-                } else {
-                    System.out.println("             Player 1 [YOU]               ");
-                }
-                System.out.println("------------------------------------------");
-                System.out.println("                (" + players[0].getCoins() + " coins)  ");
-                for (int i = 0; i < 3; i++) {
-                    if (players[0].getPCards(i) > 0) {
-                        System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + players[0].getPCards(i));
-                    }
-                }
-                System.out.println("..........................................");
-                System.out.println("City Hall          NT (7)  [ ]            ");
-                System.out.println("                                          ");
+                System.out.println(g.printMarket());
                 
-                // Print Player 2 State
-                if (turn == 1) {
-                    System.out.println("                 Player 2*                ");
-                 } else {
-                     System.out.println("                 Player 2                 ");
-                 }
-                 System.out.println("------------------------------------------");
-                 System.out.println("                (" + players[1].getCoins() + " coins)  ");
-                 for (int i = 0; i < 3; i++) {
-                     if (players[1].getPCards(i) > 0) {
-                         System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + players[1].getPCards(i));
-                     }
-                }
-                System.out.println("..........................................");
-                System.out.println("City Hall          NT (7)  [ ]            ");
-                System.out.println("                                          ");
+                // Print Players' State
+                System.out.println(g.printPlayerState(turn, players));
 
                 // Dice Roll
                 int low = 1;
@@ -348,10 +309,10 @@ public class MachiWoCo {
                 }
                 
                 //ArrayList of valid indexes -> ex: [0,1,2] or [1,2]...
-                ArrayList<Integer> r = new ArrayList<>(0);
+                ArrayList<Integer> est = new ArrayList<>(0);
                 for (int i = 0; i < availableCards.length; i++) {
                     if (players[turn].getCoins() >= cardCost[i] && availableCards[i] > 0) {
-                        r.add(i);
+                        est.add(i);
                     }
                 }
                 
@@ -363,13 +324,13 @@ public class MachiWoCo {
 
                 //ArrayList of choices
                 ArrayList<Integer> chs = new ArrayList<Integer>(0);
-                for (int i = 0; i < (r.size()+lm.size()); i++) {
+                for (int i = 0; i < (est.size()+lm.size()); i++) {
                     chs.add(i + 1);
                 }
                 chs.add(99);
 
                 //Nothing can be purchased
-                if(r.size()+lm.size() == 0){
+                if(est.size()+lm.size() == 0){
                     System.out.println("Player " + (turn + 1) + " did not enough money to make improvements");
                 } else { //Something can be purchased
                     if (turn == 0) { //player is human
@@ -383,14 +344,14 @@ public class MachiWoCo {
                         System.out.println("to view item 6, type 'view 6'.)           ");
                         System.out.println("==========================================");
                         System.out.println("---------        PURCHASE        ---------");
-                        for (int i = 0; i < r.size(); i++) {
-                            System.out.println(" " + (i + 1) + ". " + cardName[r.get(i)] + " " + cardIcon[r.get(i)] + " (" + cardCost[r.get(i)] + ")  [" + activation[r.get(i)] + "]      #" + availableCards[r.get(i)]);
+                        for (int i = 0; i < est.size(); i++) {
+                            System.out.println(" " + (i + 1) + ". " + cardName[est.get(i)] + " " + cardIcon[est.get(i)] + " (" + cardCost[est.get(i)] + ")  [" + activation[est.get(i)] + "]      #" + availableCards[est.get(i)]);
                         }
                         
                         //new for loop looing across landmark list... if true construct 
                         if (lm.size() > 0) {        //later loop across lm
                             System.out.println("---------       CONSTRUCT        ---------");
-                            System.out.println(" " + (r.size()+1) + ". " + "City Hall          NT (7)  [ ] " );
+                            System.out.println(" " + (est.size()+1) + ". " + "City Hall          NT (7)  [ ] " );
                         }
                         
                         System.out.println("---------         CANCEL         ---------");
@@ -406,73 +367,39 @@ public class MachiWoCo {
                     } else if (turn == 1) { // player is AI
                         //System.out.println("AI makes a choice");
                         Random random2 = new Random();
-                        choice = chs.get(random2.nextInt(r.size()+lm.size()));
+                        choice = chs.get(random2.nextInt(est.size()+lm.size()));
                         
                     }   
                 }
                 
-                //r = [1,2]  lm = [1]
-                //chs = [1,2,3,99]
-                //int index = choice - (r.size() + 1); multiple landmark loop
-                //TODO add conditional: is choice valid
                 int index = choice - 1;
-                if (choice > 0 && r.size()+lm.size() > 0) {
+                if (choice > 0 && est.size()+lm.size() > 0) {
                     //first check 99
                     if (choice == 99) {
                         System.out.println("Player " + (turn + 1) + " chose not to make any improvements.");
-                    } else if (choice > r.size() && lm.size() > 0) {  //then it is a landmark
+                    } else if (choice > est.size() && lm.size() > 0) {  //then it is a landmark
                         cityHall = turn + 1;
                         System.out.println("Player " + (turn + 1) + " constructed the City Hall");
                         if (turn == 0) {
                             //NEED CHECK FOR keeping coins positive??
-                            players[0].setCoins(-7); //TODO put in cardCost arr?
+                            players[0].setCoins(-7); 
                         } else if (turn == 1) {
-                            players[1].setCoins(-7); //TODO put in cardCost arr?
+                            players[1].setCoins(-7); 
                         }
                     } else { //it is a property
-                        System.out.println("Player " + (turn + 1) + " purchased the " + cardName[r.get(index)]);
-                        availableCards[r.get(index)] -= 1;
+                        System.out.println("Player " + (turn + 1) + " purchased the " + cardName[est.get(index)]);
+                        //System.out.println(r.get(index));
+                        //availableCards[r.get(index)] -= 1;
+                        g.removeAvailableCards(est.get(index));
                         if (turn == 0) {
-                            players[turn].setPCards(r.get(index));
-                            //NEED CHECK FOR keeping coins positive??
-                            players[turn].setCoins(-cardCost[r.get(index)]);
+                            players[turn].setPCards(est.get(index));
+                            players[turn].setCoins(-cardCost[est.get(index)]);
                         } else if (turn == 1) {
-                            players[1].setPCards(r.get(index));
-                            players[1].setCoins(-cardCost[r.get(index)]);
+                            players[1].setPCards(est.get(index));
+                            players[1].setCoins(-cardCost[est.get(index)]);
                         }
                     }
                 }
-
-                //choice == lm.get()
-                    // int p = 0;
-                    // if (choice == p + 1) {
-                    //     System.out.println("Player " + (turn + 1) + " purchased the " + cardName[r.get(p)]);
-                    //     availableCards[r.get(p)] -= 1;
-                    //     if (turn == 0) {
-                    //         players[turn].setPCards(r.get(p));
-                    //         //NEED CHECK FOR keeping coins positive??
-                    //         players[turn].setCoins(-cardCost[r.get(p)]);
-                    //     } else if (turn == 1) {
-                    //         players[1].setPCards(r.get(p));
-                    //         players[1].setCoins(-cardCost[r.get(p)]);
-                    //         //break;
-                    //     }
-                    // } else if (players[turn].getCoins() >= 7 && choice == r.size()) {
-                    //     cityHall = turn + 1;
-                    //     System.out.println("Player " + (turn + 1) + " constructed the City Hall");
-                    //     if (turn == 0) {
-                    //         //NEED CHECK FOR keeping coins positive??
-                    //         players[0].setCoins(-7); //TODO put in cardCost arr?
-                    //     } else if (turn == 1) {
-                    //         players[1].setCoins(-7); //TODO put in cardCost arr?
-                    //     }
-                    //     //break;
-                    // } else if (choice == 99) {
-                    //     System.out.println("Player " + (turn + 1) + " chose not to make any improvements.");
-                    //     //break;
-                    // } 
-                    // p++;
-                
                 
                 //TURN ENDED MESSAGE
                 System.out.println("Turn ended for Player " + (turn + 1));
@@ -543,9 +470,45 @@ public class MachiWoCo {
                     turn = (turn + 1) % 2;
                 }
             }
+        }
+
+// *******************************************************************************************************************************************************
+
+
+
+
+// *************************************************  FEATURE 4 (Phase 2 - Human and 1 Random AI) *********************************************************
+
+        else if (args.length == 2 && args[0].equals("phase2") && args[1].equals("2")) {
+
+        }
+
+
+
+
+
+
+
+
+// *********************************************************************************************************************************************************
+
+
+
+
+// *************************************************  FEATURE 4 (Phase 2 - Human and 2 Random AIs) *********************************************************
+
+        else if (args.length == 2 && args[0].equals("phase2") && args[1].equals("3")) {
+
+        }
+
+
+
+
+
+
+
 
 // *******************************************************************************************************************************************
 
-        }
     }
 }
