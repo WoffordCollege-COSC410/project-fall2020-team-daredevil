@@ -52,13 +52,15 @@ public void testCardActivation1() {
 	assertThat(p.cardActivation(1, players), is(a));
 }
 
-/*
+
 @Test
 public void testCardActivation2() {
 	String b = "";
 
+	players[0].setPCards(1);
 	b = b + "Ranch activated for Player 1\n";
 
+	assertThat(players[1].getPCards(1), is(0));
 	assertThat(p.cardActivation(2, players), is(b));
 }
 
@@ -67,11 +69,14 @@ public void testCardActivation2() {
 public void testCardActivation3() {
 	String c = "";
 
+	players[1].setPCards(1);
 	c = c + "Ranch activated for Player 2\n";
 
+	assertThat(players[0].getPCards(1), is(0));
 	assertThat(p.cardActivation(2, players), is(c));
 }
-*/
+
+
 
 
 

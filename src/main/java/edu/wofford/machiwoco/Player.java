@@ -4,13 +4,9 @@ import java.util.Random;
 
 public class Player {
 	private int[] pCards; 
-<<<<<<< HEAD
 	private static String[] cardName;
 	private static int[] activation;
     private int coins; 
-=======
-	private int coins; 
->>>>>>> dcc109c8066ff8ed6431b8ae98b49cffb50730e1
 
 
 	/**
@@ -65,7 +61,6 @@ public class Player {
 	}
 
 	/**
-<<<<<<< HEAD
 	 * This method gets the amount of coins Player N has.
 	 * @return coins
 	 */
@@ -109,27 +104,6 @@ public class Player {
 	}
 
 
-	/*
 	
-	/**
-	* This method adds a card to Player N's deck. 
-	* @param availableCards, cardCost, choice, cardName
-	* 
-=======
-	* This method gets the amount of coins Player N has.
-	* @return coins
->>>>>>> dcc109c8066ff8ed6431b8ae98b49cffb50730e1
-	*/
-	public int getCoins() {
-		return coins;
-	}
-
-	/**
-	* This method set coins for the Player
-	* @param num is the int value that a Player's coins will change.
-	*/
-	public void setCoins(int num) {
-		coins += num;
-	}
 
 }
