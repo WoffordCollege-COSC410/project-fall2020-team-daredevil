@@ -42,10 +42,10 @@ public class Player {
 //		}
 //		return str;
 //	}
-
+	
 	/**
 	* Get the number from a Player's deck. 
-	* @param index i
+	* @param i the index to return
 	* @return The 
 	*/
 	public int getPCards(int i) {
