@@ -5,10 +5,6 @@ import java.util.Random;
 import java.util.ArrayList;
 
 
-// Feature 1: LINE 60~
-// Feature 2: LINE 80~
-// Feature 3: LINE 315~
-
 
 public class MachiWoCo {
     private static int cityHall;
@@ -19,7 +15,6 @@ public class MachiWoCo {
     private static String[] cardIcon = {"       BW", "             BC", "            BG"};
     private static int[] cardCost = {1, 1, 3};
     private static int[] activation = {1, 2, 5};
-    //available coices with n from loop below?
     private static GameState g = new GameState();
     private static MarketMenu m = new MarketMenu();
     private static Player p = new Player();
@@ -103,22 +98,8 @@ public class MachiWoCo {
                 System.out.println("******************************************");
                 System.out.println("Player " + (turn + 1) + " rolled [" + dice + "] = " + dice + ".");
      
-//                 Check to see if the dice roll activated any cards 
-                for (int i = 0; i < 3; i++) {
-                    if (dice == activation[i]) {
-                        players[0].setCoins(1 * players[0].getPCards(i));
-                        players[1].setCoins(1 * players[1].getPCards(i));
-                        if (players[0].getPCards(i) > 0 && players[1].getPCards(i) > 0) {
-                            System.out.println(cardName[i] + " activated for Player 1");
-                            System.out.println(cardName[i] + " activated for Player 2");
-                        } else if (players[0].getPCards(i) > 0) {
-                            System.out.println(cardName[i] + " activated for Player 1");
-                        } else if (players[1].getPCards(i) > 0) {
-                            System.out.println(cardName[i] + " activated for Player 2");
-                        } 
-                    } 
-                }
-                System.out.println();
+                // Check to see if the dice roll activated any cards 
+                System.out.println(p.cardActivation(dice, players));
                 
                 //Prompt for purchase and show MarketMenu (Purchase/Construct screen)
                 System.out.println("Player " + (turn + 1) + ", would you like to purchase an");
@@ -228,9 +209,6 @@ public class MachiWoCo {
                 // Print Players' State
                 System.out.println(g.printPlayerState(turn, players));
 
-                // Dice Roll and Activation check
-                // System.out.println(p.diceRoll(turn, players));
-
                 // Dice Roll
                 int low = 1;
                 int high = 7;
@@ -263,7 +241,7 @@ public class MachiWoCo {
                 chs.add(99);
 
                 //Nothing can be purchased
-                if(est.size()+lm.size() == 0){
+                if (est.size() + lm.size() == 0) {
                     System.out.println("Player " + (turn + 1) + " did not enough money to make improvements");
                 } else { //Something can be purchased
                     if (turn == 0) { //player is human
@@ -306,7 +284,7 @@ public class MachiWoCo {
                 }
                 
                 int index = choice - 1;
-                if (choice > 0 && est.size()+lm.size() > 0) {
+                if (choice > 0 && est.size() + lm.size() > 0) {
                     //first check 99
                     if (choice == 99) {
                         System.out.println("Player " + (turn + 1) + " chose not to make any improvements.");

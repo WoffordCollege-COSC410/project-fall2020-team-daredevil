@@ -1,6 +1,5 @@
 package edu.wofford.machiwoco;
 
-import java.util.Random;
 
 public class Player {
 	private int[] pCards; 
@@ -76,16 +75,15 @@ public class Player {
 		coins += num;
 	}
 	
+
+	/**
+	 * This method checks if any cards are activated
+	 * @param dice
+	 * @param players
+	 * @return the string d
+	 */
 	public String cardActivation(int dice, Player players[]) {
 		String d = "";
-		/*
-		int low = 1;
-		int high = 7;
-		Random random = new Random();
-		int dice = random.nextInt(high - low) + low;
-		d = d + "******************************************\n" + 
-				"Player " + (turn + 1) + " rolled [" + dice + "] = " + dice + ".\n";
-		*/
 		for (int i = 0; i < 3; i++) {
 			if (dice == activation[i]) {
 				players[0].setCoins(1 * players[0].getPCards(i));
@@ -102,8 +100,4 @@ public class Player {
 		}
 		return d;
 	}
-
-
-	
-
 }
