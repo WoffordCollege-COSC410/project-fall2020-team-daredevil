@@ -311,7 +311,7 @@ public class MachiWoCo {
                 //ArrayList of valid indexes -> ex: [0,1,2] or [1,2]...
                 ArrayList<Integer> est = new ArrayList<>(0);
                 for (int i = 0; i < availableCards.length; i++) {
-                    if (players[turn].getCoins() >= cardCost[i] && availableCards[i] > 0) {
+                    if (players[turn].getCoins() >= cardCost[i] && g.getAvailableCards(i) > 0) {
                         est.add(i);
                     }
                 }
@@ -345,7 +345,7 @@ public class MachiWoCo {
                         System.out.println("==========================================");
                         System.out.println("---------        PURCHASE        ---------");
                         for (int i = 0; i < est.size(); i++) {
-                            System.out.println(" " + (i + 1) + ". " + cardName[est.get(i)] + " " + cardIcon[est.get(i)] + " (" + cardCost[est.get(i)] + ")  [" + activation[est.get(i)] + "]      #" + availableCards[est.get(i)]);
+                            System.out.println(" " + (i + 1) + ". " + cardName[est.get(i)] + " " + cardIcon[est.get(i)] + " (" + cardCost[est.get(i)] + ")  [" + activation[est.get(i)] + "]      #" + g.getAvailableCards(est.get(i)));
                         }
                         
                         //new for loop looing across landmark list... if true construct 
