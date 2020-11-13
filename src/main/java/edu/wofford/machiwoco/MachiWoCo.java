@@ -194,67 +194,9 @@ public class MachiWoCo {
                 //TURN ENDED MESSAGE
                 System.out.println("Turn ended for Player " + (turn + 1));
                 
-                // Print Market State if cityHall is bought
                 if (cityHall > 0) {
-                    System.out.println("******************************************");
-                    System.out.println("                  MARKET                  ");
-                    System.out.println("------------------------------------------");
-                    for (int i = 0; i < 3; i++) {
-                        if (availableCards[i] > 0) {
-                            System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + availableCards[i]);
-                        }
-                    }
-                    System.out.println();
-                }
-                if (cityHall == 1) {
-                    System.out.println("             Player 1* [YOU]              ");
-                    System.out.println("------------------------------------------");
-                    System.out.println("                (" + players[0].getCoins() + " coins)  ");
-                    for (int i = 0; i < 3; i++) {
-                        if (players[0].getPCards(i) > 0) {
-                            System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" +  players[0].getPCards(i));
-                        }
-                    }
-                    System.out.println("..........................................");
-                    System.out.println("City Hall          NT (7)  [X]            ");
-                    System.out.println("                                          ");
-                    System.out.println("                 Player 2                 ");
-                    System.out.println("------------------------------------------");
-                    System.out.println("                (" + players[1].getCoins() + " coins)  ");
-                    for (int i = 0; i < 3; i++) {
-                        if (players[1].getPCards(i) > 0) {
-                            System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" +  players[1].getPCards(p));
-                        }
-                    }
-                    System.out.println("..........................................");
-                    System.out.println("City Hall          NT (7)  [ ]            ");
-                    System.out.println("                                          ");
-                    System.out.println("******************************************");
-                    System.out.println("The game is over. Player " + cityHall + " is the winner.");
-                } else if (cityHall == 2) {
-                    System.out.println("             Player 1 [YOU]               ");
-                    System.out.println("------------------------------------------");
-                    System.out.println("                (" + players[0].getCoins() + " coins)  ");
-                    for (int i = 0; i < 3; i++) {
-                        if (players[0].getPCards(i) > 0) {
-                            System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + players[0].getPCards(p));
-                        }
-                    }
-                    System.out.println("..........................................");
-                    System.out.println("City Hall          NT (7)  [ ]            ");
-                    System.out.println("                                          ");
-                    System.out.println("                 Player 2*                ");
-                    System.out.println("------------------------------------------");
-                    System.out.println("                (" + players[1].getCoins() + " coins)  ");
-                    for (int i = 0; i < 3; i++) {
-                        if (players[1].getPCards(i) > 0) {
-                            System.out.println(cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + players[1].getPCards(p));
-                        }
-                    }
-                    System.out.println("..........................................");
-                    System.out.println("City Hall          NT (7)  [X]            ");
-                    System.out.println("                                          ");
-                    System.out.println("******************************************");
+                    System.out.println(g.printMarket());
+                    System.out.println(g.printPlayerState(cityHall, players));
                     System.out.println("The game is over. Player " + cityHall + " is the winner.");
                 } else {
                     //TURN changes like normal

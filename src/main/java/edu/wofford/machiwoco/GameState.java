@@ -3,9 +3,6 @@ package edu.wofford.machiwoco;
  * @author Jacob Vannoy, Kristinn Sigurjonsson, Jaylen Muhammad, Evan Suggs
  */
 public class GameState {
-//    private static int[] p1Cards = {1, 0, 0}; // Player class??
-//    private static int[] p2Cards = {1, 0, 0}; // Player class??
-//    private static int[] coins = {3, 3}; // Player class??
 
     private static Player[] players;
     private static int[] availableCards;
@@ -14,9 +11,11 @@ public class GameState {
     private static int[] cardCost;
     private static int[] activation;
 
+
+    /**
+    * Constructs a new instance of GameState
+    */
     public GameState() {
-        
-//        players = new Player[] {new Player(), new Player()};
         availableCards = new int[] {6, 6, 6};
         cardName = new String[] {"Wheat Field", "Ranch", "Forest"};
         cardIcon = new String[] {"       BW", "             BC", "            BG"};
@@ -24,6 +23,10 @@ public class GameState {
         activation = new int[] {1, 2, 5};
     }
 
+    /**
+    * Prints the current Market
+    * @return The Market display as a string
+    */
     public String printMarket() {
         String str = "******************************************\n" +
                      "                  MARKET                  \n" +
@@ -36,6 +39,12 @@ public class GameState {
         return str;
     }
 
+    /**
+    * Prints the current Player States (Cards owned, Coins in hand etc)
+    * @param turn The current turn of the game
+    * @param players The array of all players in the game
+    * @return All Player States
+    */
     public String printPlayerState(int turn, Player players[]) {
         String str = "";
         
@@ -48,11 +57,12 @@ public class GameState {
         str = str + "------------------------------------------" + "\n" + "                (" + players[0].getCoins() + " coins)  \n";
         for (int i = 0; i < 3; i++) {
             if (players[0].getPCards(i) > 0) {
+                //note the extra newline character at the end of the added string
                 str = str + cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + players[0].getPCards(i) + "\n";
             }
         }
-        //note the extra newline character at the end
         str = str + ".........................................." + "\n" + "City Hall          NT (7)  [ ]\n" + "\n";
+        
         //p2 state
         if (turn == 1) {
             str = str + "                 Player 2*                " + "\n";
@@ -69,27 +79,51 @@ public class GameState {
         
         return str;
     }
-
+    
+    /**
+    * @param i The index to return
+    * @return The name of a Card
+    */
     public String getCardName(int i) {
         return cardName[i];
     }
 
+    /**
+    * @param i The index to return
+    * @return The Icon of a Card
+    */
     public String getCardIcon(int i) {
         return cardIcon[i];
     }
-
+    
+    /**
+    * @param i The index to return
+    * @return The cost of a Card
+    */
     public int getCardCost(int i) {
         return cardCost[i];
     }
-
+    
+    /**
+    * @param i The index to return
+    * @return How many Cards of that index are available
+    */
     public int getAvailableCards(int i) {
         return availableCards[i];
     }
     
+    /**
+    * Removes a card from the given index of Available Cards
+    * @param i The index to change
+    */
     public void removeAvailableCards(int i) {
         availableCards[i] -= 1;
     }
-
+    
+    /**
+    * @param i The index of a Card
+    * @return The Activation number of a Card
+    */
     public int getActivation(int i) {
         return activation[i];
     }
