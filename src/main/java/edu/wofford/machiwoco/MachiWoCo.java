@@ -22,6 +22,7 @@ public class MachiWoCo {
     //available coices with n from loop below?
     private static GameState g = new GameState();
     private static MarketMenu m = new MarketMenu();
+    private static Player p = new Player();
     
     public static void main(String[] args) {
         cityHall = 0;
@@ -285,6 +286,9 @@ public class MachiWoCo {
                 // Print Players' State
                 System.out.println(g.printPlayerState(turn, players));
 
+                // Dice Roll and Activation check
+                // System.out.println(p.diceRoll(turn, players));
+
                 // Dice Roll
                 int low = 1;
                 int high = 7;
@@ -292,22 +296,9 @@ public class MachiWoCo {
                 System.out.println("******************************************");
                 System.out.println("Player " + (turn + 1) + " rolled [" + dice + "] = " + dice + ".");
 
-                // Check if any cards are activated
-                for (int i = 0; i < 3; i++) {
-                    if (dice == activation[i]) {
-                        players[0].setCoins(1 * players[0].getPCards(i));
-                        players[1].setCoins(1 * players[1].getPCards(i));
-                        if (players[0].getPCards(i) > 0 && players[1].getPCards(i) > 0) {
-                            System.out.println(cardName[i] + " activated for Player 1");
-                            System.out.println(cardName[i] + " activated for Player 2");
-                        } else if (players[0].getPCards(i) > 0) {
-                            System.out.println(cardName[i] + " activated for Player 1");
-                        } else if (players[1].getPCards(i) > 0) {
-                            System.out.println(cardName[i] + " activated for Player 2");
-                        } 
-                    } 
-                }
-                
+                // Check for activation
+                System.out.println(p.cardActivation(dice, players));
+                    
                 //ArrayList of valid indexes -> ex: [0,1,2] or [1,2]...
                 ArrayList<Integer> est = new ArrayList<>(0);
                 for (int i = 0; i < availableCards.length; i++) {

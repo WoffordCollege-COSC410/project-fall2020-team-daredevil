@@ -1,9 +1,11 @@
 package edu.wofford.machiwoco;
 
+import java.util.Random;
 
 public class Player {
-	private static int cityHall;
 	private int[] pCards; 
+	private static String[] cardName;
+	private static int[] activation;
     private int coins; 
 
 
@@ -12,6 +14,8 @@ public class Player {
 	*/
 	public Player() {
 		pCards = new int[] {1, 0, 0};
+		cardName = new String[] {"Wheat Field", "Ranch", "Forest"};
+		activation = new int[] {1, 2, 5};
 		coins = 3;
 	} 
 	
@@ -70,7 +74,35 @@ public class Player {
 	 */
     public void setCoins(int num) {
 		coins += num;
-    }
+	}
+	
+	public String cardActivation(int dice, Player players[]) {
+		String d = "";
+		/*
+		int low = 1;
+		int high = 7;
+		Random random = new Random();
+		int dice = random.nextInt(high - low) + low;
+		d = d + "******************************************\n" + 
+				"Player " + (turn + 1) + " rolled [" + dice + "] = " + dice + ".\n";
+		*/
+		for (int i = 0; i < 3; i++) {
+			if (dice == activation[i]) {
+				players[0].setCoins(1 * players[0].getPCards(i));
+				players[1].setCoins(1 * players[1].getPCards(i));
+				if (players[0].getPCards(i) > 0 && players[1].getPCards(i) > 0) {
+					d = d + cardName[i] + " activated for Player 1\n" + 
+						cardName[i] + " activated for Player 2\n";
+				} else if (players[0].getPCards(i) > 0) {
+					d = d + cardName[i] + " activated for Player 1\n";
+				} else if (players[1].getPCards(i) > 0) {
+					d = d + cardName[i] + " activated for Player 2\n";
+				} 
+			} 
+		}
+		return d;
+	}
+
 
 	/*
 	
