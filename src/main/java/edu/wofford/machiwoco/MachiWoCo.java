@@ -26,32 +26,6 @@ public class MachiWoCo {
         players = new Player[] {new Player(), new Player()};
         Random random = new Random();
 
-// ************************************************** SHADOW/TRIAL CODE ********************************************************************
-
-
-
-
-
-
-
-
-                                            // Try out refactored code here
-                                            // before mixing it with original code
-
-
-
-
-
-
-
-
-
-
-
-// ***************************************************************************************************************************************
-
-
-
 
 // **************************************************** FEATURE 1 (Phase 0) **************************************************************
 
@@ -219,6 +193,8 @@ public class MachiWoCo {
                 // Check for activation
                 System.out.println(p.cardActivation(dice, players));
                     
+                    
+                //TODO Add three arrays below into MarketMenu Class??? (But it is currently a static class)
                 //ArrayList of valid indexes -> ex: [0,1,2] or [1,2]...
                 ArrayList<Integer> est = new ArrayList<>(0);
                 for (int i = 0; i < availableCards.length; i++) {
@@ -227,7 +203,7 @@ public class MachiWoCo {
                     }
                 }
                 
-                //ArrayList of valid landmaks to check
+                //ArrayList of valid landmarks to check
                 ArrayList<Integer> lm = new ArrayList<>();
                 if (players[turn].getCoins() >= 7) {
                     lm.add(1);
@@ -245,7 +221,6 @@ public class MachiWoCo {
                     System.out.println("Player " + (turn + 1) + " did not enough money to make improvements");
                 } else { //Something can be purchased
                     if (turn == 0) { //player is human
-                        //Prompt for purchase and show MarketMenu (Purchase/Construct screen)
                         System.out.println();
                         System.out.println("Player " + (turn + 1) + ", would you like to purchase an");
                         System.out.println("establishment or construct a landmark? (" + players[turn].getCoins());
@@ -270,43 +245,30 @@ public class MachiWoCo {
                         System.out.println("==========================================");
                         System.out.println("Choose a number to purchase or construct: ");
                         Scanner scan = new Scanner(System.in);
-                        choice = scan.nextInt();
-                        while (!chs.contains(choice)) {
-                            System.out.println("Choose a number to purchase or construct: ");
-                            choice = scan.nextInt();
-                        }
+                        choice = m.getChoice(scan, chs);
                     } else if (turn == 1) { // player is AI
                         //System.out.println("AI makes a choice");
                         Random random2 = new Random();
                         choice = chs.get(random2.nextInt(est.size()+lm.size()));
                         
-                    }   
+                    }
                 }
                 
+                //TODO Dependent on conditionals above
                 int index = choice - 1;
                 if (choice > 0 && est.size() + lm.size() > 0) {
-                    //first check 99
                     if (choice == 99) {
                         System.out.println("Player " + (turn + 1) + " chose not to make any improvements.");
-                    } else if (choice > est.size() && lm.size() > 0) {  //then it is a landmark
+                    } else if (choice > est.size() && lm.size() > 0) {
+                        //then it is a landmark
                         cityHall = turn + 1;
                         System.out.println("Player " + (turn + 1) + " constructed the City Hall");
-                        if (turn == 0) {
-                            //NEED CHECK FOR keeping coins positive??
-                            players[0].setCoins(-7); 
-                        } else if (turn == 1) {
-                            players[1].setCoins(-7); 
-                        }
+                        players[turn].setCoins(-7);
                     } else { //it is a property
                         System.out.println("Player " + (turn + 1) + " purchased the " + cardName[est.get(index)]);
                         g.removeAvailableCards(est.get(index));
-                        if (turn == 0) {
-                            players[turn].setPCards(est.get(index));
-                            players[turn].setCoins(-cardCost[est.get(index)]);
-                        } else if (turn == 1) {
-                            players[1].setPCards(est.get(index));
-                            players[1].setCoins(-cardCost[est.get(index)]);
-                        }
+                        players[turn].setPCards(est.get(index));
+                        players[turn].setCoins(-cardCost[est.get(index)]);
                     }
                 }
                 
