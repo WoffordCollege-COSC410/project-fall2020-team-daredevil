@@ -14,7 +14,7 @@ public class MarketMenu {
 //    static String menu;
     //Add a gametate 
 //    GameState g;
-    ArrayList<Integer> chs = new ArrayList<Integer>(0);
+//    ArrayList<Integer> chs = new ArrayList<Integer>(0);
     
     public MarketMenu() { //Scanner scnr
         //TODO Add THE SCANNER OBJECT PARAMETER HERE
@@ -24,14 +24,7 @@ public class MarketMenu {
         
     public static int getChoice(Scanner scan, ArrayList<Integer> chs) {
         
-        //TODO Add code below in here (to remove from MachiWoco?
-        //        //ARRAY FOR NUMBER OF CHOICES
-        //        for (int i = 0; i < n; i++) {
-        //            chs.add(i + 1);
-        //        }
-        //        chs.add(99);
-        
-        System.out.println("Choose a number to purchase or construct: "); //TODO LEAVE THIS TO MACHIWOCO???
+        System.out.println("Choose a number to purchase or construct: ");
         int choice = scan.nextInt();
         while (!chs.contains(choice)) {
             System.out.println("Choose a number to purchase or construct: ");
@@ -47,27 +40,48 @@ public class MarketMenu {
         if (coins == 0) {
             return menu;
         }
-//        n is the possible numbers to buy, for loop shows all purchasable cards to player
-        int n = 0;
-        for (int i = 0; i < 3; i++) { //STUB make the 3 the number of available cards (or total cards
+        
+        ArrayList<Integer> est = new ArrayList<>(0);
+        for (int i = 0; i < available.length; i++) {
             if (coins >= cost[i] && available[i] > 0) {
-                n++;
-                menu = " " + (i + 1) + ". " + cName[i] + " " + icon[i] + " (" + cost[i] + ")  [" + activation[i] + "]      #" + available[i] + "\n";
+                est.add(i);
             }
         }
         
+        //ArrayList of valid landmarks to check
+        ArrayList<Integer> lm = new ArrayList<>();
         if (coins >= 7) {
-            n++;
-            System.out.println("---------       CONSTRUCT        ---------");
-            System.out.println(" " + n + ". " + "City Hall          NT (7)  [ ] ");
+            lm.add(1);
         }
+        
+        //ArrayList of choices
+        ArrayList<Integer> chs = new ArrayList<Integer>(0);
+        for (int i = 0; i < (est.size()+lm.size()); i++) {
+            chs.add(i + 1);
+        }
+        chs.add(99);
+        
+        return PREAMBLE + menu;
+        
+        //TODO refactor this method with code below to Truly print Purchase options
+        
+//        for (int i = 0; i < est.size(); i++) { //STUB make the 3 the number of available cards (or total cards
+//            menu += " " + (i + 1) + ". " + cardName[est.get(i)] + " " + cardIcon[est.get(i)] + " (" + cardCost[est.get(i)] + ")  [" + activation[est.get(i)] + "]      #" + available[est.get(i)];
+//        }
+        
         
         //Default added
 //        p = "---------         CANCEL         ---------\n";
 //        p += "99. Do nothing                            \n";
 //        p += "==========================================\n";
-//        System.out.println(menu);
-        return PREAMBLE + menu;
+        
+
+//        
+//        //new for loop looing across landmark list... if true construct 
+//        if (lm.size() > 0) {        //later loop across lm
+//            System.out.println("---------       CONSTRUCT        ---------");
+//            System.out.println(" " + (est.size()+1) + ". " + "City Hall          NT (7)  [ ] " );
+//        }
     }
     
     
@@ -95,13 +109,6 @@ public class MarketMenu {
 //    System.out.println("==========================================");
 
     
-//                //STUB MAKE A ARRAY FOR NUMBER OF CHOICES
-//                ArrayList<Integer> chs = new ArrayList<Integer>(n);
-//                for (int i = 0; i < n; i++) {
-//                    chs.add(i + 1);
-////                    System.out.println(chs.get(i));
-//                }
-//                chs.add(99); 
    
 
 //                    System.out.println("Choose a number to purchase or construct: ");

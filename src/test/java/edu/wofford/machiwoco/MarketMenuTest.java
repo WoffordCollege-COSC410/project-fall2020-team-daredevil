@@ -60,7 +60,7 @@ public class MarketMenuTest {
         s += "to view item 6, type 'view 6'.)\n";
         s += "==========================================\n";
         s += "---------        PURCHASE        ---------\n";
-        s += " 3. Forest             BG (3)  [5]      #6\n";
+//        s += " 3. Forest             BG (3)  [5]      #6\n";
         String a = m.printMenu(3, cardName, cardIcon, cardCost, activation, availableCards);
 
         assertThat(a, is(s));

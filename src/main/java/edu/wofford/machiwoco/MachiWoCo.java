@@ -98,52 +98,54 @@ public class MachiWoCo {
                     System.out.println("---------       CONSTRUCT        ---------");
                     System.out.println(" " + n + ". " + "City Hall          NT (7)  [ ] " );
                 }
-
+                System.out.println("---------         CANCEL         ---------");
+                System.out.println("99. Do nothing                            ");
+                System.out.println("==========================================");
+                
+                
+                
+                //TODO Add three arrays below into MarketMenu Class??? (But it is currently a static class)
+                //ArrayList of valid indexes -> ex: [0,1,2] or [1,2]...
+                ArrayList<Integer> est = new ArrayList<>(0);
+                for (int i = 0; i < availableCards.length; i++) {
+                    if (players[turn].getCoins() >= cardCost[i] && g.getAvailableCards(i) > 0) {
+                        est.add(i);
+                    }
+                }
+                
+                //ArrayList of valid landmarks to check
+                ArrayList<Integer> lm = new ArrayList<>();
+                if (players[turn].getCoins() >= 7) {
+                    lm.add(1);
+                }
+                
+//                //ArrayList of choices
                 ArrayList<Integer> chs = new ArrayList<Integer>(0);
-
-                //STUB MAKE A ARRAY FOR NUMBER OF CHOICES
-                for (int i = 0; i < n; i++) {
+                for (int i = 0; i < (est.size()+lm.size()); i++) {
                     chs.add(i + 1);
                 }
                 chs.add(99);
                 
-                System.out.println("---------         CANCEL         ---------");
-                System.out.println("99. Do nothing                            ");
-                System.out.println("==========================================");
-
+                
                 Scanner scan = new Scanner(System.in);
                 choice = m.getChoice(scan, chs);
                 
-                int p = 0;
-//                if none of possible options, repormpt, check at that first index
-                while (p < 3) {
-                    if (choice == p + 1 && players[turn].getCoins() >= cardCost[p]) {
-                        System.out.println("Player " + (turn + 1) + " purchased the " + cardName[p]);
-                        availableCards[p] -= 1;
-                        g.removeAvailableCards(p);
-                        if (turn == 0) {
-                            players[turn].setPCards(p);
-                            //NEED CHECK FOR keeping coins positive??
-                            players[turn].setCoins(-cardCost[p]);
-                        } else if (turn == 1) {
-                            players[1].setPCards(p);
-                            players[1].setCoins(-cardCost[p]);
-                        }
-                    } else if (players[turn].getCoins() >= 7 && choice == n) {
+                //TODO Dependent on conditionals above
+                int index = choice - 1;
+                if (choice > 0 && est.size() + lm.size() > 0) {
+                    if (choice == 99) {
+                        System.out.println("Player " + (turn + 1) + " chose not to make any improvements.");
+                    } else if (choice > est.size() && lm.size() > 0) {
+                        //then it is a landmark
                         cityHall = turn + 1;
                         System.out.println("Player " + (turn + 1) + " constructed the City Hall");
-                        if (turn == 0) {
-                            //NEED CHECK FOR keeping coins positive??
-                            players[0].setCoins(-7); //TODO put in cardCost arr?
-                        } else if (turn == 1) {
-                            players[1].setCoins(-7); //TODO put in cardCost arr?
-                        }
-                        break;
-                    } else if (choice == 99) {
-                        System.out.println("Player " + (turn + 1) + " chose not to make any improvements.");
-                        break;
-                    } 
-                    p++;
+                        players[turn].setCoins(-7);
+                    } else { //it is a property
+                        System.out.println("Player " + (turn + 1) + " purchased the " + cardName[est.get(index)]);
+                        g.removeAvailableCards(est.get(index));
+                        players[turn].setPCards(est.get(index));
+                        players[turn].setCoins(-cardCost[est.get(index)]);
+                    }
                 }
                 
                 //TURN ENDED MESSAGE
