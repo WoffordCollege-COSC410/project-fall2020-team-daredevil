@@ -18,13 +18,13 @@ public class MachiWoCo {
     private static GameState g = new GameState();
     private static MarketMenu m = new MarketMenu();
     private static Player p = new Player();
+    private static Dice d = new Dice(new Random());
     
     public static void main(String[] args) {
         cityHall = 0;
         turn = 0;
         int choice = 0;
         players = new Player[] {new Player(), new Player()};
-        Random random = new Random();
 
 
 // **************************************************** FEATURE 1 (Phase 0) **************************************************************
@@ -66,9 +66,7 @@ public class MachiWoCo {
                 System.out.println(g.printPlayerState(turn, players));
 
                 // Dice Roll
-                int low = 1;
-                int high = 7;
-                int dice = random.nextInt(high - low) + low;
+                int dice = d.roll();
                 System.out.println("******************************************");
                 System.out.println("Player " + (turn + 1) + " rolled [" + dice + "] = " + dice + ".");
      
@@ -186,9 +184,7 @@ public class MachiWoCo {
                 System.out.println(g.printPlayerState(turn, players));
 
                 // Dice Roll
-                int low = 1;
-                int high = 7;
-                int dice = random.nextInt(high - low) + low;
+                int dice = d.roll();
                 System.out.println("******************************************");
                 System.out.println("Player " + (turn + 1) + " rolled [" + dice + "] = " + dice + ".");
 
@@ -245,7 +241,6 @@ public class MachiWoCo {
                         System.out.println("---------         CANCEL         ---------");
                         System.out.println("99. Do nothing                            ");
                         System.out.println("==========================================");
-                        System.out.println("Choose a number to purchase or construct: ");
                         Scanner scan = new Scanner(System.in);
                         choice = m.getChoice(scan, chs);
                     } else if (turn == 1) { // player is AI
