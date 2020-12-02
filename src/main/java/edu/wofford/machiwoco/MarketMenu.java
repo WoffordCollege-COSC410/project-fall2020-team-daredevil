@@ -35,8 +35,8 @@ public class MarketMenu {
     
     
     public static String printMenu(int coins, String[] cName, String[] icon, int[] cost, int[] activation, int[] available) {
-        String menu = "";
         
+        //put block in "get purchasable pro method
         ArrayList<Integer> est = new ArrayList<>(0);
         for (int i = 0; i < available.length; i++) {
             if (coins >= cost[i] && available[i] > 0) {
@@ -49,6 +49,7 @@ public class MarketMenu {
         if (coins >= 7) {
             lm.add(1);
         }
+        //
         
         //ArrayList of choices
         ArrayList<Integer> chs = new ArrayList<Integer>(0);
@@ -59,11 +60,11 @@ public class MarketMenu {
         
         
         if ((est.size() + lm.size()) == 0) {
-            return menu;
-        } else {
-            for (int i = 0; i < est.size(); i++) {
-                menu += " " + (i + 1) + ". " + cName[est.get(i)] + " " + icon[est.get(i)] + " (" + cost[est.get(i)] + ")  [" + activation[est.get(i)] + "]      #" + available[est.get(i)] + "\n";
-            }
+            return "";
+        }
+        String menu = "";
+        for (int i = 0; i < est.size(); i++) {
+            menu += " " + (i + 1) + ". " + cName[est.get(i)] + " " + icon[est.get(i)] + " (" + cost[est.get(i)] + ")  [" + activation[est.get(i)] + "]      #" + available[est.get(i)] + "\n";
         }
         
         

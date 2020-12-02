@@ -35,7 +35,6 @@ public class GameStateTest {
     
     @Test
     public void testPrintPlayerOnesTurn() {
-        //TODO ???make players array public so can test dynamically?
         String a = "";
         
         
@@ -51,12 +50,18 @@ public class GameStateTest {
         a += "Wheat Field        BW (1)  [1]      #1\n" + 
                 "..........................................\n";
         a = a + "City Hall          NT (7)  [ ]\n";
+        
+        
+//        Player[] players = new Player[2];
+//        players[0] = new Player();
+//        players[0].setCoins(20);
         assertThat(g.printPlayerState(0, players), is(a));
+        
+        
     }
     
     @Test
     public void testPrintPlayerTwosTurn() {
-        //TODO ???make players array public so can test dynamically?
         String a = "";
         
         

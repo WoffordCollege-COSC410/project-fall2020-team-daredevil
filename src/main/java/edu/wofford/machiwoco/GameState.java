@@ -22,12 +22,13 @@ public class GameState {
         cardIcon = new String[] {"       BW", "             BC", "            BG"};
         cardCost = new int[] {1, 1, 3};
         activation = new int[] {1, 2, 5};
+        cards = new Card[availableCards.length];
         
         //TODO work-in-progress
         //how method is called public Card(String name, int cost, String color, String icon)
-//        for (int i = 0; i < availableCards.length; i++) {
-//            cards[i] = new Card(cardName[i], cardCost[i], "blue", cardIcon[i]);
-//        }
+        for (int i = 0; i < availableCards.length; i++) {
+            cards[i] = new Card(cardName[i], cardCost[i], "blue", cardIcon[i]);
+        }
     }
 
     /**
