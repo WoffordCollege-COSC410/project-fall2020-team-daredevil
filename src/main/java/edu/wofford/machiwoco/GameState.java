@@ -10,6 +10,7 @@ public class GameState {
     private static String[] cardIcon;
     private static int[] cardCost;
     private static int[] activation;
+    private static Card[] cards;
 
 
     /**
@@ -21,6 +22,12 @@ public class GameState {
         cardIcon = new String[] {"       BW", "             BC", "            BG"};
         cardCost = new int[] {1, 1, 3};
         activation = new int[] {1, 2, 5};
+        
+        //TODO work-in-progress
+//        public Card(String name, int cost, String color, String icon) {
+//        for (int i = 0; i < availableCards.length; i++) {
+//            cards[i] = new Card(cardName[i], cardCost[i], "", cardIcon[i]);
+//        }
     }
 
     /**

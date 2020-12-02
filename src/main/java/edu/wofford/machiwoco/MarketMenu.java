@@ -36,10 +36,6 @@ public class MarketMenu {
     
     public static String printMenu(int coins, String[] cName, String[] icon, int[] cost, int[] activation, int[] available) {
         String menu = "";
-        //ASSumes coins > 0
-        if (coins == 0) {
-            return menu;
-        }
         
         ArrayList<Integer> est = new ArrayList<>(0);
         for (int i = 0; i < available.length; i++) {
@@ -61,14 +57,18 @@ public class MarketMenu {
         }
         chs.add(99);
         
+        
+        if (est.size() + lm.size() == 0) {
+            return menu;
+        } else {
+            //TODO Why is the call to est.get(i) giving an error, static function issue?
+//            for (int i = 0; i < est.size(); i++) { //STUB make the 3 the number of available cards (or total cards
+//                menu += " " + (i + 1) + ". " + cardName[est.get(i)] + " " + cardIcon[est.get(i)] + " (" + cardCost[est.get(i)] + ")  [" + activation[est.get(i)] + "]      #" + available[est.get(i)];
+//            }
+        }
+        
+        
         return PREAMBLE + menu;
-        
-        //TODO refactor this method with code below to Truly print Purchase options
-        
-//        for (int i = 0; i < est.size(); i++) { //STUB make the 3 the number of available cards (or total cards
-//            menu += " " + (i + 1) + ". " + cardName[est.get(i)] + " " + cardIcon[est.get(i)] + " (" + cardCost[est.get(i)] + ")  [" + activation[est.get(i)] + "]      #" + available[est.get(i)];
-//        }
-        
         
         //Default added
 //        p = "---------         CANCEL         ---------\n";
@@ -145,3 +145,4 @@ public class MarketMenu {
 }
 
 
+    
