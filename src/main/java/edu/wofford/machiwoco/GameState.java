@@ -24,9 +24,9 @@ public class GameState {
         activation = new int[] {1, 2, 5};
         
         //TODO work-in-progress
-//        public Card(String name, int cost, String color, String icon) {
+        //how method is called public Card(String name, int cost, String color, String icon)
 //        for (int i = 0; i < availableCards.length; i++) {
-//            cards[i] = new Card(cardName[i], cardCost[i], "", cardIcon[i]);
+//            cards[i] = new Card(cardName[i], cardCost[i], "blue", cardIcon[i]);
 //        }
     }
 

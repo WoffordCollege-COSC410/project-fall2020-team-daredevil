@@ -58,66 +58,54 @@ public class MarketMenu {
         chs.add(99);
         
         
-        if (est.size() + lm.size() == 0) {
+        if ((est.size() + lm.size()) == 0) {
             return menu;
         } else {
-            //TODO Why is the call to est.get(i) giving an error, static function issue?
-//            for (int i = 0; i < est.size(); i++) { //STUB make the 3 the number of available cards (or total cards
-//                menu += " " + (i + 1) + ". " + cardName[est.get(i)] + " " + cardIcon[est.get(i)] + " (" + cardCost[est.get(i)] + ")  [" + activation[est.get(i)] + "]      #" + available[est.get(i)];
-//            }
+            for (int i = 0; i < est.size(); i++) {
+                menu += " " + (i + 1) + ". " + cName[est.get(i)] + " " + icon[est.get(i)] + " (" + cost[est.get(i)] + ")  [" + activation[est.get(i)] + "]      #" + available[est.get(i)] + "\n";
+            }
         }
         
         
-        return PREAMBLE + menu;
+        //        //new for loop looing across landmark list... if true construct 
+        //        if (lm.size() > 0) {        //later loop across lm
+        //            System.out.println("---------       CONSTRUCT        ---------");
+        //            System.out.println(" " + (est.size()+1) + ". " + "City Hall          NT (7)  [ ] " );
+        //        }
         
         //Default added
 //        p = "---------         CANCEL         ---------\n";
 //        p += "99. Do nothing                            \n";
 //        p += "==========================================\n";
         
-
-//        
-//        //new for loop looing across landmark list... if true construct 
-//        if (lm.size() > 0) {        //later loop across lm
-//            System.out.println("---------       CONSTRUCT        ---------");
-//            System.out.println(" " + (est.size()+1) + ". " + "City Hall          NT (7)  [ ] " );
-//        }
+        
+    
+        
+        return PREAMBLE + menu;
     }
+   
     
     
-    
-//    System.out.println("(To view details of an item, type 'view'  ");
-//    System.out.println("followed by the item number. For example, ");
-//    System.out.println("to view item 6, type 'view 6'.)           ");
-//    System.out.println("==========================================");
-//    System.out.println("---------        PURCHASE        ---------");
-
-//    int n = 0;
-//    for (int i = 0; i < 3; i++) {
-//        if (coins[turn] >= cardCost[i] && availableCards[i] > 0) {
-//            n++;
-//            System.out.println(" " + (i + 1) + ". " + cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + availableCards[i]);
+//    //TODO Dependent on conditionals above
+//    int index = choice - 1;
+//    if (choice > 0 && est.size() + lm.size() > 0) {
+//        if (choice == 99) {
+//            System.out.println("Player " + (turn + 1) + " chose not to make any improvements.");
+//        } else if (choice > est.size() && lm.size() > 0) {
+//            //then it is a landmark
+//            cityHall = turn + 1;
+//            System.out.println("Player " + (turn + 1) + " constructed the City Hall");
+//            players[turn].setCoins(-7);
+//        } else { //it is a property
+//            System.out.println("Player " + (turn + 1) + " purchased the " + cardName[est.get(index)]);
+//            g.removeAvailableCards(est.get(index));
+//            players[turn].setPCards(est.get(index));
+//            players[turn].setCoins(-cardCost[est.get(index)]);
 //        }
 //    }
-//    if (coins[turn] >= 7) {
-//        n++;
-//        System.out.println("---------       CONSTRUCT        ---------");
-//        System.out.println(" " + n + ". " + "City Hall          NT (7)  [ ] " );
-//    }
-//    System.out.println("---------         CANCEL         ---------");
-//    System.out.println("99. Do nothing                            ");
-//    System.out.println("==========================================");
-
+//    
     
-   
 
-//                    System.out.println("Choose a number to purchase or construct: ");
-//                    Scanner scan = new Scanner(System.in);
-//                    int choice = scan.nextInt();
-//                    while (!chs.contains(choice)) {
-//                        System.out.println("Choose a number to purchase or construct: ");
-//                        choice = scan.nextInt();
-//                    }
 //                int p = 0;
 ////                if none of possible options, repormpt, check at that first index
 //                while (p < 3) {  //TODO need while loop?
