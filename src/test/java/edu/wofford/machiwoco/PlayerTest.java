@@ -43,7 +43,7 @@ public void testsetCoins() {
 }
 
 @Test
-public void testCardActivation1() {
+public void testCardActivationBothPlayers() {
 	String a = "";
 
 	a = a + "Wheat Field activated for Player 1\n" + 
@@ -54,22 +54,28 @@ public void testCardActivation1() {
 
 
 @Test
-public void testCardActivation2() {
+public void testCardActivationPlayer1() {
 	String b = "";
 
 	players[0].setPCards(1);
+	assertThat(players[0].getPCards(1), is(1));
+	assertThat(players[0].getPCards(2), is(0));
 	b = b + "Ranch activated for Player 1\n";
 
+	
 	assertThat(players[1].getPCards(1), is(0));
 	assertThat(p.cardActivation(2, players), is(b));
+	
 }
 
 
 @Test
-public void testCardActivation3() {
+public void testCardActivationPlayer2() {
 	String c = "";
 
 	players[1].setPCards(1);
+	assertThat(players[1].getPCards(1), is(1));
+	assertThat(players[1].getPCards(2), is(0));
 	c = c + "Ranch activated for Player 2\n";
 
 	assertThat(players[0].getPCards(1), is(0));

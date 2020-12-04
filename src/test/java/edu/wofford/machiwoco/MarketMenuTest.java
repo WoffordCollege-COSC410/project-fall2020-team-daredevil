@@ -10,18 +10,15 @@ import java.util.*;
 
 public class MarketMenuTest {
     MarketMenu m;
-//    GameState g;
     private static int[] availableCards;
     private static String[] cardName;
     private static String[] cardIcon;
     private static int[] cardCost;
     private static int[] activation;
-//    Scanner sc;
 
     
     @Before
     public void setup() {
-//        g = new GameState();
         m = new MarketMenu();
         cardName = new String[] {"Wheat Field", "Ranch", "Forest"};
         cardIcon = new String[] {"       BW", "             BC", "            BG"};
@@ -63,15 +60,38 @@ public class MarketMenuTest {
         s += " 1. Wheat Field        BW (1)  [1]      #6\n";
         s += " 2. Ranch              BC (1)  [2]      #6\n";
         s += " 3. Forest             BG (3)  [5]      #6\n";
+        s += "---------         CANCEL         ---------\n";
+        s += "99. Do nothing                            \n";
+        s += "==========================================\n";
         String a = m.printMenu(3, cardName, cardIcon, cardCost, activation, availableCards);
 
         assertThat(a, is(s));
     }
     
     @Test
+    public void testPrintFull() {
+        String s = "";
+        s = s + "(To view details of an item, type 'view'  \n";
+        s = s + "followed by the item number. For example, \n";
+        s += "to view item 6, type 'view 6'.)\n";
+        s += "==========================================\n";
+        s += "---------        PURCHASE        ---------\n";
+        s += " 1. Wheat Field        BW (1)  [1]      #6\n";
+        s += " 2. Ranch              BC (1)  [2]      #6\n";
+        s += " 3. Forest             BG (3)  [5]      #6\n";
+        s += "---------       CONSTRUCT        ---------\n";
+        s += " 4. City Hall          NT (7)  [ ]\n";
+        s += "---------         CANCEL         ---------\n";
+        s += "99. Do nothing                            \n";
+        s += "==========================================\n";
+        String a = m.printMenu(7, cardName, cardIcon, cardCost, activation, availableCards);
+        
+        assertThat(a, is(s));
+    }
+    
+    @Test
     public void testGetNumChoices() {
         Scanner str = new Scanner("99\n");
-//        sc = new Scanner(s);
         //ARRAY FOR NUMBER OF CHOICES
         ArrayList<Integer> chs = new ArrayList<Integer>(0);
         for (int i = 0; i < 4; i++) {
@@ -86,7 +106,6 @@ public class MarketMenuTest {
     @Test
     public void testGetInvalidChoices() {
         Scanner str = new Scanner("5\n-1\n17\n0\n3\n");
-//        sc = new Scanner(s);
         //ARRAY FOR NUMBER OF CHOICES
         ArrayList<Integer> chs = new ArrayList<Integer>(0);
         for (int i = 0; i < 4; i++) {

@@ -20,7 +20,7 @@ public class GameStateTest {
     }
     
     @Test
-    public void testPrintMarket() {
+    public void testPrintFullMarket() {
         String a = "";
         a += "******************************************\n";
         a += "                  MARKET                  \n";
@@ -29,6 +29,22 @@ public class GameStateTest {
         a += "Ranch              BC (1)  [2]      #6\n";
         a += "Forest             BG (3)  [5]      #6\n";
         
+        assertThat(g.printMarket(), is(a));
+    }
+    
+    public void testPrintEmptyMarket() {
+        String a = "";
+        a += "******************************************\n";
+        a += "                  MARKET                  \n";
+        a += "------------------------------------------\n";
+        a += "Wheat Field        BW (1)  [1]      #6\n";
+        a += "Ranch              BC (1)  [2]      #6\n";
+        a += "Forest             BG (3)  [5]      #6\n";
+        
+        
+//        Player[] players = new Player[2];
+//        players[0] = new Player();
+        players[0].setCoins(20);
         assertThat(g.printMarket(), is(a));
     }
     
