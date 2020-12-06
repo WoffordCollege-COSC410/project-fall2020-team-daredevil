@@ -199,36 +199,23 @@ public class MachiWoCo {
                     chs.add(i + 1);
                 }
                 chs.add(99);
+
+                // Get the number available of each card, and store it in a new array
+                int[] cardCount = new int[availableCards.length];
+                for (int i = 0; i < availableCards.length; i++) {
+                    cardCount[i] += g.getAvailableCards(i);
+                }
+
+                
                 
                 //Nothing can be purchased
                 if (est.size() + lm.size() == 0) {
                     System.out.println("Player " + (turn + 1) + " did not enough money to make improvements");
                 } else { //Something can be purchased
                     if (turn == 0) { //player is human
-                        System.out.println();
-                        System.out.println("Player " + (turn + 1) + ", would you like to purchase an");
-                        System.out.println("establishment or construct a landmark? (" + players[turn].getCoins());
-                        System.out.println("coins)");
-                        System.out.println("(To view details of an item, type 'view'  ");
-                        System.out.println("followed by the item number. For example, ");
-                        System.out.println("to view item 6, type 'view 6'.)           ");
-                        System.out.println("==========================================");
-                        System.out.println("---------        PURCHASE        ---------");
-                        for (int i = 0; i < est.size(); i++) {
-                            System.out.println(" " + (i + 1) + ". " + cardName[est.get(i)] + " " + cardIcon[est.get(i)] + " (" + cardCost[est.get(i)] + ")  [" + activation[est.get(i)] + "]      #" + g.getAvailableCards(est.get(i)));
-                        }
-                        
-                        //new for loop looing across landmark list... if true construct 
-                        if (lm.size() > 0) {        //later loop across lm
-                            System.out.println("---------       CONSTRUCT        ---------");
-                            System.out.println(" " + (est.size()+1) + ". " + "City Hall          NT (7)  [ ] " );
-                        }
-                        
-                        System.out.println("---------         CANCEL         ---------");
-                        System.out.println("99. Do nothing                            ");
-                        System.out.println("==========================================");
-                        Scanner scan = new Scanner(System.in);
-                        choice = m.getChoice(scan, chs);
+                        // Print the market menu 
+                        String purchase = m.printMenu(players[turn].getCoins(), cardName, cardIcon, cardCost, activation, cardCount);
+                        System.out.println(purchase);
                     } else if (turn == 1) { // player is AI
                         //System.out.println("AI makes a choice");
                         Random random2 = new Random();
