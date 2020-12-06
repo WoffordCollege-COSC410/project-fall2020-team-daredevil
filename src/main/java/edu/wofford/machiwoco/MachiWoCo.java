@@ -73,42 +73,20 @@ public class MachiWoCo {
                 // Check to see if the dice roll activated any cards 
                 System.out.println(p.cardActivation(dice, players));
                 
-                //Prompt for purchase and show MarketMenu (Purchase/Construct screen)
-                //TODO pass in arrays from GameState (number available of market not matching
-                String purchase = m.printMenu(players[turn].getCoins(), cardName, cardIcon, cardCost, activation, availableCards);
+                
+                // Get the number available of each card, and store it in a new array
+                int[] cardCount = new int[availableCards.length];
+                for (int i = 0; i < availableCards.length; i++) {
+                    cardCount[i] += g.getAvailableCards(i);
+                }
+
+                // Print the market menu 
+                String purchase = m.printMenu(players[turn].getCoins(), cardName, cardIcon, cardCost, activation, cardCount);
                 if (purchase == "") {
                     System.out.println("Player " + (turn + 1) + " did not enough money to make improvements");
                 } else {
                     System.out.println(purchase);
                 }
-                
-//                System.out.println("Player " + (turn + 1) + ", would you like to purchase an");
-//                System.out.println("establishment or construct a landmark? (" + players[turn].getCoins());
-//                System.out.println("coins)");
-//                System.out.println("(To view details of an item, type 'view'  ");
-//                System.out.println("followed by the item number. For example, ");
-//                System.out.println("to view item 6, type 'view 6'.)           ");
-//                System.out.println("==========================================");
-//                System.out.println("---------        PURCHASE        ---------");
-//
-//
-//                int n = 0;
-//                for (int i = 0; i < 3; i++) {
-//                    if (players[turn].getCoins() >= cardCost[i] && availableCards[i] > 0) {
-//                        n++;
-//                        System.out.println(" " + (i + 1) + ". " + cardName[i] + " " + cardIcon[i] + " (" + cardCost[i] + ")  [" + activation[i] + "]      #" + availableCards[i]);
-//                    }
-//                }
-//                if (players[turn].getCoins() >= 7) {
-//                    n++;
-//                    System.out.println("---------       CONSTRUCT        ---------");
-//                    System.out.println(" " + n + ". " + "City Hall          NT (7)  [ ] " );
-//                }
-//                System.out.println("---------         CANCEL         ---------");
-//                System.out.println("99. Do nothing                            ");
-//                System.out.println("==========================================");
-                
-                
                 
                 //TODO Add three arrays below into MarketMenu Class??? (But it is currently a static class)
                 //ArrayList of valid indexes -> ex: [0,1,2] or [1,2]...
@@ -198,8 +176,8 @@ public class MachiWoCo {
 
                 // Check for activation
                 System.out.println(p.cardActivation(dice, players));
-                    
-                    
+     
+                
                 //TODO Add three arrays below into MarketMenu Class??? (But it is currently a static class)
                 //ArrayList of valid indexes -> ex: [0,1,2] or [1,2]...
                 ArrayList<Integer> est = new ArrayList<>(0);
@@ -221,7 +199,7 @@ public class MachiWoCo {
                     chs.add(i + 1);
                 }
                 chs.add(99);
-
+                
                 //Nothing can be purchased
                 if (est.size() + lm.size() == 0) {
                     System.out.println("Player " + (turn + 1) + " did not enough money to make improvements");
@@ -258,6 +236,8 @@ public class MachiWoCo {
                         
                     }
                 }
+                
+                
                 
                 //TODO Dependent on conditionals above
                 int index = choice - 1;
