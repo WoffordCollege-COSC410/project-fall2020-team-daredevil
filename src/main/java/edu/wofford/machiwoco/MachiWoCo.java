@@ -87,48 +87,33 @@ public class MachiWoCo {
                 } else {
                     System.out.println(purchase);
                 }
-                
-                //TODO Add three arrays below into MarketMenu Class??? (But it is currently a static class)
-                //ArrayList of valid indexes -> ex: [0,1,2] or [1,2]...
-                ArrayList<Integer> est = new ArrayList<>(0);
-                for (int i = 0; i < availableCards.length; i++) {
-                    if (players[turn].getCoins() >= cardCost[i] && g.getAvailableCards(i) > 0) {
-                        est.add(i);
-                    }
-                }
-                
-                //ArrayList of valid landmarks to check
-                ArrayList<Integer> lm = new ArrayList<>();
-                if (players[turn].getCoins() >= 7) {
-                    lm.add(1);
-                }
-                
-//                //ArrayList of choices
+
+                // Get a list of possible purchase options
+                ArrayList<Integer> c = m.listOfChoices(cardCount, cardCost, players[turn].getCoins());
                 ArrayList<Integer> chs = new ArrayList<Integer>(0);
-                for (int i = 0; i < (est.size()+lm.size()); i++) {
+                for (int i = 0; i < c.size(); i++) {
                     chs.add(i + 1);
                 }
                 chs.add(99);
-                
-                
+
+                // Get the choice of the player
                 Scanner scan = new Scanner(System.in);
                 choice = m.getChoice(scan, chs);
-                
-                //TODO Dependent on arrays above
+                System.out.println(choice);
                 int index = choice - 1;
-                if (choice > 0 && est.size() + lm.size() > 0) {
+                if (choice > 0 && c.size() > 1) {
                     if (choice == 99) {
                         System.out.println("Player " + (turn + 1) + " chose not to make any improvements.");
-                    } else if (choice > est.size() && lm.size() > 0) {
+                    } else if ((choice == c.get(c.size() - 1)) && players[turn].getCoins() >= 7) { // Need to adjust this condition but works for now
                         //then it is a landmark
                         cityHall = turn + 1;
                         System.out.println("Player " + (turn + 1) + " constructed the City Hall");
                         players[turn].setCoins(-7);
                     } else { //it is a property
-                        System.out.println("Player " + (turn + 1) + " purchased the " + cardName[est.get(index)]);
-                        g.removeAvailableCards(est.get(index));
-                        players[turn].setPCards(est.get(index));
-                        players[turn].setCoins(-cardCost[est.get(index)]);
+                        System.out.println("Player " + (turn + 1) + " purchased the " + cardName[c.get(index)]);
+                        g.removeAvailableCards(c.get(index));
+                        players[turn].setPCards(c.get(index));
+                        players[turn].setCoins(-cardCost[c.get(index)]);
                     }
                 }
                 
@@ -176,29 +161,7 @@ public class MachiWoCo {
 
                 // Check for activation
                 System.out.println(p.cardActivation(dice, players));
-     
-                
-                //TODO Add three arrays below into MarketMenu Class??? (But it is currently a static class)
-                //ArrayList of valid indexes -> ex: [0,1,2] or [1,2]...
-                ArrayList<Integer> est = new ArrayList<>(0);
-                for (int i = 0; i < availableCards.length; i++) {
-                    if (players[turn].getCoins() >= cardCost[i] && g.getAvailableCards(i) > 0) {
-                        est.add(i);
-                    }
-                }
-                
-                //ArrayList of valid landmarks to check
-                ArrayList<Integer> lm = new ArrayList<>();
-                if (players[turn].getCoins() >= 7) {
-                    lm.add(1);
-                }
 
-                //ArrayList of choices
-                ArrayList<Integer> chs = new ArrayList<Integer>(0);
-                for (int i = 0; i < (est.size()+lm.size()); i++) {
-                    chs.add(i + 1);
-                }
-                chs.add(99);
 
                 // Get the number available of each card, and store it in a new array
                 int[] cardCount = new int[availableCards.length];
@@ -206,44 +169,49 @@ public class MachiWoCo {
                     cardCount[i] += g.getAvailableCards(i);
                 }
 
+                ArrayList<Integer> c = m.listOfChoices(cardCount, cardCost, players[turn].getCoins());
+                ArrayList<Integer> chs = new ArrayList<Integer>(0);
+                for (int i = 0; i < c.size(); i++) {
+                    chs.add(i + 1);
+                }
+                chs.add(99);
                 
                 
                 //Nothing can be purchased
-                if (est.size() + lm.size() == 0) {
+                if (c.size() == 0) { 
                     System.out.println("Player " + (turn + 1) + " did not enough money to make improvements");
                 } else { //Something can be purchased
                     if (turn == 0) { //player is human
                         // Print the market menu 
                         String purchase = m.printMenu(players[turn].getCoins(), cardName, cardIcon, cardCost, activation, cardCount);
                         System.out.println(purchase);
+                        Scanner scan = new Scanner(System.in);
+                        choice = m.getChoice(scan, chs);
                     } else if (turn == 1) { // player is AI
                         //System.out.println("AI makes a choice");
                         Random random2 = new Random();
-                        choice = chs.get(random2.nextInt(est.size()+lm.size()));
-                        
+                        choice = chs.get(random2.nextInt(c.size() + 1));
+                        System.out.println(choice);
                     }
                 }
                 
-                
-                
-                //TODO Dependent on conditionals above
                 int index = choice - 1;
-                if (choice > 0 && est.size() + lm.size() > 0) {
+                if (choice > 0 && c.size() > 1) {
                     if (choice == 99) {
                         System.out.println("Player " + (turn + 1) + " chose not to make any improvements.");
-                    } else if (choice > est.size() && lm.size() > 0) {
+                    } else if ((choice == c.get(c.size() - 1)) && players[turn].getCoins() >= 7) { // Need to adjust this condition but works for now
                         //then it is a landmark
                         cityHall = turn + 1;
                         System.out.println("Player " + (turn + 1) + " constructed the City Hall");
                         players[turn].setCoins(-7);
                     } else { //it is a property
-                        System.out.println("Player " + (turn + 1) + " purchased the " + cardName[est.get(index)]);
-                        g.removeAvailableCards(est.get(index));
-                        players[turn].setPCards(est.get(index));
-                        players[turn].setCoins(-cardCost[est.get(index)]);
+                        System.out.println("Player " + (turn + 1) + " purchased the " + cardName[c.get(index)]);
+                        g.removeAvailableCards(c.get(index));
+                        players[turn].setPCards(c.get(index));
+                        players[turn].setCoins(-cardCost[c.get(index)]);
                     }
                 }
-                
+            
                 //TURN ENDED MESSAGE
                 System.out.println("Turn ended for Player " + (turn + 1));
                 // Print Market State if cityHall is bought
