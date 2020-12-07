@@ -138,12 +138,5 @@ public class GameState {
     public int getActivation(int i) {
         return activation[i];
     }
-    
-//    public static void main(String[] args) {
-//        GameState g = new GameState();
-//        System.out.println(g.printPlayerState(0));
-//        System.out.print("*************************");
-//    }
-
 
 }

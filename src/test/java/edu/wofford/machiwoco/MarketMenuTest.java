@@ -25,7 +25,6 @@ public class MarketMenuTest {
         cardCost = new int[] {1, 1, 3};
         activation = new int[] {1, 2, 5};
         availableCards = new int[] {6, 6, 6};
-        
     }
     
     @Test
