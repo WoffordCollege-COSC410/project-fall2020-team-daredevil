@@ -61,50 +61,7 @@ public class CardTest {
 	@Test
 	public void testSetColor() {
 		c.setColor("blue");
-		assertThat(c.getColor(), is("blue"));	
+		assertThat(c.getColor(), is("blue"));
 	}
 
 }
-
-//@Test
-//	public void testSetEffect() {
-////		"effect": {
-////			"type": "receive",
-////			"target": "bank",
-////			"amount": 1,
-////			"modifierType": "none",
-////			"modifier": "none"
-////		}
-//
-//		c.setEffect(0, 0, 1, 0, 'N');
-//		assertThat(c.getEffectType(), is(0));
-//		assertThat(c.getEffectTarget(), is(0));
-//		assertThat(c.getEffectAmount(), is(1));
-//		assertThat(c.getEffectModType(), is(0));
-//		assertThat(c.getEffectModifier(), is('N'));
-//	}
-
-//@Test
-//public void testGetEffectType() {
-//	assertThat(c.getEffectType(), is(0));
-//}
-//
-//@Test
-//public void testGetEffectTarget() {
-//	assertThat(c.getEffectTarget(), is(0));
-//}
-//
-//@Test
-//public void testGetEffectAmount() {
-//	assertThat(c.getEffectAmount(), is(0));
-//}
-//
-//@Test
-//public void testGetEffectModType() {
-//	assertThat(c.getEffectModType(), is(0));
-//}
-//
-//@Test
-//public void testGetEffectModifier() {
-//	assertThat(c.getEffectModifier(), is('N'));
-//}

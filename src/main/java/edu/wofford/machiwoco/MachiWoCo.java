@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class MachiWoCo {
     private static int cityHall;
     private static int turn;
+    private static int choice;
     private static int[] availableCards = {6, 6, 6};
     private static Player[] players;
     private static String[] cardName = {"Wheat Field", "Ranch", "Forest"};
@@ -23,7 +24,7 @@ public class MachiWoCo {
     public static void main(String[] args) {
         cityHall = 0;
         turn = 0;
-        int choice = 0;
+        choice = 0;
         players = new Player[] {new Player(), new Player()};
 
 
@@ -43,9 +44,6 @@ public class MachiWoCo {
             }
         }
 //*****************************************************************************************************************************************
-
-
-
 
 // *************************************************  FEATURE 2 (Phase 1 - 2 Human Players) ***********************************************
 
@@ -75,8 +73,8 @@ public class MachiWoCo {
                 
                 
                 // Get the number available of each card, and store it in a new array
-                int[] cardCount = new int[availableCards.length];
-                for (int i = 0; i < availableCards.length; i++) {
+                int[] cardCount = new int[3];
+                for (int i = 0; i < 3; i++) {
                     cardCount[i] += g.getAvailableCards(i);
                 }
 
@@ -85,13 +83,16 @@ public class MachiWoCo {
                 if (purchase == "") {
                     System.out.println("Player " + (turn + 1) + " did not have enough money to make improvements");
                 } else {
+                    System.out.println("Player " + (turn + 1) + ", would you like to purchase an");
+                    System.out.println("establishment or construct a landmark? (" + players[turn].getCoins());
+                    System.out.println("coins)");
                     System.out.println(purchase);
                 }
 
                 // Get a list of possible purchase options
-                ArrayList<Integer> c = m.listOfChoices(cardCount, cardCost, players[turn].getCoins());
+                ArrayList<Integer> properties = m.listOfChoices(cardCount, cardCost, players[turn].getCoins());
                 ArrayList<Integer> chs = new ArrayList<Integer>(0);
-                for (int i = 0; i < c.size(); i++) {
+                for (int i = 0; i < properties.size(); i++) {
                     chs.add(i + 1);
                 }
                 chs.add(99);
@@ -99,25 +100,25 @@ public class MachiWoCo {
                 // Get the choice of the player
                 Scanner scan = new Scanner(System.in);
                 choice = m.getChoice(scan, chs);
-                System.out.println(choice);
+
                 int index = choice - 1;
-                if (choice > 0 && c.size() > 1) {
+                if (choice > 0 && properties.size() > 1) {
                     if (choice == 99) {
                         System.out.println("Player " + (turn + 1) + " chose not to make any improvements.");
-                    } else if ((choice == c.get(c.size() - 1)) && players[turn].getCoins() >= 7) { // Need to adjust this condition but works for now
+                    } else if ((choice == properties.get(properties.size() - 1)) && players[turn].getCoins() >= 7) {
                         //then it is a landmark
                         cityHall = turn + 1;
                         System.out.println("Player " + (turn + 1) + " constructed the City Hall");
                         players[turn].setCoins(-7);
                     } else { //it is a property
-                        System.out.println("Player " + (turn + 1) + " purchased the " + cardName[c.get(index)]);
-                        g.removeAvailableCards(c.get(index));
-                        players[turn].setPCards(c.get(index));
-                        players[turn].setCoins(-cardCost[c.get(index)]);
+                        System.out.println("Player " + (turn + 1) + " purchased the " + cardName[properties.get(index)]);
+                        g.removeAvailableCards(properties.get(index));
+                        players[turn].setPCards(properties.get(index));
+                        players[turn].setCoins(-cardCost[properties.get(index)]);
                     }
                 }
                 
-                //TURN ENDED MESSAGE
+                //TURN Ends
                 System.out.println("Turn ended for Player " + (turn + 1));
                 
                 if (cityHall > 0) {
@@ -132,9 +133,6 @@ public class MachiWoCo {
         }
 
 // ***********************************************************************************************************************************************************
-
-
-
 
 // ******************************************************  FEATURE 3 (Phase 1 - Human vs. Random AI) *********************************************************
 
@@ -169,52 +167,53 @@ public class MachiWoCo {
                     cardCount[i] += g.getAvailableCards(i);
                 }
 
-                ArrayList<Integer> c = m.listOfChoices(cardCount, cardCost, players[turn].getCoins());
+                ArrayList<Integer> properties = m.listOfChoices(cardCount, cardCost, players[turn].getCoins());
+                
                 ArrayList<Integer> chs = new ArrayList<Integer>(0);
-                for (int i = 0; i < c.size(); i++) {
+                for (int i = 0; i < properties.size(); i++) {
                     chs.add(i + 1);
                 }
                 chs.add(99);
                 
                 
-                //Nothing can be purchased
-                if (c.size() == 0) { 
+                //Prompt player for purchase choice
+                if (properties.size() == 0) {
                     System.out.println("Player " + (turn + 1) + " did not enough money to make improvements");
-                } else { //Something can be purchased
+                } else {
                     if (turn == 0) { //player is human
-                        // Print the market menu 
                         String purchase = m.printMenu(players[turn].getCoins(), cardName, cardIcon, cardCost, activation, cardCount);
+                        System.out.println("Player " + (turn + 1) + ", would you like to purchase an");
+                        System.out.println("establishment or construct a landmark? (" + players[turn].getCoins());
+                        System.out.println("coins)");
                         System.out.println(purchase);
+                        
                         Scanner scan = new Scanner(System.in);
                         choice = m.getChoice(scan, chs);
                     } else if (turn == 1) { // player is AI
-                        //System.out.println("AI makes a choice");
                         Random random2 = new Random();
-                        choice = chs.get(random2.nextInt(c.size() + 1));
-                        System.out.println(choice);
+                        choice = chs.get(random2.nextInt(properties.size() + 1));
                     }
                 }
                 
                 int index = choice - 1;
-                if (choice > 0 && c.size() > 1) {
+                if (choice > 0 && properties.size() > 1) {
                     if (choice == 99) {
                         System.out.println("Player " + (turn + 1) + " chose not to make any improvements.");
-                    } else if ((choice == c.get(c.size() - 1)) && players[turn].getCoins() >= 7) { // Need to adjust this condition but works for now
+                    } else if ((choice == properties.get(properties.size() - 1)) && players[turn].getCoins() >= 7) {
                         //then it is a landmark
                         cityHall = turn + 1;
                         System.out.println("Player " + (turn + 1) + " constructed the City Hall");
                         players[turn].setCoins(-7);
                     } else { //it is a property
-                        System.out.println("Player " + (turn + 1) + " purchased the " + cardName[c.get(index)]);
-                        g.removeAvailableCards(c.get(index));
-                        players[turn].setPCards(c.get(index));
-                        players[turn].setCoins(-cardCost[c.get(index)]);
+                        System.out.println("Player " + (turn + 1) + " purchased the " + cardName[properties.get(index)]);
+                        g.removeAvailableCards(properties.get(index));
+                        players[turn].setPCards(properties.get(index));
+                        players[turn].setCoins(-cardCost[properties.get(index)]);
                     }
                 }
             
                 //TURN ENDED MESSAGE
                 System.out.println("Turn ended for Player " + (turn + 1));
-                // Print Market State if cityHall is bought
 
                 // If cityHall is constructed
                 if (cityHall > 0) {
@@ -229,42 +228,6 @@ public class MachiWoCo {
         }
 
 // *******************************************************************************************************************************************************
-
-
-
-
-// *************************************************  FEATURE 4 (Phase 2 - Human and 1 Random AI) *********************************************************
-
-        else if (args.length == 2 && args[0].equals("phase2") && args[1].equals("2")) {
-
-        }
-
-
-
-
-
-
-
-
-// *********************************************************************************************************************************************************
-
-
-
-
-// *************************************************  FEATURE 4 (Phase 2 - Human and 2 Random AIs) *********************************************************
-
-        else if (args.length == 2 && args[0].equals("phase2") && args[1].equals("3")) {
-
-        }
-
-
-
-
-
-
-
-
-// *******************************************************************************************************************************************
 
     }
 }

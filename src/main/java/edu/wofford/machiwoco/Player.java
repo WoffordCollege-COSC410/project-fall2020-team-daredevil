@@ -73,7 +73,4 @@ public class Player {
 		return d;
 	}
 	
-	public String purchaseCard(int choice, int turn) {
-		return "Player " + (turn + 1) + " chose not to make any improvements.";
-	}
 }
