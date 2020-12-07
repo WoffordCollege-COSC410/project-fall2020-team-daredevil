@@ -13,11 +13,10 @@ public class MarketMenu {
                                            "---------        PURCHASE        ---------\n";
     
     public MarketMenu() {
-        //TODO is this needed?
+        
     }
         
     public static int getChoice(Scanner scan, ArrayList<Integer> chs) {
-        
         System.out.println("Choose a number to purchase or construct: ");
         int choice = scan.nextInt();
         while (!chs.contains(choice)) {
@@ -27,6 +26,8 @@ public class MarketMenu {
         return choice;
     }
     
+    
+    //public ArrayList<Integer> getProperties(int coins, int[] cost, int[] available) {}
     
     public static String printMenu(int coins, String[] cName, String[] icon, int[] cost, int[] activation, int[] available) {
         
@@ -69,39 +70,29 @@ public class MarketMenu {
         menu += "---------         CANCEL         ---------\n";
         menu += "99. Do nothing                            \n";
         menu += "==========================================\n";
-        
-        
-        //Default added
-        
-        
-    
-        
         return PREAMBLE + menu;
     }
    
     
     
-//    //TODO Dependent on conditionals above
-//    int index = choice - 1;
-//    if (choice > 0 && est.size() + lm.size() > 0) {
-//        if (choice == 99) {
-//            System.out.println("Player " + (turn + 1) + " chose not to make any improvements.");
-//        } else if (choice > est.size() && lm.size() > 0) {
-//            //then it is a landmark
-//            cityHall = turn + 1;
-//            System.out.println("Player " + (turn + 1) + " constructed the City Hall");
-//            players[turn].setCoins(-7);
-//        } else { //it is a property
-//            System.out.println("Player " + (turn + 1) + " purchased the " + cardName[est.get(index)]);
-//            g.removeAvailableCards(est.get(index));
-//            players[turn].setPCards(est.get(index));
-//            players[turn].setCoins(-cardCost[est.get(index)]);
+//    public String purchaseCard(int choice, int turn) {
+//        int index = choice - 1;
+//        if (choice > 0 && est.size() + lm.size() > 0) {
+//            if (choice == 99) {
+//                return "Player " + (turn + 1) + " chose not to make any improvements.";
+//            } else if (choice > est.size() && lm.size() > 0) {
+//                //then it is a landmark
+//                cityHall = turn + 1;
+//                System.out.println("Player " + (turn + 1) + " constructed the City Hall");
+//                players[turn].setCoins(-7);
+//            } else { //it is a property
+//                System.out.println("Player " + (turn + 1) + " purchased the " + cardName[est.get(index)]);
+//                g.removeAvailableCards(est.get(index));
+//                players[turn].setPCards(est.get(index));
+//                players[turn].setCoins(-cardCost[est.get(index)]);
+//            }
 //        }
 //    }
-//    
-    
-
-
 
 }
 

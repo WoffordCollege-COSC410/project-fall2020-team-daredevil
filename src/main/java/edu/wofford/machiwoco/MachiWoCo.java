@@ -114,7 +114,7 @@ public class MachiWoCo {
                 Scanner scan = new Scanner(System.in);
                 choice = m.getChoice(scan, chs);
                 
-                //TODO Dependent on conditionals above
+                //TODO Dependent on arrays above
                 int index = choice - 1;
                 if (choice > 0 && est.size() + lm.size() > 0) {
                     if (choice == 99) {
