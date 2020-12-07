@@ -26,6 +26,19 @@ public class MarketMenu {
         return choice;
     }
     
+    public ArrayList<Integer> listOfChoices(int[] available, int[] cost, int coins) {
+        ArrayList<Integer> c = new ArrayList<>(0);
+        for (int i = 0; i < available.length; i++) {
+            if (coins >= cost[i] && available[i] > 0) {
+                c.add(i);
+            }
+        }
+        if (coins >= 7) {
+            c.add(c.size() + 1);
+
+        }
+        return c;
+    }
     
     //public ArrayList<Integer> getProperties(int coins, int[] cost, int[] available) {}
     
