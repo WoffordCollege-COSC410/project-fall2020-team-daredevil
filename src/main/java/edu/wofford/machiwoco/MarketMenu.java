@@ -46,17 +46,11 @@ public class MarketMenu {
         }
         //
         
-        //ArrayList of choices
-        ArrayList<Integer> chs = new ArrayList<Integer>(0);
-        for (int i = 0; i < (est.size()+lm.size()); i++) {
-            chs.add(i + 1);
-        }
-        chs.add(99);
-        
         
         if ((est.size() + lm.size()) == 0) {
             return "";
         }
+        
         String menu = "";
         for (int i = 0; i < est.size(); i++) {
             menu += " " + (i + 1) + ". " + cName[est.get(i)] + " " + icon[est.get(i)] + " (" + cost[est.get(i)] + ")  [" + activation[est.get(i)] + "]      #" + available[est.get(i)] + "\n";

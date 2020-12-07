@@ -83,7 +83,7 @@ public class MachiWoCo {
                 // Print the market menu 
                 String purchase = m.printMenu(players[turn].getCoins(), cardName, cardIcon, cardCost, activation, cardCount);
                 if (purchase == "") {
-                    System.out.println("Player " + (turn + 1) + " did not enough money to make improvements");
+                    System.out.println("Player " + (turn + 1) + " did not have enough money to make improvements");
                 } else {
                     System.out.println(purchase);
                 }
