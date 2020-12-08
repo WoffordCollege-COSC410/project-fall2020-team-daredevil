@@ -63,7 +63,7 @@ public class MarketMenu {
         
         if (lm.size() > 0) {
             menu += "---------       CONSTRUCT        ---------\n";
-            menu += " 4. City Hall          NT (7)  [ ]\n";
+            menu += " " + (est.size() + 1) + ". City Hall          NT (7)  [ ]\n";
         }
         
         menu += "---------         CANCEL         ---------\n";

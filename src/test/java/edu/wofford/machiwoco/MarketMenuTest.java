@@ -54,6 +54,34 @@ public class MarketMenuTest {
     }
     
     @Test
+    public void testPrintNoMenu() {
+        String s = "";
+        String a = m.printMenu(0, cardName, cardIcon, cardCost, activation, availableCards);
+        
+        assertThat(a, is(s));
+    }
+    
+    @Test
+    public void testPrintOnlyCityHall() {
+        String s = "";
+        s = s + "(To view details of an item, type 'view'  \n";
+        s = s + "followed by the item number. For example, \n";
+        s += "to view item 6, type 'view 6'.)\n";
+        s += "==========================================\n";
+        s += "---------        PURCHASE        ---------\n";
+        s += "---------       CONSTRUCT        ---------\n";
+        s += " 1. City Hall          NT (7)  [ ]\n";
+        s += "---------         CANCEL         ---------\n";
+        s += "99. Do nothing                            \n";
+        s += "==========================================";
+        
+        int[] av = new int[] {0, 0, 0};
+        String a = m.printMenu(7, cardName, cardIcon, cardCost, activation, av);
+        
+        assertThat(a, is(s));
+    }
+    
+    @Test
     public void testPrintFull() {
         String s = "";
         s = s + "(To view details of an item, type 'view'  \n";
