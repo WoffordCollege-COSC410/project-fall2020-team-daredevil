@@ -71,7 +71,6 @@ public class MarketMenu {
         menu += "==========================================";
         return PREAMBLE + menu;
     }
-
 }
 
 

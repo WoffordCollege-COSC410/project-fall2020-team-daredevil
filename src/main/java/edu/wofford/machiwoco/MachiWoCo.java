@@ -160,7 +160,6 @@ public class MachiWoCo {
                 // Check for activation
                 System.out.println(p.cardActivation(dice, players));
 
-
                 // Get the number available of each card, and store it in a new array
                 int[] cardCount = new int[availableCards.length];
                 for (int i = 0; i < availableCards.length; i++) {
@@ -174,7 +173,6 @@ public class MachiWoCo {
                     chs.add(i + 1);
                 }
                 chs.add(99);
-                
                 
                 //Prompt player for purchase choice
                 if (properties.size() == 0) {
@@ -226,8 +224,7 @@ public class MachiWoCo {
                 }
             }
         }
-
+        
 // *******************************************************************************************************************************************************
-
     }
 }

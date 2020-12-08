@@ -100,4 +100,16 @@ public class MarketMenuTest {
         
         assertThat(m.getChoice(str, chs), is(3));
     }
+
+    @Test
+    public void testListOfChoices() {
+        ArrayList<Integer> c = new ArrayList<>();
+        int[] x = {6, 6, 6};
+        int[] y = {1, 1, 3};
+        int z = 3;
+        c.add(0);
+        c.add(1);
+        c.add(2);
+        assertThat(m.listOfChoices(x, y, z), is(c));
+    }
 }

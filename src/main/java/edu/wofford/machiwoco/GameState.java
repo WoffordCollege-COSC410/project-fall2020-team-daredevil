@@ -88,9 +88,6 @@ public class GameState {
         return str;
     }
     
-    
-    
-    
     /**
     * @param i The index to return
     * @return The name of a Card

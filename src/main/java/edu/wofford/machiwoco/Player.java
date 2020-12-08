@@ -7,7 +7,6 @@ public class Player {
 	private static int[] activation;
 	private int coins; 
 
-
 	/**
 	* Creates a new instance of Player
 	*/
@@ -47,7 +46,6 @@ public class Player {
 		coins += num;
 	}
 	
-
 	/**
 	 * This method checks if any cards are activated
 	 * @param dice
@@ -72,5 +70,4 @@ public class Player {
 		}
 		return d;
 	}
-	
 }
