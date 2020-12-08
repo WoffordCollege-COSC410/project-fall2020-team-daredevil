@@ -117,7 +117,7 @@ public class MarketMenuTest {
     }
     
     @Test
-    public void testGetInvalidChoices() {
+    public void testGetInvalidPurchaseChoice() {
         Scanner str = new Scanner("5\n-1\n17\n0\n3\n");
         //ARRAY FOR NUMBER OF CHOICES
         ArrayList<Integer> chs = new ArrayList<Integer>(0);
@@ -128,16 +128,35 @@ public class MarketMenuTest {
         
         assertThat(m.getChoice(str, chs), is(3));
     }
-
+    
     @Test
-    public void testListOfChoices() {
-        ArrayList<Integer> c = new ArrayList<>();
+    public void testListOfChoicesEmpty() {
+        ArrayList<Integer> c = new ArrayList<>(0);
+        int[] x = {6, 6, 6};
+        int[] y = {1, 1, 3};
+        int z = 0;
+        assertThat(m.listOfChoices(x, y, z), is(c));
+    }
+    
+    @Test
+    public void testListOfChoicesNoCityHall() {
+        ArrayList<Integer> c = new ArrayList<>(0);
         int[] x = {6, 6, 6};
         int[] y = {1, 1, 3};
         int z = 3;
         c.add(0);
         c.add(1);
         c.add(2);
+        assertThat(m.listOfChoices(x, y, z), is(c));
+    }
+    
+    @Test
+    public void testListOfChoicesOnlyCityHall() {
+        ArrayList<Integer> c = new ArrayList<>(0);
+        int[] x = {0, 0, 0};
+        int[] y = {1, 1, 3};
+        int z = 7;
+        c.add(1);
         assertThat(m.listOfChoices(x, y, z), is(c));
     }
 }
