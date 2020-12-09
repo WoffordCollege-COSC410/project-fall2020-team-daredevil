@@ -18,13 +18,18 @@ public class Player {
 	} 
 	
 	/**
-	* Get the number from a Player's deck.
+	* Get the number of a specific Card from a Player's deck.
 	* @param i the index to return
-	* @return The 
+	* @return How many of that Card the Player has
 	*/
 	public int getPCards(int i) {
 		return pCards[i];
 	}
+	
+	/**
+	 * This method adds a card to a Player's deck
+	 * @param i index of a Player's Card array
+	 */
 	public void setPCards(int i) {
 		//set pcards at the index passed in
 		pCards[i] += 1;
@@ -34,23 +39,23 @@ public class Player {
 	 * This method gets the amount of coins Player N has.
 	 * @return coins
 	 */
-    public int getCoins() {
-        return coins;
-    }
+	public int getCoins() {
+		return coins;
+	}
 
 	/**
 	 * This method set coins for the Player
 	 * @param num is the int value that a Player's coins will change.
 	 */
-    public void setCoins(int num) {
+	public void setCoins(int num) {
 		coins += num;
 	}
 	
 	/**
 	 * This method checks if any cards are activated
-	 * @param dice
-	 * @param players
-	 * @return the string d
+	 * @param dice The roll number
+	 * @param players[] The array of player objects
+	 * @return What cards have been activated for each player
 	 */
 	public String cardActivation(int dice, Player players[]) {
 		String d = "";
