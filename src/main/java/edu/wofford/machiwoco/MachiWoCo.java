@@ -98,8 +98,10 @@ public class MachiWoCo {
                 chs.add(99);
 
                 // Get the choice of the player
-                Scanner scan = new Scanner(System.in);
-                choice = m.getChoice(scan, chs);
+                if (purchase != "") {
+                    Scanner scan = new Scanner(System.in);
+                    choice = m.getChoice(scan, chs);
+                }
 
                 int index = choice - 1;
                 if (choice > 0 && properties.size() > 1) {
