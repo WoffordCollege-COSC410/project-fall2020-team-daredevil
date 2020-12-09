@@ -1,12 +1,14 @@
 package edu.wofford.machiwoco;
 
+/**
+ * @author Jacob Vannoy, Kristinn Sigurjonsson, Jaylen Muhammad, Evan Suggs
+ */
 
 public class Player {
 	private int[] pCards; 
 	private static String[] cardName;
 	private static int[] activation;
 	private int coins; 
-
 
 	/**
 	* Creates a new instance of Player
@@ -21,11 +23,16 @@ public class Player {
 	/**
 	* Get the number from a Player's deck.
 	* @param i the index to return
-	* @return The 
+	* @return pCards[i]
 	*/
 	public int getPCards(int i) {
 		return pCards[i];
 	}
+	
+	/**
+	 * Set number in Player's deck
+	 * @param i the index of return
+	 */
 	public void setPCards(int i) {
 		//set pcards at the index passed in
 		pCards[i] += 1;
@@ -46,7 +53,6 @@ public class Player {
     public void setCoins(int num) {
 		coins += num;
 	}
-	
 
 	/**
 	 * This method checks if any cards are activated
@@ -73,6 +79,12 @@ public class Player {
 		return d;
 	}
 	
+	/**
+	 * If player chooses not to make improvements
+	 * @param choice choice of player
+	 * @param turn current turn
+	 * @return string saying player chose not to make any improvements
+	 */
 	public String purchaseCard(int choice, int turn) {
 		return "Player " + (turn + 1) + " chose not to make any improvements.";
 	}
