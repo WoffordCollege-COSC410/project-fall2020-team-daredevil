@@ -37,14 +37,12 @@ public class GameStateTest {
         a += "******************************************\n";
         a += "                  MARKET                  \n";
         a += "------------------------------------------\n";
-        a += "Wheat Field        BW (1)  [1]      #6\n";
-        a += "Ranch              BC (1)  [2]      #6\n";
-        a += "Forest             BG (3)  [5]      #6\n";
         
-        
-//        Player[] players = new Player[2];
-//        players[0] = new Player();
-        players[0].setCoins(20);
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                g.removeAvailableCards(i);
+            }
+        }
         assertThat(g.printMarket(), is(a));
     }
     

@@ -166,10 +166,10 @@ Following the current market state are the player states. An example of a player
     
     ******************************************
 
-The current player state holds every establishment and the number of coins a player has, followed by a list of landmarks in which a player has or has not constructed. At the leftmost part of every line listed on the player state is the name of the card, followed by a two letter abbreviation where the first letter represents the color of the card and the second letter represents the icon of the card. Following those two letters is a number inside parenthasies, which represents the cost of the card. Followed by the cost inside the square brackets is the activation number/range. Lastly, the number right after the hash symbol represents the number available of that particular card. Below are the landmarks, and are either marked empty or with an 'X' inside the square brackets, depending on whether the player has constructed the landmark or not.
+The current player state holds every establishment and the number of coins a player has, followed by a list of landmarks in which a player has or has not constructed. At the leftmost part of every line listed on the player state is the name of the card, followed by a two letter abbreviation where the first letter represents the color of the card and the second letter represents the icon of the card. Following those two letters is a number inside parentheses, which represents the cost of the card. Followed by the cost inside the square brackets is the activation number/range. Lastly, the number right after the hash symbol represents the number available of that particular card. Below are the landmarks, and are either marked empty or with an 'X' inside the square brackets, depending on whether the player has constructed the landmark or not.
 
 ## Purchase Menu
-After a player has rolled the dice, a promt will show up if any cards are activated for the players participating, and coins will be distributed accordingly. Next, the active player will get the opportunity to buy an establishment or construct a landmark listed in the purchase menu. An example of a purchase menu is presented as followed:
+After a player has rolled the dice, a prompt will show up if any cards are activated for the players participating, and coins will be distributed accordingly. Next, the active player will get the opportunity to buy an establishment or construct a landmark listed in the purchase menu. An example of a purchase menu is presented as followed:
 
     Player 1, would you like to purchase an   
     establishment or construct a landmark? (27 
@@ -206,7 +206,7 @@ The active player will get a reminder of how many coins he has in his possesion.
 * A player must always wait until his turn is up to purchase an establishment or construct a landmark.
 
 ## Random AI
-Except for Phase 0, there is an option to play with a random AI instead of a human player. The random AI traverses the game by making uniform random choices when given an option. To play with an Random AI, type **--ai** in the terminal.
+Except for Phase 0, there is an option to play against a random AI instead of a human player. The random AI traverses the game by making uniform random choices when given an option. To play with a Random AI, type **--ai** in the terminal.
 
 
 We hope your enjoy MachiWoco and good luck!

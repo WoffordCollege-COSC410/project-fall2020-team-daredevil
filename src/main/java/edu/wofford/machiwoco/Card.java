@@ -14,12 +14,12 @@ public class Card {
 	private int activation;
 	
 	/**
-	 * Creates new instance of Card
-	 * @param name name of card
-	 * @param cost cost of card
-	 * @param color color of card
-	 * @param icon icon of card
-	 */
+	* Initializes a Card
+	* @param name Card name
+	* @param cost Card cost
+	* @param color Card color
+	* @param icon Card icon
+	*/
 	public Card(String name, int cost, String color, String icon) {
 		this.name = name;
 		this.cost = cost;
@@ -29,129 +29,75 @@ public class Card {
 	}
 
 	/**
-	 * Sets the name of the card
-	 * @param name new name of card
-	 */
+	* Sets a Card's name
+	* @param name The desired name of the Card
+	*/
 	public void setName(String name) {
 		this.name = name;
 	}
 	
 	/**
-	 * Gets the name of the card
-	 * @return name of card
-	 */
+	* Returns a Card's name
+	* @return The name of the Card
+	*/
 	public String getName() {
 		return name;
 	}
 
 	/**
-	 * Sets the cost of the card
-	 * @param cost new cost of card
-	 */
+	* Sets a Card's cost
+	* @param cost The desired cost of the Card
+	*/
 	public void setCost(int cost) {
 		this.cost = cost;
 	}
 	
 	/**
-	 * Gets the cost of the card
-	 * @return cost of card
-	 */
+	* Returns a Card's cost
+	* @return The cost of the Card
+	*/
 	public int getCost() {
 		return cost;
 	}
 
 	/**
-	 * Sets the color of the card
-	 * @param color new color of card
-	 */
+	* Sets a Card's color
+	* @param color The desired color of the Card
+	*/
 	public void setColor(String color) {
 		this.color = color;
 	}
 	
 	/**
-	 * Gets the color of the card
-	 * @return color of card
-	 */
+	* Returns a Card's color
+	* @return The color of the Card
+	*/
 	public String getColor() {
 		return color;
 	}
 
 	/**
-	 * Gets the icon of the card
-	 * @return icon of card
-	 */
+	* Returns a Card's icon
+	* @return The icon of the Card
+	*/
 	public String getIcon() {
 		return icon;
 	}
 
 	/**
-	 * Gets the card activation
-	 * @return card activation
-	 */
+	* Returns a Card's activation number
+	* @return The activation number of the Card
+	*/
 	public int getActivation() {
 		return activation;
 	}
 	
 	/**
-	 * Sets the activation of the card
-	 * @param a new activation of card
-	 */
+	* Sets a Card's activation number
+	* @param a The desired activation number of the Card
+	*/
 	public void setActivation(int a) {
 		this.activation = a;
 	}
 
 }
-
-//		effectType = 0;
-//		effectTarget = 0;
-//		effectAmount = 0;
-//		effectModifierType = 0;
-//		effectModifier = 'N';
-
-//public int getEffectType() {
-//	return effectType;
-//}
-//
-//public int getEffectTarget() {
-//	return effectTarget;
-//}
-//
-//public int getEffectAmount() {
-//	return effectAmount;
-//}
-//
-//public int getEffectModType() {
-//	return effectModifierType;
-//}
-//
-//public char getEffectModifier() {
-//	return effectModifier;
-//}
-//
-//public void setEffect(int type, int target, int amount, int modType, char mod) {
-//	if (type == 0 || type == 1) {
-//		effectType = type;
-//	}
-//	
-//	if (target >= 0 && target < 4) {
-//		effectTarget = target;
-//	}
-//	
-//	if (amount > 0 && amount <= 5) {
-//		effectAmount = amount;
-//	}
-//	
-//	if (modType == 0 || modType == 1) {
-//		effectModifierType = modType;
-//	}
-//	
-//	if (mod == 'C') {
-//		effectModifier = mod;
-//	} else if (mod == 'G') {
-//		effectModifier = mod;
-//	} else if (mod == 'W') {
-//		effectModifier = mod;
-//	} else {
-//		effectModifier = 'N';
-//	}
-//}

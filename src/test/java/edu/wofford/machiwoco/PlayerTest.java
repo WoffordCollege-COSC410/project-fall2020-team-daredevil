@@ -82,49 +82,4 @@ public class PlayerTest {
 		assertThat(p.cardActivation(2, players), is(c));
 	}
 
-	@Test
-	public void testPlayer1NoBuying() {
-		int c = 99;
-		int t = 0;
-		String s = "Player 1 chose not to make any improvements.";
-		
-		
-		assertThat(players[0].purchaseCard(c, t), is(s));
-	}
-
-
-
-
-	/*
-	@Test 
-	public void testGetNumWheat() {
-		assertThat(p1.getNumWheat(), is(1));
-	}
-	
-	@Test 
-	public void testGetNumRanch() {
-		assertThat(p1.getNumRanch(), is(0));
-	}
-	
-	@Test 
-	public void testGetNumForest() {
-		assertThat(p1.getNumForest(), is(0));
-	}
-	
-	
-	
-	@Test
-	public void testGetCoins() {
-		assertThat(p1.getCoins(), is(3));
-	}
-	
-	
-	@Test
-	public void testHasCityHall() {
-		assertThat(p1.hasCityHall(), is(false));
-	}
-	
-
-	*/
-
 }

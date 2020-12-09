@@ -13,19 +13,12 @@ public class MarketMenu {
                                            "==========================================\n" +
                                            "---------        PURCHASE        ---------\n";
     
-    /**
-     * Creates new instamce of MarketMenu
-     */
-    public MarketMenu() {
-        
-    }
     
     /**
-     * Takes in choice from the user
-     * @return choice
-     * @param scan value of user input
-     * @param chs list of valid choices
-     */
+    * Prompts and returns a Player's purchase choice
+    * @param scan A Scanner object with the Player choice
+    * @param chs An array with all valid choices of the Purchase Menu
+    */
     public static int getChoice(Scanner scan, ArrayList<Integer> chs) {
         System.out.println("Choose a number to purchase or construct: ");
         int choice = scan.nextInt();
@@ -37,12 +30,12 @@ public class MarketMenu {
     }
     
     /**
-     * Creates the list of available choices
-     * @return c
-     * @param available list of number of available cards
-     * @param cost list of card costs
-     * @param coins amount of coins player has
-     */
+    * Compiles all the properties a Player can buy or construct
+    * @param available An array of all available Establishment Cards
+    * @param cost An array of all Establishment Card Costs
+    * @param coins A Player's current coins
+    * @return All purchasable properties indexes
+    */
     public ArrayList<Integer> listOfChoices(int[] available, int[] cost, int coins) {
         ArrayList<Integer> c = new ArrayList<>(0);
         for (int i = 0; i < available.length; i++) {
@@ -57,21 +50,18 @@ public class MarketMenu {
         return c;
     }
     
-    //public ArrayList<Integer> getProperties(int coins, int[] cost, int[] available) {}
-    
     /**
-     * Constructs the Market menu
-     * @return PREAMBLE + menu
-     * @param coins amount of coins player has
-     * @param cName list of card names 
-     * @param icon list of card icons
-     * @param cost list of costs for each card
-     * @param activation list of activation numbers
-     * @param available list of available cards
-     */
+    * Print the Purchase Menu for a Human player
+    * @param coins A Player's current money
+    * @param cName An array of all Establishment Card names
+    * @param icon An array of all Establishment Card icons
+    * @param cost An array of all Establishment Card costs
+    * @param activation An array of all Establishment Card Activation numbers
+    * @param available An array of all Establishment Card remaining in the Market
+    * @return The Purchase Menu
+    */
     public static String printMenu(int coins, String[] cName, String[] icon, int[] cost, int[] activation, int[] available) {
         
-        //put block in "get purchasable pro method"
         ArrayList<Integer> est = new ArrayList<>(0);
         for (int i = 0; i < available.length; i++) {
             if (coins >= cost[i] && available[i] > 0) {
@@ -79,12 +69,10 @@ public class MarketMenu {
             }
         }
         
-        //ArrayList of valid landmarks to check
         ArrayList<Integer> lm = new ArrayList<>();
         if (coins >= 7) {
             lm.add(1);
         }
-        //
         
         
         if ((est.size() + lm.size()) == 0) {
@@ -96,38 +84,16 @@ public class MarketMenu {
             menu += " " + (i + 1) + ". " + cName[est.get(i)] + " " + icon[est.get(i)] + " (" + cost[est.get(i)] + ")  [" + activation[est.get(i)] + "]      #" + available[est.get(i)] + "\n";
         }
         
-        if (lm.size() > 0) {        //loop across lm
+        if (lm.size() > 0) {
             menu += "---------       CONSTRUCT        ---------\n";
-            menu += " 4. City Hall          NT (7)  [ ]\n";
+            menu += " " + (est.size() + 1) + ". City Hall          NT (7)  [ ]\n";
         }
         
         menu += "---------         CANCEL         ---------\n";
         menu += "99. Do nothing                            \n";
-        menu += "==========================================\n";
+        menu += "==========================================";
         return PREAMBLE + menu;
     }
-   
-    
-    
-//    public String purchaseCard(int choice, int turn) {
-//        int index = choice - 1;
-//        if (choice > 0 && est.size() + lm.size() > 0) {
-//            if (choice == 99) {
-//                return "Player " + (turn + 1) + " chose not to make any improvements.";
-//            } else if (choice > est.size() && lm.size() > 0) {
-//                //then it is a landmark
-//                cityHall = turn + 1;
-//                System.out.println("Player " + (turn + 1) + " constructed the City Hall");
-//                players[turn].setCoins(-7);
-//            } else { //it is a property
-//                System.out.println("Player " + (turn + 1) + " purchased the " + cardName[est.get(index)]);
-//                g.removeAvailableCards(est.get(index));
-//                players[turn].setPCards(est.get(index));
-//                players[turn].setCoins(-cardCost[est.get(index)]);
-//            }
-//        }
-//    }
-
 }
 
 
